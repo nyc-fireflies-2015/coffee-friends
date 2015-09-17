@@ -30,3 +30,7 @@ As a Retailer,
 7. I want to set up payment options
 8. I want to see a list of vouchers
 9. I want to receive payment from the app
+
+## Interactive Wireframes
+
+https://popapp.in/w/projects/55fb39886137dbae7e39038f/preview
