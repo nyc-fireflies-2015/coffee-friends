@@ -1,0 +1,2 @@
+class CafeSessionsController < ApplicationController
+end	
