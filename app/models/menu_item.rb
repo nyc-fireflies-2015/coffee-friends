@@ -1,5 +1,5 @@
 class MenuItem < ActiveRecord::Base
-	belong_to :cafe
+	belongs_to :cafe
 	has_many :coffee_gifts
 
 	validates_presence_of :name, :price
