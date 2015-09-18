@@ -36,6 +36,9 @@ gem 'rails_12factor'
 
 gem 'twilio-ruby', '~> 4.2.1'
 
+# Create simple or advanced search forms
+gem 'ransack'
+
 group :development do
 	# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 	gem 'spring'
