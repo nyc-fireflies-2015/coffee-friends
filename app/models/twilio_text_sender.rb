@@ -20,8 +20,8 @@ class TwilioTextSender
 		begin
 			@client.account.messages.create({
 				from: '+12178074310', 
-				to: coffee_gift.receiver.phone, 
-				body: coffee_gift.message
+				to: @coffee_gift.receiver.phone, 
+				body: @coffee_gift.message
 			})
 		rescue Twilio::REST::RequestError => e
 			puts e.message

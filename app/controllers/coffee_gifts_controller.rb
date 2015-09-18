@@ -13,6 +13,8 @@ class CoffeeGiftsController < ApplicationController
 	def create
 		coffee_gift = current_user.given_coffees.build(coffee_gift_params)
 		if coffee_gift.save
+			text = TwilioTextSender.new(coffee_gift)
+			text.send!
 			redirect_to root_path
 		else
 			flash[:error] = coffee_gift.errors.full_messages 

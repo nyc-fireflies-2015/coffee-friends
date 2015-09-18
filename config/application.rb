@@ -29,8 +29,3 @@ module CoffeeMates
   end
 end
 
-module TwilioTextSender
-  class Application < Rails::Application
-    config.eager_load_paths += %W(#{config.root}/lib)
-  end
-end
