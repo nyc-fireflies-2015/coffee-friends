@@ -80,6 +80,10 @@ GEM
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     pg (0.18.3)
+    phony (2.15.1)
+    phony_rails (0.12.10)
+      activesupport (>= 3.0)
+      phony (~> 2.12)
     polyamorous (1.2.0)
       activerecord (>= 3.0)
     polyglot (0.3.5)
@@ -199,6 +203,7 @@ DEPENDENCIES
   jquery-rails
   launchy
   pg
+  phony_rails
   pry
   rails (= 4.1.4)
   rails_12factor

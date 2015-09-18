@@ -28,6 +28,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'validates_email_format_of'
 
+gem 'phony_rails'
+
 gem 'faker'
 
 gem 'rails_12factor'
@@ -43,11 +45,15 @@ group :development do
 	gem 'pry'
 end
 
+group :development, :test do
+  gem 'rspec-rails'
+end
+
 group :test do
+	gem 'pry'
 	gem 'factory_girl_rails'
 	gem 'simplecov', :require => false
 	gem 'launchy'
-	gem 'rspec-rails'
 	gem 'capybara'
 	gem 'database_cleaner'
 	gem 'shoulda-matchers'
