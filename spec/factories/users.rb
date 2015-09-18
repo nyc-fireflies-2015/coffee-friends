@@ -10,6 +10,10 @@ FactoryGirl.define do
       password "short"
     end
 
+    factory :twilio_receiver do
+    	phone "2532377845"
+    end
+
   end
 
 

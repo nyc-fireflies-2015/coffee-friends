@@ -14,8 +14,7 @@ class CoffeeGiftsController < ApplicationController
 		if coffee_gift.save
 			text = TwilioTextSender.new(coffee_gift)
 			text.send!
-			# change this redirection to go thank you/confirm page
-			redirect_to root_path
+			redirect_to confirmation_path(coffee_gift)
 		else
 			flash[:error] = coffee_gift.errors.full_messages 
 			redirect_to new_cafe_coffee_gift_path(@cafe)
@@ -23,14 +22,22 @@ class CoffeeGiftsController < ApplicationController
 	end
 
 	def show
-		@coffee_gift = CoffeeGift.find_by(id: params[:id])
+		find_coffee_gift
 		@cafe = @coffee_gift.cafe
+	end	
+
+	def confirm
 	end	
 	
 	private
 
+	def find_coffee_gift
+		@coffee_gift = CoffeeGift.find_by(id: params[:id])
+	end	
+
 	def authorize_user
-		redirect_to root_path unless current_user==@coffee_gift.receiver
+		find_coffee_gift
+		redirect_to root_path unless current_user.received_coffee?(@coffee_gift)
 	end	
 
 	def authenticate_user

@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   delete '/logout' => 'user_sessions#destroy'
   get '/profile' => 'users#show'
   get '/register' => 'users#new'
+  get '/confirmation/:id' => 'coffee_gifts#confirm', as: "confirmation"
 
 
   post '/cafes/sessions' => 'cafe_sessions#create'
