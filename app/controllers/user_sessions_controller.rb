@@ -3,10 +3,9 @@ class UserSessionsController < ApplicationController
   end
 
   def create
-    #make sure to add this route
     user = User.find_by(username: params[:session][:username])
     if user && user.authenticate(params[:session][:password])
-      log_in(user)
+      log_in_user(user)
       redirect_to root_url, notice: "Login Successful!"
     else
       redirect_to login_path, flash: {error: 'Username/Password combination is incorrect'}
@@ -14,7 +13,7 @@ class UserSessionsController < ApplicationController
   end
 
   def destroy
-    log_out
+    log_out_user
     flash[:notice] = "You have successfully logged out."
     redirect_to login_path
   end
