@@ -15,9 +15,8 @@ RSpec.describe Cafe, type: :model do
 
     it { should validate_length_of(:password).is_at_least(6).on(:create) }
 
-    # FIXME: uncomment the following after creating factories
-    # it { expect(FactoryGirl.create(:cafe)).to validate_uniqueness_of(:email) }
-    # it { expect(FactoryGirl.create(:cafe)).to validate_uniqueness_of(:username) }
+    it { expect(FactoryGirl.create(:cafe)).to validate_uniqueness_of(:email) }
+    it { expect(FactoryGirl.create(:cafe)).to validate_uniqueness_of(:username) }
   end
 
   context 'associations' do
