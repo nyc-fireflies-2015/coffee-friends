@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
 
 	has_many :given_coffees, class_name: :CoffeeGift, foreign_key: :giver_id
 	has_many :received_coffees, class_name: :CoffeeGift, foreign_key: :receiver_id
-	
+
 	before_save :normalize_phone
 
 	validates_presence_of :username, :email, :phone
@@ -16,12 +16,24 @@ class User < ActiveRecord::Base
 
 	def reward
 		##what will this return?
-	end	
+	end
 
 	private
 
 	def normalize_phone
 		self.phone = "+1" + phone.to_s
-	end	
+	end
+
+	def self.from_omniauth(auth)
+    where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
+      user.provider = auth.provider
+      user.uid = auth.uid
+      user.name = auth.info.name
+      user.oauth_token = auth.credentials.token
+      user.oauth_expires_at = Time.at(auth.credentials.expires_at)
+      user.save!
+    end
+  end
+
 
 end
