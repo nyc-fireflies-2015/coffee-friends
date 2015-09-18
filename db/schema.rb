@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20150918150444) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "username",        limit: 20, null: false
+    t.string   "username",        limit: 50, null: false
     t.string   "email",           limit: 50, null: false
     t.string   "phone",                      null: false
     t.string   "password_digest",            null: false
