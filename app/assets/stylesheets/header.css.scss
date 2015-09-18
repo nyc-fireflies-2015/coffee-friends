@@ -1,0 +1,19 @@
+.header-nav {
+  position: absolute;
+  top: 3.5em;
+  right: 7em;
+
+  a {
+    background-color: #858d93;
+    padding: 4px 10px 5px;
+    margin: 0.15em;
+    color: white !important;
+    font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-size: 14pt;
+  }
+
+  a:hover {
+    background-color: #FF9500;
+    border: none;
+  }
+}
