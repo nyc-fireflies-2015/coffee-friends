@@ -8,7 +8,7 @@ FactoryGirl.define do
       #{Faker::Address.zip}"
     }
     password "password"
-    sequence(:username) { |n| "user#{n}" }
-    sequence(:email) { |n| "cafe#{n}@example.com" }
+    username { Faker::Internet.user_name }
+    email { Faker::Internet.email }
   end
 end
