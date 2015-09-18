@@ -8,7 +8,7 @@ FactoryGirl.define do
       #{Faker::Address.zip}"
     }
     password "password"
-    username { Faker::Internet.user_name }
-    email { Faker::Internet.email }
+    username { "#{Faker::Internet.user_name}#{Time.now.to_i}#{rand(100)}" }
+    email { "#{Faker::Internet.email}#{Time.now.to_i}#{rand(100)}" }
   end
 end
