@@ -1,2 +1,10 @@
 class CafesController < ApplicationController
-end	
+
+  def index
+    @cafes = Cafe.all
+  end
+
+  def show
+    @cafe = Cafe.find_by(id: params[:id])
+  end
+end
