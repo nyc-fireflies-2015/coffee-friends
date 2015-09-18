@@ -12,7 +12,7 @@
     <%= link_to "Profile", profile_path %>
     <%= link_to "Log Out", logout_path, method: :delete %>
   <% elsif cafe_logged_in? %>
-    <%= link_to "Profile", cafe_path(current_cafe) %>
+    <%= link_to "Profile", cafes_profile_path %>
     <%= link_to "Log Out", cafes_logout_path, method: :delete %>
   <% else %>
     <%= link_to "Sign Up As User", register_path, class: "button" %>
