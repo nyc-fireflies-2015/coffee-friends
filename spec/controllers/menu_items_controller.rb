@@ -36,6 +36,14 @@ RSpec.describe MenuItemsController, type: :controller do
       post :create, cafe_id: @cafe.id, menu_item: menu_item_attrs
       expect(response).to redirect_to(cafe_path(@cafe))
     end
+
+    it 'does not allow creation when logged out' do
+      @cafe = FactoryGirl.create(:cafe)
+      @menu_item = @cafe.menu_items.new
+      expect {
+        post :create, cafe_id: @cafe, menu_item: menu_item_attrs
+      }.to change(Cafe, :count).by(0)
+    end
   end
 
   describe 'PUT #update' do
@@ -59,6 +67,30 @@ RSpec.describe MenuItemsController, type: :controller do
       put :update, cafe_id: @cafe.id, id: @menu_item.id, menu_item: menu_item_attrs
       expect(response).to redirect_to(cafe_path(@cafe))
     end
+    it 'does not allow edits when logged out' do # this test needs refactoring
+      @cafe = FactoryGirl.create(:cafe)
+      @menu_item = @cafe.menu_items.new
+      @menu_item.update_attributes(menu_item_attrs)
+      old_attrs = @menu_item.attributes
+      new_attrs = menu_item_attrs
+      put :update, cafe_id: @cafe.id, id: @menu_item.id, menu_item: new_attrs
+      @menu_item.reload
+      attrs = {name: @menu_item.name, price: @menu_item.price}
+      expect(@menu_item.attributes).to eq(old_attrs)
+    end
+    it 'does not allow edits when unauthorized' do
+      @cafe1 = FactoryGirl.create(:cafe)
+      @cafe2 = FactoryGirl.create(:cafe)
+      log_in_cafe(@cafe1)
+      @menu_item = @cafe2.menu_items.new
+      @menu_item.update_attributes(menu_item_attrs)
+      old_attrs = @menu_item.attributes
+      new_attrs = menu_item_attrs
+      put :update, cafe_id: @cafe2.id , id: @menu_item.id, menu_item: new_attrs
+      @menu_item.reload
+      attrs = {name: @menu_item.name, price: @menu_item.price}
+      expect(@menu_item.attributes).to eq(old_attrs)
+    end
   end
 
   describe 'DELETE #destroy' do
@@ -70,6 +102,20 @@ RSpec.describe MenuItemsController, type: :controller do
       create_menu_item
       delete :destroy, cafe_id: @cafe.id, id: @menu_item.id
       expect(response).to redirect_to(cafe_path(@cafe))
+    end
+    it 'does not allow destruction when logged out' do
+      @cafe = FactoryGirl.create(:cafe)
+      @menu_item = @cafe.menu_items.new
+      @menu_item.update_attributes(menu_item_attrs)
+      expect{delete :destroy, cafe_id: @cafe.id, id: @menu_item.id}.to change{@cafe.menu_items.count}.by(0)
+    end
+    it 'does not allow destruction when unauthorized' do
+      @cafe1 = FactoryGirl.create(:cafe)
+      @cafe2 = FactoryGirl.create(:cafe)
+      log_in_cafe(@cafe1)
+      @menu_item = @cafe2.menu_items.new
+      @menu_item.update_attributes(menu_item_attrs)
+      expect{delete :destroy, cafe_id: @cafe2.id, id: @menu_item.id}.to change{@cafe1.menu_items.count}.by(0)
     end
   end
 end
