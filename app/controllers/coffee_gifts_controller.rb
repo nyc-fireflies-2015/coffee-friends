@@ -2,7 +2,6 @@ class CoffeeGiftsController < ApplicationController
 
 	before_action :authenticate_user
 	before_action :authorize_user, only: [:show]
-	before_action :find_cafe, except: [:new]
 
 	def new
 		@cafe = Cafe.find_by(id: params[:cafe_id])
@@ -15,6 +14,7 @@ class CoffeeGiftsController < ApplicationController
 		if coffee_gift.save
 			text = TwilioTextSender.new(coffee_gift)
 			text.send!
+			# change this redirection to go thank you/confirm page
 			redirect_to root_path
 		else
 			flash[:error] = coffee_gift.errors.full_messages 
@@ -23,13 +23,11 @@ class CoffeeGiftsController < ApplicationController
 	end
 
 	def show
+		@coffee_gift = CoffeeGift.find_by(id: params[:id])
+		@cafe = @coffee_gift.cafe
 	end	
 	
 	private
-
-	def find_cafe
-		@cafe = Cafe.find_by(id: params[:cafe_id])
-	end	
 
 	def authorize_user
 		redirect_to root_path unless current_user==@coffee_gift.receiver
