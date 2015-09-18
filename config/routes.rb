@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get '/login' => 'user_sessions#new'
   post '/users/sessions' => 'user_sessions#create'
   delete '/logout' => 'user_sessions#destroy'
-  get '/profile' => 'users#show'
+  get '/profile/:id' => 'users#show', as: 'profile'
   get '/register' => 'users#new'
   get '/cafes/login' => 'cafe_sessions#new'
   post '/cafes/sessions' => 'cafe_sessions#create'
