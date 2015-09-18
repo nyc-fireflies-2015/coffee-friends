@@ -9,8 +9,7 @@ class User < ActiveRecord::Base
 
 	validates_presence_of :username, :email
 	validates_uniqueness_of :username, :email, :phone
-	validates :username, length: {maximum: 20}
-	validates :email, length: {maximum: 50}
+	validates :email, :username, length: {maximum: 50}
 	validates_email_format_of :email, message: "is not in the correct format"
 	validates :password, :presence => true, :length => {minimum: 6}, :on => :create
 
