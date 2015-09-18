@@ -14,7 +14,7 @@ class MenuItemsController < ApplicationController
 
   def update
     if !@menu_item.update_attributes(menu_item_params)
-      flash[:error] = menu_item.errors.full_messages
+      flash[:error] = @menu_item.errors.full_messages
     end
     redirect_to cafe_path(@cafe)
   end
