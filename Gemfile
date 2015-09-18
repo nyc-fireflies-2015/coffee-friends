@@ -43,12 +43,15 @@ group :development do
 	gem 'pry'
 end
 
+group :development, :test do
+  gem 'rspec-rails'
+end
+
 group :test do
 	gem 'pry'
 	gem 'factory_girl_rails'
 	gem 'simplecov', :require => false
 	gem 'launchy'
-	gem 'rspec-rails'
 	gem 'capybara'
 	gem 'database_cleaner'
 	gem 'shoulda-matchers'
