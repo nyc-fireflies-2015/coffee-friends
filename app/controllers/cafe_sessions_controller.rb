@@ -8,7 +8,8 @@ class CafeSessionsController < ApplicationController
       log_in_cafe(cafe)
       redirect_to cafes_profile_path
     else
-      redirect_to cafes_login_path, flash: {error: 'Username/Password combination is incorrect'}
+      flash[:error] = ['Username/Password combination is incorrect']
+      redirect_to cafes_login_path
     end
   end
 
