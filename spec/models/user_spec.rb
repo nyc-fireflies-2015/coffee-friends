@@ -3,8 +3,6 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   context 'contains valid data' do
 
-  	# let(:user) { FactoryGirl.create(:user) }
-
 	  it { expect(subject).to validate_presence_of(:username) }
 	  it { expect(subject).to validate_presence_of(:email) }
 	  it { expect(subject).to validate_presence_of(:phone) }
