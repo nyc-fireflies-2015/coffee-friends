@@ -4,4 +4,5 @@ class CoffeeGift < ActiveRecord::Base
 	belongs_to :giver, class_name: :User
 
 	delegate :name, to: :menu_item
+	delegate :cafe, to: :menu_item
 end

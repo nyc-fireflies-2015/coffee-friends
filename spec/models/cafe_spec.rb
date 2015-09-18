@@ -23,6 +23,10 @@ RSpec.describe Cafe, type: :model do
     it 'should have many menu items' do
       should have_many :menu_items
     end
+
+    it 'should have many coffee gifts' do
+      should have_many :coffee_gifts
+    end
   end
 
 end
