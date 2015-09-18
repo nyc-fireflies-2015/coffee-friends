@@ -1,1 +1,7 @@
 <h1>All Menu Items for <%=@cafe.name%></h1>
+
+<ul>
+<% @cafe.menu_items.each do |item| %>
+  <li><%= item.name %>: $<%=item.price %></li>
+  <%end%>
+</ul>
