@@ -24,6 +24,7 @@ class TwilioTextSender
 				body: @coffee_gift.message
 			})
 		rescue Twilio::REST::RequestError => e
+			#relay to sender
 			puts e.message
 		end	
 	end	

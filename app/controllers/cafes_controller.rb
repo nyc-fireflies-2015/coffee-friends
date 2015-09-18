@@ -7,5 +7,6 @@ class CafesController < ApplicationController
   def show
     @cafe = Cafe.find_by(id: params[:id])
     @cafe = current_cafe unless @cafe
+    @menu_items = @cafe.menu_items
   end
 end

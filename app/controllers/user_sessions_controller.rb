@@ -6,9 +6,11 @@ class UserSessionsController < ApplicationController
     user = User.find_by(username: user_session_params[:username])
     if user && user.authenticate(user_session_params[:password])
       log_in_user(user)
-      redirect_to root_url, notice: "Login Successful!"
+      flash[:notice] = "Login Successful!"
+      redirect_to root_url 
     else
-      redirect_to login_path, flash: {error: 'Username/Password combination is incorrect'}
+      flash[:error] = ['Username/Password combination is incorrect']
+      redirect_to login_path
     end
   end
 

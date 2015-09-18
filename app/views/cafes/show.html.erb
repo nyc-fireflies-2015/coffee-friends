@@ -1,7 +1,7 @@
 <h1>All Menu Items for <%=@cafe.name%></h1>
 
 <ul>
-<% @cafe.menu_items.each do |item| %>
-  <li><%= item.name %>: $<%=item.price %></li>
-  <%end%>
+	<%= render @menu_items %>
 </ul>
+
+<%= link_to "Buy coffee for a friend", new_cafe_coffee_gift_path(@cafe) %>
