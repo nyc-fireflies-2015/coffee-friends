@@ -17,9 +17,12 @@ class User < ActiveRecord::Base
 	def reward
 		##what will this return?
 	end	
+	
+	def received_coffee?(coffee_gift)
+		self == coffee_gift.receiver
+	end	
 
 	private
-
 	def normalize_phone
 		self.phone = "+1" + phone.to_s
 	end	
