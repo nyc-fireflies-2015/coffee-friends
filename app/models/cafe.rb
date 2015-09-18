@@ -1,6 +1,7 @@
 class Cafe < ActiveRecord::Base
 	has_secure_password
 	has_many :menu_items
+	has_many :coffee_gifts, through: :menu_items
 
 	validates_presence_of :name, :address, :username, :email
 	validates :username, length: {maximum: 20}
