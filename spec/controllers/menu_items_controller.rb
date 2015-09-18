@@ -115,3 +115,4 @@ RSpec.describe MenuItemsController, type: :controller do
     end
   end
 end
+

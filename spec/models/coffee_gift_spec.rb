@@ -14,13 +14,17 @@ describe CoffeeGift do
 
     it 'should belong to giver' do
       should belong_to :giver
-    end
+    end 
   end
 
   context 'delegation' do
     it 'should delegate name to menu items' do
       should delegate_method(:name).to(:menu_item)
     end
+
+    it 'should delegate cafe to menu items' do 
+      should delegate_method(:cafe).to(:menu_item)
+    end  
   end
 
 end

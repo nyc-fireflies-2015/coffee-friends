@@ -28,3 +28,4 @@ module CoffeeMates
     # config.i18n.default_locale = :de
   end
 end
+
