@@ -23,14 +23,19 @@ class CoffeeGiftsController < ApplicationController
 	end
 
 	def show
-		@coffee_gift = CoffeeGift.find_by(id: params[:id])
+		find_coffee_gift
 		@cafe = @coffee_gift.cafe
 	end	
 	
 	private
 
+	def find_coffee_gift
+		@coffee_gift = CoffeeGift.find_by(id: params[:id])
+	end	
+
 	def authorize_user
-		redirect_to root_path unless current_user==@coffee_gift.receiver
+		find_coffee_gift
+		redirect_to root_path unless current_user.received_coffee?(@coffee_gift)
 	end	
 
 	def authenticate_user
