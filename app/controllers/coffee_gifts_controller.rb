@@ -13,7 +13,6 @@ class CoffeeGiftsController < ApplicationController
 	def create
 		coffee_gift = current_user.given_coffees.build(coffee_gift_params)
 		if coffee_gift.save
-			binding.pry
 			redirect_to root_path
 		else
 			flash[:error] = coffee_gift.errors.full_messages 
