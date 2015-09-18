@@ -4,7 +4,7 @@
 	<%= f.label :receiver, "Send to: " %>
 	<%= f.text_field :receiver %><br/>
 	<%= f.label :menu_item, "Menu Items: "%>
-	<%= f.collection_select(:menu_item, @menu_items, :name ,:name) %>
+	<%= f.collection_select(:menu_item, @menu_items, :id ,:name) %>
 	<%= f.label :message, "Include a personal note: "%><br/>
 	<%= f.text_area :message, size: "30x6"  %><br/>
 	<%= f.submit "Send coffee" %>
