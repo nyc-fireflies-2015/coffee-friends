@@ -1,5 +1,5 @@
 module UserSessionsHelper
-  def log_in(user)
+  def log_in_user(user)
     session[:user_id] = user.id
   end
 
@@ -7,15 +7,15 @@ module UserSessionsHelper
     @current_user ||= User.find_by(id: session[:user_id])
   end
 
-  def logged_in?
+  def user_logged_in?
     !current_user.nil?
   end
 
-  def owns_profile?(user)
+  def user_owns_profile?(user)
     current_user == user
   end
 
-  def log_out
+  def log_out_user
     session.delete(:user_id)
     @current_user = nil
   end
