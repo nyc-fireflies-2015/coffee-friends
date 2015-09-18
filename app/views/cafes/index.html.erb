@@ -1,7 +1,5 @@
 <h1>All Cafes</h1>
 <br>
 <ul>
-<% @cafes.each do |cafe| %>
-<li><%= link_to cafe.name, cafe_path(cafe) %></li>
-<%end%>
+<li><%= render partial: "cafe", collection: @cafes %></li>
 </ul>
