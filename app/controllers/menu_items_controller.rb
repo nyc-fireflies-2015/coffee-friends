@@ -1,7 +1,7 @@
 class MenuItemsController < ApplicationController
   before_action :authenticate_cafe
   before_action :find_menu_item, :find_cafe, except: [:create]
-  before_action :authorize_cafe, only: [:update]
+  before_action :authorize_cafe, only: [:update, :destroy]
 
   def create
     cafe = Cafe.find_by(id: params[:cafe_id])
@@ -39,11 +39,17 @@ class MenuItemsController < ApplicationController
   end
 
   def authenticate_cafe
-    redirect_to cafe_path(@cafe) if !current_cafe
+    if !current_cafe
+      flash[:error] = "You must be logged in to do that!"
+      redirect_to cafe_path(@cafe)
+    end
   end
 
   def authorize_cafe
-    redirect_to cafe_path(@cafe) if current_cafe!=@menu_item.cafe
+    if current_cafe!=@menu_item.cafe
+      flash[:error] = "You must be #{@menu_item.cafe.name} to do that!"
+      redirect_to cafe_path(@cafe)
+    end
   end
 end
 

@@ -72,12 +72,4 @@ RSpec.describe MenuItemsController, type: :controller do
       expect(response).to redirect_to(cafe_path(@cafe))
     end
   end
-
-  describe '#authenticate_cafe' do
-    pending
-  end
-
-  describe '#authorize_cafe' do
-    pending
-  end
 end
