@@ -2,6 +2,6 @@
 <br>
 <ul>
 <% @cafes.each do |cafe| %>
-<li><%=cafe%></li>
+<li><%= link_to cafe.name, cafe_path(cafe) %></li>
 <%end%>
 </ul>
