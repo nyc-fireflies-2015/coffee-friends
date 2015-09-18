@@ -9,7 +9,7 @@
 <body>
 
   <% if user_logged_in? %>
-    <%= link_to "Profile", profile_path(current_user) %>
+    <%= link_to "Profile", profile_path %>
     <%= link_to "Log Out", logout_path, method: :delete %>
   <% elsif cafe_logged_in? %>
     <%= link_to "Profile", cafe_path(current_cafe) %>
