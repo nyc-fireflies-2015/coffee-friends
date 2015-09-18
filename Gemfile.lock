@@ -118,7 +118,6 @@ GEM
       i18n
       polyamorous (~> 1.2)
     rdoc (4.2.0)
-      json (~> 1.4)
     rspec-core (3.3.2)
       rspec-support (~> 3.3.0)
     rspec-expectations (3.3.1)
