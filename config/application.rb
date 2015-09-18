@@ -28,3 +28,9 @@ module CoffeeMates
     # config.i18n.default_locale = :de
   end
 end
+
+module TwilioTextSender
+  class Application < Rails::Application
+    config.eager_load_paths += %W(#{config.root}/lib)
+  end
+end
