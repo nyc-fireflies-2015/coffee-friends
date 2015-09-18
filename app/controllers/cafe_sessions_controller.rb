@@ -6,7 +6,7 @@ class CafeSessionsController < ApplicationController
     cafe = Cafe.find_by(username: cafe_session_params[:username])
     if cafe && cafe.authenticate(cafe_session_params[:password])
       log_in_cafe(cafe)
-      redirect_to cafe_path(cafe)
+      redirect_to cafes_profile_path
     else
       redirect_to cafes_login_path, flash: {error: 'Username/Password combination is incorrect'}
     end
