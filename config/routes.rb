@@ -24,4 +24,9 @@ Rails.application.routes.draw do
   resources :users, only: [:create]
   resources :coffee_gifts, only: [:show]
 
+  #omniauth
+  match 'auth/:provider/callback', to: 'facebook_sessions#create', via: [:get, :post]
+  match 'auth/failure', to: redirect('/'), via: [:get, :post]
+  match 'signout', to: 'facebook_sessions#destroy', as: 'signout', via: [:get, :post]
+
 end

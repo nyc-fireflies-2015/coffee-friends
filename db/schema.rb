@@ -45,10 +45,15 @@ ActiveRecord::Schema.define(version: 20150918150444) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "username",        limit: 20, null: false
-    t.string   "email",           limit: 50, null: false
-    t.string   "phone",                      null: false
-    t.string   "password_digest",            null: false
+    t.string   "username"
+    t.string   "email"
+    t.string   "phone"
+    t.string   "password_digest"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "name"
+    t.string   "oauth_token"
+    t.datetime "oauth_expires_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
