@@ -9,7 +9,12 @@
 <body>
   <%= render "layouts/header" %>
 
-
+<% if flash[:error] %>
+<ul><% flash[:error].each do |error| %>
+  <li><%= error %></li>
+<%end%>
+</ul>
+<%end%>
 
 
 
