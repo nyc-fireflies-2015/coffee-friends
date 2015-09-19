@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
 	before_save :normalize_phone
 
-	validates_presence_of :email, :phone
+	validates_presence_of :email, :phone, :first_name, :last_name
 	validates_presence_of :username, :on => :save
 	validates_uniqueness_of :email, :phone
 	validates_uniqueness_of :username, :on => :save

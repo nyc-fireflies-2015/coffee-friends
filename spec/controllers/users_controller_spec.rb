@@ -35,7 +35,8 @@ describe UsersController do
 
       it 'creates a new user with valid info' do
         post :create, user: user_attribs
-        expect(User.last.username).to eq(user_attribs[:username])
+        expect(User.last.first_name).to eq(user_attribs[:first_name])
+        expect(User.last.last_name).to eq(user_attribs[:last_name])
         expect(User.last.email).to eq(user_attribs[:email])
       end
 
@@ -50,7 +51,9 @@ describe UsersController do
 
       it 'does not create a new user with invalid info' do
         post :create, user: invalid_user_attribs
-        expect(User.last.username).not_to eq(invalid_user_attribs[:username])
+        expect(User.last.first_name).not_to eq(invalid_user_attribs[:first_name])
+        expect(User.last.last_name).not_to eq(invalid_user_attribs[:last_name])
+
         expect(User.last.email).not_to eq(invalid_user_attribs[:email])
       end
 
