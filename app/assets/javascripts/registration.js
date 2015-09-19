@@ -1,4 +1,6 @@
 $(document).ready(function() {
+	$("#coffee_gift_receiver").chosen();
+	$("#coffee_gift_menu_item").chosen();
 	$("a[rel*=register-modal-trigger]").leanModal({top : 150, overlay : 0.6, closeButton: ".modal_close" });
 	$("#login-modal-trigger").leanModal({top : 150, overlay : 0.6, closeButton: ".modal_close" });
 
