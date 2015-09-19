@@ -2,7 +2,7 @@
 
 <%= form_for @coffee_gift, url: cafe_coffee_gifts_path(@cafe) do |f| %>
 	<%= f.label :receiver, "Search for user: " %>
-	<%= f.collection_select(:receiver, @receivers, :username ,:first_name)  %>
+	<%= f.collection_select(:receiver, @receivers, :username ,:first_name, include_blank: true)  %>
   <%= @coffee_gift.errors[:reciever].first %>
 
 	<%= f.label :phone, "Enter phone number: "%><br/>
@@ -10,7 +10,7 @@
   <%= @coffee_gift.errors[:phone].first %>
 
 	<%= f.label :menu_item, "Menu Items: "%>
-	<%= f.collection_select(:menu_item, @menu_items, :id ,:name)  %>
+	<%= f.collection_select(:menu_item, @menu_items, :id ,:name, include_blank: true)  %>
   <%= @coffee_gift.errors[:menu_item].first %>
 
 	<%= f.label :message, "Include a personal note: "%><br/>

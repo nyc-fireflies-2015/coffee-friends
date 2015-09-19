@@ -1,6 +1,6 @@
 $(document).ready(function() {
-	$("#coffee_gift_receiver").chosen();
-	$("#coffee_gift_menu_item").chosen();
+	$("#coffee_gift_receiver").chosen({placeholder_text_single: "Search for a user"});
+	$("#coffee_gift_menu_item").chosen({placeholder_text_single: "Choose menu item"});
 	$("a[rel*=register-modal-trigger]").leanModal({top : 150, overlay : 0.6, closeButton: ".modal_close" });
 	$("#login-modal-trigger").leanModal({top : 150, overlay : 0.6, closeButton: ".modal_close" });
 
