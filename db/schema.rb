@@ -46,14 +46,13 @@ ActiveRecord::Schema.define(version: 20150919183416) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "first_name",      limit: 25, null: false
-    t.string   "last_name",       limit: 25, null: false
     t.string   "username",        limit: 50, null: false
     t.string   "email",           limit: 50, null: false
     t.string   "phone",                      null: false
     t.string   "password_digest",            null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "guest"
   end
 
 end

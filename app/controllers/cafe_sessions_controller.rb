@@ -8,9 +8,12 @@ class CafeSessionsController < ApplicationController
     if cafe && cafe.authenticate(cafe_session_params[:password])
       log_in_cafe(cafe)
       redirect_to cafes_profile_path
+    elsif cafe
+      flash[:password_error] = "Incorrect password"
+      render :new
     else
       @cafe = Cafe.new(cafe_session_params)
-      flash[:error] = ['Username/Password combination is incorrect']
+      flash[:auth_error] = "Username/Password combination is incorrect"
       render :new
     end
   end
