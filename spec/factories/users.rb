@@ -1,7 +1,7 @@
 FactoryGirl.define do
 
 	factory :user do
-		username {Faker::Name.name}
+		username {Faker::Name.first_name}
 		email {Faker::Internet.email}
 		phone Random.new.rand(1_000_000_000..9_999_999_999)
 		password "supersecure"
@@ -11,9 +11,9 @@ FactoryGirl.define do
       password "short"
     end
 
-    factory :twilio_receiver do 
+    factory :twilio_receiver do
     	phone "2532377845"
-    end	
+    end
 
   end
 
