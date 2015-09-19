@@ -1,7 +1,8 @@
  <div class="Sign_Form">
   <h1>Register</h1>
   <%= form_for(@user) do |f| %>
-    <p> Username:</br> <%= f.text_field :username, value: @user.username%> </p>
+    <p> First Name:</br> <%= f.text_field :first_name, value: @user.first_name%> </p>
+    <p> Last Name:</br> <%= f.text_field :last_name, value: @user.last_name%> </p>
     <p> Email:</br> <%= f.text_field :email, value: @user.email%> </p>
     <p> Phone: </br> <%= f.text_field :phone, value: @user.phone%> </p>
     <p> Password:</br> <%= f.password_field :password%></p>
