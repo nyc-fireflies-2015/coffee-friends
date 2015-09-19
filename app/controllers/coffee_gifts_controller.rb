@@ -13,7 +13,9 @@ class CoffeeGiftsController < ApplicationController
 	def create
 		coffee_gift = current_user.given_coffees.build(coffee_gift_params)
 		if coffee_gift.save
+			transaction = BraintreePayment.new(coffee_gift)
 			text = TwilioTextSender.new(coffee_gift)
+			transaction.send_payment!
 			text.send!
 			redirect_to confirmation_path(coffee_gift)
 		else
@@ -23,7 +25,7 @@ class CoffeeGiftsController < ApplicationController
 
 	def update
 		if @coffee_gift.update_attributes(redeemed: true)
-			flash[:notice] = ["Coffee Redeemed!"]
+			flash[:notice] = "Coffee Redeemed!"
 			# some type of notice to the receiver
 			redirect_to cafes_profile_path
 		else

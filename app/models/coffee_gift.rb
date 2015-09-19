@@ -5,4 +5,5 @@ class CoffeeGift < ActiveRecord::Base
 
 	delegate :name, to: :menu_item
 	delegate :cafe, to: :menu_item
+  delegate :price, to: :menu_item
 end
