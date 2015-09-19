@@ -29,6 +29,13 @@ class User < ActiveRecord::Base
 		self == coffee_gift.receiver
 	end
 
+	def unredeemed_coffee_gifts
+		self.received_coffees.where('redeemed = ?', false)
+	end
+
+	def redeemed_coffee_gifts
+		self.received_coffees.where('redeemed = ?', true)
+	end
 
 
 	private

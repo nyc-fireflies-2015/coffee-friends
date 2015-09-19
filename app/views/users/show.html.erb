@@ -1,15 +1,15 @@
 <br><h1><%= @user.username %>'s Profile</h1>
 
 <h2>Your Un-Redeemed Gifts </h2>
-<ul><% @unredeemed_coffee_gifts.each do |gift| %>
-  <li><b>Drink</b>: <%= gift.name %>...<b>Giver</b>: <%= gift.giver.username %>...<b>Cafe</b>: <%= gift.menu_item.cafe.name %></li>
+<ul><% @user.unredeemed_coffee_gifts.each do |gift| %>
+  <li><b>Drink</b>: <%= gift.name %>...<b>Giver</b>: <%= gift.giver.username %>...<b>Cafe</b>: <%= gift.cafe.name %></li>
   <%end%>
 </ul>
 
 
 <br><h2> Your Redeemed Gifts </h2>
-<ul><% @redeemed_coffee_gifts.each do |gift| %>
-  <li><b>Drink:</b> <%= gift.name %>...<b>Giver:</b> <%= gift.giver.username %>...<b>Cafe:</b> <%= gift.menu_item.cafe.name %></li>
+<ul><% @user.redeemed_coffee_gifts.each do |gift| %>
+  <li><b>Drink:</b> <%= gift.name %>...<b>Giver:</b> <%= gift.giver.username %>...<b>Cafe:</b> <%= gift.cafe.name %></li>
 <%end%>
 
 </ul>
