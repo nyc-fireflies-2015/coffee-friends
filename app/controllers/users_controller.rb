@@ -7,7 +7,13 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       log_in_user(@user)
-      flash[:notice] = "Account has been Created!!"
+      binding.pry
+      if coffee_gifts = CoffeeGift.find_by(phone: params[:phone])
+        binding.pry
+        @user.coffee_gifts << coffee_gifts
+      end  
+      binding.pry
+      flash[:notice] = "Account has been created!!"
       redirect_to root_path
     else
       flash[:error] = @user.errors.full_messages

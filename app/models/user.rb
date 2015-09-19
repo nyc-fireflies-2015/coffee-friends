@@ -4,8 +4,6 @@ class User < ActiveRecord::Base
 	has_many :given_coffees, class_name: :CoffeeGift, foreign_key: :giver_id
 	has_many :received_coffees, class_name: :CoffeeGift, foreign_key: :receiver_id
 
-	before_save :normalize_phone
-
 	before_save :extract_username
 
 	validates_presence_of :email, :phone, :first_name, :last_name
@@ -32,9 +30,6 @@ class User < ActiveRecord::Base
 
 
 	private
-	def normalize_phone
-		self.phone = "+1" + phone.to_s
-	end
 
 	def extract_username
 		self.username = self.email.split('@').first
