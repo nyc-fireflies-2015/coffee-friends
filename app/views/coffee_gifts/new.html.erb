@@ -1,8 +1,10 @@
 <h1>Send Some Coffee from <%=@cafe.name%>!</h1>
 
 <%= form_for @coffee_gift, url: cafe_coffee_gifts_path(@cafe) do |f| %>
-	<%= f.label :receiver, "Send to: " %>
+	<%= f.label :receiver, "Search for user: " %>
 	<%= f.text_field :receiver %><br/>
+	<%= f.label :phone, "Enter phone number: "%><br/>
+	<%= f.text_field :phone %><br/>
 	<%= f.label :menu_item, "Menu Items: "%>
 	<%= f.collection_select(:menu_item, @menu_items, :id ,:name) %>
 	<%= f.label :message, "Include a personal note: "%><br/>
