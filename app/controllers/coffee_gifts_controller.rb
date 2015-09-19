@@ -48,7 +48,7 @@ class CoffeeGiftsController < ApplicationController
 		result = transaction.send_payment!
 		if result.success?
       @transaction_id = result.transaction.id
-      flash[:notice] = "Your confirmation number is #{@transaction_id}."
+      flash[:notice] = "Transaction successful. Your confirmation number is #{@transaction_id}."
     elsif result.transaction
       @processor_response_code = result.transaction.processor_response_code
       @processor_response_text = result.transaction.processor_response_text
