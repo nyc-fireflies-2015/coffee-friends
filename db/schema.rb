@@ -40,13 +40,13 @@ ActiveRecord::Schema.define(version: 20150919183416) do
   create_table "menu_items", force: true do |t|
     t.integer  "cafe_id"
     t.string   "name",       limit: 30, null: false
-    t.integer  "price",                 null: false
+    t.float    "price",                 null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
-    t.string   "username",        limit: 20, null: false
+    t.string   "username",        limit: 50, null: false
     t.string   "email",           limit: 50, null: false
     t.string   "phone",                      null: false
     t.string   "password_digest",            null: false
