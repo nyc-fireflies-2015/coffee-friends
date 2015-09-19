@@ -2,11 +2,19 @@
 
 <h2>Menu Items</h2>
 
-<ul>
-	<%= render @menu_items %>
-</ul>
+<% if @cafe.owns_profile?(current_cafe) %>
 
-<h3>Add a new item</h3>
-	<%= render partial:"menu_items/new", locals:{menu_item: @menu_item, cafe: @cafe} %>
+	<ul>
+		<%= render @menu_items %>
+	</ul>
 
-<%= link_to "Buy coffee for a friend", new_cafe_coffee_gift_path(@cafe) %>
+	<h3>Add a new item</h3>
+		<%= render partial:"menu_items/new", locals:{menu_item: @menu_item, cafe: @cafe} %>
+
+<% else %>
+	<ul>
+		<%= render partial:"menu_items/display_item", collection: @menu_items, as: :menu_item %>
+	</ul>
+
+	<%= link_to "Buy coffee for a friend", new_cafe_coffee_gift_path(@cafe) %>
+<% end %>	
