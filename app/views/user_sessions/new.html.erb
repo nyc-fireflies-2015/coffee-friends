@@ -5,7 +5,7 @@
     <%= form_for(:user_session, url: users_sessions_path) do |f| %>
 
       <p><%= f.label :username %><br>
-      <%= f.text_field :username%></p>
+      <%= f.text_field :username, value: @user.username%></p>
 
       <p><%= f.label :password %><br>
       <%= f.password_field :password%></p>

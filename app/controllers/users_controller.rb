@@ -4,13 +4,14 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.new(user_params)
-    if user.save
-      log_in_user(user)
-      redirect_to root_path, notice: "Account has been Created!!"
+    @user = User.new(user_params)
+    if @user.save
+      log_in_user(@user)
+      flash[:notice] = "Account has been Created!!"
+      redirect_to root_path
     else
-      flash[:error] = user.errors.full_messages
-      redirect_to register_path
+      flash[:error] = @user.errors.full_messages
+      render :new
     end
   end
 

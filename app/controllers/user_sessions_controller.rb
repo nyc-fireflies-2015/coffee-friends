@@ -1,16 +1,18 @@
 class UserSessionsController < ApplicationController
   def new
+    @user = User.new
   end
 
   def create
-    user = User.find_by(username: user_session_params[:username])
-    if user && user.authenticate(user_session_params[:password])
-      log_in_user(user)
+    @user = User.find_by(username: user_session_params[:username])
+    if @user && @user.authenticate(user_session_params[:password])
+      log_in_user(@user)
       flash[:notice] = "Login Successful!"
-      redirect_to root_url 
+      redirect_to root_url
     else
+      @user = User.new(user_session_params)
       flash[:error] = ['Username/Password combination is incorrect']
-      redirect_to login_path
+      render :new
     end
   end
 

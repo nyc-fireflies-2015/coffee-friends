@@ -43,7 +43,10 @@ class CoffeeGiftsController < ApplicationController
 	end
 
 	def authenticate_user
-		redirect_to root_path unless current_user
+		unless current_user
+			flash[:error] = ["Please login to send coffee."]
+			redirect_to root_path
+		end
 	end
 
 	def coffee_gift_basic_params

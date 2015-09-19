@@ -1,9 +1,9 @@
  <div class="Sign_Form">
   <h1>Register</h1>
   <%= form_for(@user) do |f| %>
-    <p> Username:</br> <%= f.text_field :username%> </p>
-    <p> Email:</br> <%= f.text_field :email%> </p>
-    <p> Phone: </br> <%= f.text_field :phone%> </p>
+    <p> Username:</br> <%= f.text_field :username, value: @user.username%> </p>
+    <p> Email:</br> <%= f.text_field :email, value: @user.email%> </p>
+    <p> Phone: </br> <%= f.text_field :phone, value: @user.phone%> </p>
     <p> Password:</br> <%= f.password_field :password%></p>
     <%= f.submit :Register %>
   <% end %>
