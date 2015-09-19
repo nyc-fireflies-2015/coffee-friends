@@ -5,7 +5,6 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @user.assign_attributes(username: @user.extract_username)
     if @user.save
       log_in_user(@user)
       flash[:notice] = "Account has been Created!!"
