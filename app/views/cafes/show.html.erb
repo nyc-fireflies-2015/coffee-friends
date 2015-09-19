@@ -1,8 +1,8 @@
 <h1><%=@cafe.name%></h1>
 
-<h2>Menu Items</h2>
 
 <% if @cafe.owner?(current_cafe) %>
+  <h2>Menu Items</h2>
 
 	<ul>
 		<%= render @menu_items %>
@@ -11,10 +11,18 @@
 	<h3>Add a new item</h3>
 		<%= render partial:"menu_items/new", locals:{menu_item: @menu_item, cafe: @cafe} %>
 
+  <h3>Unredeemed Gifts</h3>
+    <ul><% @unredeemed_coffee_gifts.each do |gift| %>
+      <li><b>Receiver</b>: <%= gift.receiver.username %>... Drink: <%=gift.name %>...<%= form_for gift do |f| %><%= f.submit "redeem" %><% end%>
+      <%end%>
+    </ul>
+
 <% else %>
+  <h2>Menu Items</h2>
+
 	<ul>
 		<%= render partial:"menu_items/display_item", collection: @menu_items, as: :menu_item %>
 	</ul>
 
 	<%= link_to "Buy coffee for a friend", new_cafe_coffee_gift_path(@cafe) %>
-<% end %>	
+<% end %>

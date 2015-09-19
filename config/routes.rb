@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   resources :menu_items, only: [:destroy, :create, :update]
   resources :users, only: [:create]
-  resources :coffee_gifts, only: [:show]
+  resources :coffee_gifts, only: [:show, :update]
 
   get '/login' => 'user_sessions#new'
   post '/users/sessions' => 'user_sessions#create'

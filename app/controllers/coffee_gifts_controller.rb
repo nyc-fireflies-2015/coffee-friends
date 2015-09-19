@@ -1,6 +1,6 @@
 class CoffeeGiftsController < ApplicationController
 
-	before_action :authenticate_user
+	before_action :authenticate_user, except: [:update]
 	before_action :authorize_user, only: [:show]
 
 	def new
@@ -18,6 +18,18 @@ class CoffeeGiftsController < ApplicationController
 		else
 			flash[:error] = coffee_gift.errors.full_messages
 			redirect_to new_cafe_coffee_gift_path(@cafe)
+		end
+	end
+
+	def update
+		find_coffee_gift
+		if @coffee_gift.update_attributes(redeemed: true)
+			flash[:notice] = ["Coffee Redeemed!"]
+			# some type of notice to the receiver
+			redirect_to cafes_profile_path
+		else
+			flash[:error] = ["Unable to redeem voucher"]
+			redirect_to cafes_profile_path
 		end
 	end
 
