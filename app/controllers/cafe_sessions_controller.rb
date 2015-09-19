@@ -4,9 +4,9 @@ class CafeSessionsController < ApplicationController
   end
 
   def create
-    cafe = Cafe.find_by(username: cafe_session_params[:username])
-    if cafe && cafe.authenticate(cafe_session_params[:password])
-      log_in_cafe(cafe)
+    @cafe = Cafe.find_by(username: cafe_session_params[:username])
+    if @cafe && @cafe.authenticate(cafe_session_params[:password])
+      log_in_cafe(@cafe)
       redirect_to cafes_profile_path
     elsif cafe
       flash[:password_error] = "Incorrect password"
