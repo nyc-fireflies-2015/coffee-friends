@@ -1,1 +1,14 @@
-<li><%= menu_item.name %>: $<%=menu_item.price %></li>
+<li>
+<ul>
+	<li><%= menu_item.name %>: $<%=menu_item.price %></li>
+	<li>
+		<%= form_for menu_item, url: cafe_menu_item_path(@cafe, menu_item) do |f| %>
+		<%= hidden_field_tag "_method", "delete" %>
+		<%= f.submit "Delete item" %>
+		<% end %>
+	</li>
+	<li>
+		<%= render partial:"menu_items/edit", locals: {menu_item: menu_item, cafe: @cafe} %>
+	</li>	
+</ul>
+</li>
