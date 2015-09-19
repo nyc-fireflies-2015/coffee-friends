@@ -13,7 +13,7 @@ class CafeSessionsController < ApplicationController
       render :new
     else
       @cafe = Cafe.new(cafe_session_params)
-      flash[:auth_error] = "Username/Password combination is incorrect"
+      flash[:auth_error] = "Username not found"
       render :new
     end
   end
