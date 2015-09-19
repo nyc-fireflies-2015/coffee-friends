@@ -26,7 +26,8 @@ class CoffeeGiftsController < ApplicationController
 	def update
 		if @coffee_gift.update_attributes(redeemed: true)
 			flash[:notice] = "Coffee Redeemed!"
-			# some type of notice to the receiver
+			redeem_text = TwilioTextSender.new(@coffee_gift)
+			redeem_text.send!
 			redirect_to cafes_profile_path
 		else
 			flash[:error] = ["Unable to redeem voucher"]

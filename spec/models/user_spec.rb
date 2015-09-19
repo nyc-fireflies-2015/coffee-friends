@@ -16,6 +16,7 @@ RSpec.describe User, type: :model do
 		it { expect(subject).to_not allow_value("kj78djska1").for(:phone)  }
 		it { expect(FactoryGirl.build(:user)).to validate_uniqueness_of(:email).on(:save) }
 		it { expect(FactoryGirl.build(:user)).to validate_uniqueness_of(:phone).on(:save) }
+		it { expect(FactoryGirl.build(:user)).to validate_presence_of(:username).on(:save) }
 	end
 
 	context 'has correct associations' do

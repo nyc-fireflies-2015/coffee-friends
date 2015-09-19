@@ -17,8 +17,6 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
-    @unredeemed_coffee_gifts = @user.received_coffees.where('redeemed = ?', false)
-    @redeemed_coffee_gifts = @user.received_coffees.where('redeemed = ?', true)
   end
 
 

@@ -17,5 +17,13 @@ class Cafe < ActiveRecord::Base
 
 	def owner?(current_cafe)
 		self == current_cafe
-	end	
+	end
+
+	def unredeemed_coffee_gifts
+		self.coffee_gifts.where('redeemed = ?', false)
+	end
+
+	def redeemed_coffee_gifts
+		self.coffee_gifts.where('redeemed = ?', true)
+	end
 end

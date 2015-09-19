@@ -9,6 +9,5 @@ class CafesController < ApplicationController
     @cafe = current_cafe unless @cafe
     @menu_item = MenuItem.new
     @menu_items = @cafe.menu_items
-    @unredeemed_coffee_gifts = @cafe.coffee_gifts.where('redeemed = ?', false)
   end
 end
