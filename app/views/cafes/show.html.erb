@@ -1,5 +1,8 @@
 <h1><%=@cafe.name%></h1>
 
+<div id="map"></div>
+<input id="address" type="hidden" value="<%=@cafe.address%>">
+
 
 <% if @cafe.owner?(current_cafe) %>
   <h2>Menu Items</h2>
