@@ -20,13 +20,16 @@ class TwilioTextSender
 		begin
 			@client.account.messages.create({
 				from: '+12178074310', 
-				to: @coffee_gift.receiver.phone, 
-				body: @coffee_gift.message
+				to: @coffee_gift.phone, 
+				body: text_body
 			})
 		rescue Twilio::REST::RequestError => e
-			#relay to sender
 			puts e.message
 		end	
+	end	
+
+	def text_body
+		"You received a gift of coffee from #{@coffee_gift.giver.first_name}! Visit http://google.com to redeem."
 	end	
 
 end	

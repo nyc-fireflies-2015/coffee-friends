@@ -1,15 +1,20 @@
 class CafeSessionsController < ApplicationController
   def new
+    @cafe = Cafe.new
   end
 
   def create
-    cafe = Cafe.find_by(username: cafe_session_params[:username])
-    if cafe && cafe.authenticate(cafe_session_params[:password])
-      log_in_cafe(cafe)
+    @cafe = Cafe.find_by(username: cafe_session_params[:username])
+    if @cafe && @cafe.authenticate(cafe_session_params[:password])
+      log_in_cafe(@cafe)
       redirect_to cafes_profile_path
+    elsif @cafe
+      flash[:password_error] = "Incorrect password"
+      render :new
     else
-      flash[:error] = ['Username/Password combination is incorrect']
-      redirect_to cafes_login_path
+      @cafe = Cafe.new(cafe_session_params)
+      flash[:auth_error] = "Username not found"
+      render :new
     end
   end
 
