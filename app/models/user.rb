@@ -27,8 +27,8 @@ class User < ActiveRecord::Base
 		self == coffee_gift.receiver
 	end
 
-	def extract_username(email)
-		email.split('@').first
+	def extract_username
+		self.email.split('@').first
 	end
 
 	private
