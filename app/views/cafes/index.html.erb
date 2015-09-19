@@ -1,5 +1,24 @@
-<h1>All Cafes</h1>
 <br>
-<ul>
-<li><%= render @cafes %></li>
-</ul>
+
+<div class="row">
+  <div class="large-12 columns">
+    <div class="row">
+
+      <% @cafes.each do |cafe| %>
+
+      <div class="large-3 small-6 columns">
+        <img src="http://placehold.it/250x250&text=Thumbnail"/>
+        <h6 class="panel"><%= link_to cafe.name, cafe %></h6>
+      </div>
+
+      <% end %>
+
+      <hr>
+      <br>
+
+    </div>
+  </div>
+</div>
+
+
+

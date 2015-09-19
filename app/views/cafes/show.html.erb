@@ -1,7 +1,39 @@
-<h1>All Menu Items for <%=@cafe.name%></h1>
+<br>
+<div class="row">
+  <% @menu_items.each do |item| %>
+    <div class="large-4 columns">
 
-<ul>
-	<%= render @menu_items %>
-</ul>
+      <img src="http://placehold.it/400x300&text=[img]"/>
+      <h4><%=item.name%></h4>
+      <p>$<%=item.price%></p>
 
-<%= link_to "Buy coffee for a friend", new_cafe_coffee_gift_path(@cafe) %>
+    </div>
+  <% end %>
+</div>
+
+<div class="row">
+  <div class="large-12 columns">
+
+    <div class="panel">
+      <h4><%= link_to "Buy a coffee for a friend from #{@cafe.name}", new_cafe_coffee_gift_path(@cafe) %></h4>
+
+      <div class="row">
+        <div class="large-9 columns">
+          <p>They'd love to hear from you, you attractive person you.</p>
+        </div>
+        <div class="large-3 columns">
+          <a href=<%= new_cafe_coffee_gift_path(@cafe) %> class="radius button right">Buy a Coffee!</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
