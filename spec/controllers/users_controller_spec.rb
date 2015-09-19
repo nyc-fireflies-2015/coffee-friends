@@ -16,6 +16,7 @@ describe UsersController do
     let!(:user) {FactoryGirl.create(:user)}
 
     it 'renders the show view' do
+      log_in_user(user)
       get :show
       expect(response).to render_template :show
     end
