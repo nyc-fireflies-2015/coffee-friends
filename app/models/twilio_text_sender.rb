@@ -1,4 +1,4 @@
-class TwilioTextSender 
+class TwilioTextSender
 
 	def initialize(coffee_gift)
 		configure_client
@@ -14,22 +14,30 @@ class TwilioTextSender
 		  config.account_sid = account_sid
 		  config.auth_token = auth_token
 		end
-	end	
+	end
 
 	def send!
+		@coffee_gift.redeemed ? send_text(redeem_message) : send_text(receive_message)
+	end
+
+	def send_text(text_body)
 		begin
 			@client.account.messages.create({
-				from: '+12178074310', 
-				to: @coffee_gift.phone, 
+				from: '+12178074310',
+				to: @coffee_gift.phone,
 				body: text_body
 			})
 		rescue Twilio::REST::RequestError => e
 			puts e.message
-		end	
-	end	
+		end
+	end
 
-	def text_body
+	def receive_message
 		"You received a gift of coffee from #{@coffee_gift.giver.first_name}! Visit http://google.com to redeem."
-	end	
+	end
 
-end	
+	def redeem_message
+		"Your coffee has been redeemed! Do something nice and maybe someone will buy you another one."
+	end
+
+end
