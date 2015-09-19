@@ -13,7 +13,7 @@
 
   <h3>Unredeemed Gifts</h3>
     <ul><% @unredeemed_coffee_gifts.each do |gift| %>
-      <li><b>Receiver</b>: <%= gift.receiver.username %>... Drink: <%=gift.name %>...<%= link_to "Redeem" %></li>
+      <li><b>Receiver</b>: <%= gift.receiver.username %>... Drink: <%=gift.name %>...<%= form_for gift do |f| %><%= f.submit "redeem" %><% end%>
       <%end%>
     </ul>
 
