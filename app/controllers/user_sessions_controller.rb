@@ -14,7 +14,7 @@ class UserSessionsController < ApplicationController
       render :new
     else
       @user = User.new(user_session_params)
-      flash[:auth_error] = "Username not found"
+      flash[:auth_error] = "Email not found"
       render :new
     end
   end
