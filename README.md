@@ -1,4 +1,6 @@
 [![Stories in Ready](https://badge.waffle.io/nyc-fireflies-2015/coffee-mates.png?label=ready&title=Ready)](https://waffle.io/nyc-fireflies-2015/coffee-mates)
+
+[![Circle CI](https://circleci.com/gh/nyc-fireflies-2015/coffee-mates.svg?style=svg)](https://circleci.com/gh/nyc-fireflies-2015/coffee-mates)
 # coffee-mates
 
 ## Team Members
