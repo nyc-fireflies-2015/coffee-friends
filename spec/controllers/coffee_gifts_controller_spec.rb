@@ -10,6 +10,7 @@ describe CoffeeGiftsController do
 	let(:twilio_receiver) { FactoryGirl.create(:twilio_receiver) }
 
 	def prepare_coffee_gift_show
+		@user = FactoryGirl.create(:user)
 		log_in_user(user)
 		attrs = FactoryGirl.attributes_for(:coffee_gift).merge(receiver: twilio_receiver, menu_item: menu_item)
 		@coffee_gift = user.received_coffees.create(attrs)
