@@ -2,7 +2,7 @@
 
 <h2>Your Un-Redeemed Gifts </h2>
 <ul><% @user.unredeemed_coffee_gifts.each do |gift| %>
-  <li><b>Drink</b>: <%= gift.name %>...<b>Giver</b>: <%= gift.giver.username %>...<b>Cafe</b>: <%= gift.cafe.name %></li>
+  <li><b>Drink</b>: <%= gift.name %>...<b>Giver</b>: <%= gift.giver.username %>...<b>Cafe</b>: <%= gift.cafe.name %>...<b>Secret Redemption Code</b>: <%= gift.passphrase %></li>
   <%end%>
 </ul>
 
