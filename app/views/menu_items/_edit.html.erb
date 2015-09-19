@@ -1,8 +1,12 @@
 <%= form_for menu_item, url: menu_item_path(menu_item) do |f| %>
-<%= hidden_field_tag "_method", "put" %>
-<%= f.label :name %>
-<%= f.text_field :name, value: menu_item.name %>
-<%= f.label :price %>
-<%= f.text_field :price, value: menu_item.price %>
-<%= f.submit "Update item" %>
+  <%= hidden_field_tag "_method", "put" %>
+  <%= f.label :name %>
+  <%= f.text_field :name, value: menu_item.name %>
+  <%= @menu_item.errors[:name].first %>
+
+  <%= f.label :price %>
+  <%= f.text_field :price, value: menu_item.price %>
+  <%= @menu_item.errors[:price].first %>
+
+  <%= f.submit "Update item" %>
 <% end %>
