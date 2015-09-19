@@ -53,9 +53,9 @@ describe UsersController do
         expect(User.last.email).not_to eq(invalid_user_attribs[:email])
       end
 
-      it 'redirects to register path if signup successful' do
+      it 'renders register path if signup with invalid info' do
         post :create, user: invalid_user_attribs
-        expect(response).to redirect_to(register_path)
+        expect(subject).to render_template(:new)
       end
 
     end
