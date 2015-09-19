@@ -1,5 +1,6 @@
 class CafeSessionsController < ApplicationController
   def new
+    @cafe = Cafe.new
   end
 
   def create
@@ -8,8 +9,9 @@ class CafeSessionsController < ApplicationController
       log_in_cafe(cafe)
       redirect_to cafes_profile_path
     else
+      @cafe = Cafe.new(cafe_session_params)
       flash[:error] = ['Username/Password combination is incorrect']
-      redirect_to cafes_login_path
+      render :new
     end
   end
 
