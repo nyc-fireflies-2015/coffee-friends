@@ -6,9 +6,12 @@ Rails.application.routes.draw do
   get '/cafes/profile' => 'cafes#show'
 
   resources :cafes, only: [:index, :show] do
-    resources :menu_items, only: [:destroy, :create, :update]
     resources :coffee_gifts, only: [:new, :create]
   end
+
+  resources :menu_items, only: [:destroy, :create, :update]
+  resources :users, only: [:create]
+  resources :coffee_gifts, only: [:show]
 
   get '/login' => 'user_sessions#new'
   post '/users/sessions' => 'user_sessions#create'
@@ -17,12 +20,7 @@ Rails.application.routes.draw do
   get '/register' => 'users#new'
   get '/confirmation/:id' => 'coffee_gifts#confirm', as: "confirmation"
 
-
   post '/cafes/sessions' => 'cafe_sessions#create'
   delete '/cafes/logout' => 'cafe_sessions#destroy'
-
-
-  resources :users, only: [:create]
-  resources :coffee_gifts, only: [:show]
 
 end

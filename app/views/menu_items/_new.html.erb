@@ -1,4 +1,4 @@
-<%= form_for @menu_item, url: cafe_menu_items_path(@cafe, @menu_item) do |f| %>
+<%= form_for @menu_item, url: menu_items_path(@menu_item) do |f| %>
 <%= f.label :name %>
 <%= f.text_field :name, value: @menu_item.name %>
 <%= f.label :price %>
