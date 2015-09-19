@@ -1,10 +1,9 @@
 class MenuItemsController < ApplicationController
-  before_action :authenticate_cafe
-  before_action :find_menu_item, except: [:create]
-  before_action :authorize_cafe, only: [:update, :destroy]
+  before_action :find_menu_item, :authenticate_cafe
+  before_action :authorize_cafe, {except: :create}
 
   def create
-    cafe = Cafe.find_by(id: params[:cafe_id])
+    cafe = current_cafe
     menu_item = cafe.menu_items.build(menu_item_params)
     if !menu_item.save
       flash[:error] = menu_item.errors.full_messages
@@ -37,13 +36,11 @@ class MenuItemsController < ApplicationController
   end
 
   def authenticate_cafe
-    @cafe = Cafe.find_by(id: params[:cafe_id])
-    redirect_to cafe_path(@cafe) if !current_cafe
+    redirect_to root_path unless current_cafe
   end
 
   def authorize_cafe
-    @cafe = Cafe.find_by(id: params[:cafe_id])
-    redirect_to cafe_path(@cafe) if current_cafe!=@menu_item.cafe
+    redirect_to root_path unless current_cafe.owns_item?(@menu_item)
   end
 end
 
