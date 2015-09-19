@@ -1,9 +1,9 @@
 FactoryGirl.define do
   factory :menu_item do
     name {
-      ["Pumpkin Spice Latte", "Americano", "Flat White", "Cinniamon Dolce Latte", "Green Tea Latte", "Cappucino", "Cold Brew"].sample
+      ("#{Faker::App.name} #{['Latte', 'Macchiato', 'Espresso', 'Americano', 'Frappe'].sample}")
     }
-    price { Faker::Commerce.price }
+    price { rand(2..5) + rand().round(2) }
 
     factory :invalid_menu_item do
       name nil

@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :cafe do
-    name { Faker::Company.name }
+    name { "#{Faker::App.name} Cafe" }
     address {
       "#{Faker::Address.street_address},
       #{Faker::Address.city},

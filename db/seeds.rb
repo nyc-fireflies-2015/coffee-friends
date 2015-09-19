@@ -6,22 +6,17 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+address_string = "#{Faker::Address.street_address},
+                  #{Faker::Address.city},
+                  #{Faker::Address.state_abbr},
+                  #{Faker::Address.zip}"
+
 User.create(username: 'user', password: "password")
-Cafe.create(name: "cafe" + ' Cafe', address: adress_string, username: Faker::Internet.user_name, email: Faker::Internet.email, password: 'password')
+Cafe.create(name: "cafe" + ' Cafe', address: address_string, username: Faker::Internet.user_name, email: Faker::Internet.email, password: 'password').menu_items.create(FactoryGirl.attributes_for(:menu_item))
+
+10.times {FactoryGirl.create(:user)}
 
 10.times do
-  User.create(username: Faker::Internet.user_name, password: "password")
-end
-
-10.times do
-
-  adress_string = "#{Faker::Address.street_address},
-     #{Faker::Address.city},
-     #{Faker::Address.state_abbr},
-     #{Faker::Address.zip}"
-
-  cafe = Cafe.create(name: Faker::Hacker.abbreviation + ' Cafe', address: adress_string, username: Faker::Internet.user_name, email: Faker::Internet.email, password: 'password')
-  5.times do
-      cafe.menu_items.create(name: (Faker::App.name+' '+['Latte', 'Macchiato', 'Espresso', 'Americano', 'Frappe'].sample), price: rand(2..5))
-  end
+  cafe = FactoryGirl.create(:cafe)
+  5.times { cafe.menu_items.create(FactoryGirl.attributes_for(:menu_item)) }
 end
