@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
 
 	before_save :normalize_phone
 
+	before_save :extract_username
+
 	validates_presence_of :email, :phone, :first_name, :last_name
 	validates_presence_of :username, :on => :save
 	validates_uniqueness_of :email, :phone
@@ -27,13 +29,15 @@ class User < ActiveRecord::Base
 		self == coffee_gift.receiver
 	end
 
-	def extract_username
-		self.email.split('@').first
-	end
+
 
 	private
 	def normalize_phone
 		self.phone = "+1" + phone.to_s
+	end
+
+	def extract_username
+		self.username = self.email.split('@').first
 	end
 
 end
