@@ -6,4 +6,7 @@
 	<%= render @menu_items %>
 </ul>
 
+<h3>Add a new item</h3>
+	<%= render partial:"menu_items/new", locals:{menu_item: @menu_item, cafe: @cafe} %>
+
 <%= link_to "Buy coffee for a friend", new_cafe_coffee_gift_path(@cafe) %>

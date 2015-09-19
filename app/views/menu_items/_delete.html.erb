@@ -1,0 +1,4 @@
+		<%= form_for menu_item, url: cafe_menu_item_path(@cafe, menu_item) do |f| %>
+		<%= hidden_field_tag "_method", "delete" %>
+		<%= f.submit "Delete item" %>
+		<% end %>
