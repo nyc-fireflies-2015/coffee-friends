@@ -2,7 +2,7 @@
 
 <h2>Menu Items</h2>
 
-<% if @cafe.owns_profile? %>
+<% if @cafe.owner?(current_cafe) %>
 
 	<ul>
 		<%= render @menu_items %>
