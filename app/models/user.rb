@@ -27,8 +27,6 @@ class User < ActiveRecord::Base
 		self == coffee_gift.receiver
 	end
 
-
-
 	private
 
 	def extract_username

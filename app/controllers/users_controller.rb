@@ -7,10 +7,10 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       log_in_user(@user)
-      binding.pry
-      if coffee_gifts = CoffeeGift.find_by(phone: params[:phone])
+      if coffee_gift = CoffeeGift.find_by(phone: @user.phone)
         binding.pry
-        @user.coffee_gifts << coffee_gifts
+        @user.received_coffees << coffee_gift
+        coffee_gift.receiver = @user
       end  
       binding.pry
       flash[:notice] = "Account has been created!!"
