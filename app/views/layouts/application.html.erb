@@ -8,6 +8,8 @@
 </head>
 <body>
   <%= render "layouts/header" %>
+	<%= render "welcome/register" %>
+	<%= render "welcome/login" %>
 
 <% if flash[:error] %>
 <ul><% flash[:error].each do |error| %>
