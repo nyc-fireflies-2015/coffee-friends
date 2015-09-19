@@ -27,6 +27,10 @@ class User < ActiveRecord::Base
 		self == coffee_gift.receiver
 	end
 
+	def find_associated_coffees
+	  received_coffees << coffee_gift if coffee_gift = CoffeeGift.find_by(phone: phone)
+	end	
+
 	private
 
 	def extract_username
