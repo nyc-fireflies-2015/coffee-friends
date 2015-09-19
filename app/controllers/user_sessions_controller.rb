@@ -9,9 +9,12 @@ class UserSessionsController < ApplicationController
       log_in_user(@user)
       flash[:notice] = "Login Successful!"
       redirect_to root_url
+    elsif @user
+      flash[:password_error] = "Incorrect password"
+      render :new
     else
       @user = User.new(user_session_params)
-      flash[:error] = ['Username/Password combination is incorrect']
+      flash[:auth_error] = "Email not found"
       render :new
     end
   end
@@ -28,3 +31,4 @@ class UserSessionsController < ApplicationController
     params.require(:user_session).permit(:email, :password)
   end
 end
+

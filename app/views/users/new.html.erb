@@ -1,11 +1,26 @@
- <div class="Sign_Form">
-  <h1>Register</h1>
-  <%= form_for(@user) do |f| %>
-    <p> First Name:</br> <%= f.text_field :first_name, value: @user.first_name%> </p>
-    <p> Last Name:</br> <%= f.text_field :last_name, value: @user.last_name%> </p>
-    <p> Email:</br> <%= f.text_field :email, value: @user.email%> </p>
-    <p> Phone: </br> <%= f.text_field :phone, value: @user.phone%> </p>
-    <p> Password:</br> <%= f.password_field :password%></p>
-    <%= f.submit :Register %>
-  <% end %>
-</div>
+<h1>Register</h1>
+
+<%= form_for(@user) do |f| %>
+  <%= f.label :first_name, "First Name:" %>
+  <%= f.text_field :first_name, value: @user.first_name%>
+  <%= @user.errors[:first_name].first %>
+
+  <%= f.label :last_name, "Last Name:" %>
+  <%= f.text_field :last_name, value: @user.last_name%>
+  <%= @user.errors[:last_name].first %>
+
+  <%= f.label :email, "Email:" %>
+  <%= f.text_field :email, value: @user.email%>
+  <%= @user.errors[:email].first %>
+
+  <%= f.label :phone, "Phone:" %>
+  <%= f.text_field :phone, value: @user.phone%>
+  <%= @user.errors[:phone].first %>
+
+  <%= f.label :password, "Password:" %>
+  <%= f.password_field :password%>
+  <%= f.submit :Register %>
+<% end %>
+
+
+
