@@ -31,10 +31,10 @@ RSpec.describe MenuItemsController, type: :controller do
       new_menu_item
       expect{post :create, cafe_id: @cafe.id, menu_item: invalid_menu_item_attrs }.to change{@cafe.menu_items.count}.by(0)
     end
-    it 'redirects to cafe#show after attempting to add' do
+    it 'redirects to cafe#profile after attempting to add' do
       new_menu_item
       post :create, cafe_id: @cafe.id, menu_item: menu_item_attrs
-      expect(response).to redirect_to(cafe_path(@cafe))
+      expect(response).to redirect_to(cafes_profile_path)
     end
 
     it 'does not allow creation when logged out' do
@@ -62,10 +62,10 @@ RSpec.describe MenuItemsController, type: :controller do
       put :update, cafe_id: @cafe.id, id: @menu_item.id, menu_item: new_attrs
       expect(@menu_item.attributes).to eq(old_attrs)
     end
-    it 'redirects to cafe#show after attempting to update' do
+    it 'redirects to cafe#profile after attempting to update' do
       create_menu_item
       put :update, cafe_id: @cafe.id, id: @menu_item.id, menu_item: menu_item_attrs
-      expect(response).to redirect_to(cafe_path(@cafe))
+      expect(response).to redirect_to(cafes_profile_path)
     end
     it 'does not allow edits when logged out' do
       @cafe = FactoryGirl.create(:cafe)
@@ -94,10 +94,10 @@ RSpec.describe MenuItemsController, type: :controller do
       create_menu_item
       expect{delete :destroy, cafe_id: @cafe.id, id: @menu_item.id}.to change{@cafe.menu_items.count}.by(-1)
     end
-    it 'redirects to cafe#show after destruction' do
+    it 'redirects to cafe#profile after destruction' do
       create_menu_item
       delete :destroy, cafe_id: @cafe.id, id: @menu_item.id
-      expect(response).to redirect_to(cafe_path(@cafe))
+      expect(response).to redirect_to(cafes_profile_path)
     end
     it 'does not allow destruction when logged out' do
       @cafe = FactoryGirl.create(:cafe)

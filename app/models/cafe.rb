@@ -14,4 +14,8 @@ class Cafe < ActiveRecord::Base
 	def owns_item?(menu_item)
 		self == menu_item.cafe
 	end
+
+	def owns_profile?
+		self == current_cafe
+	end	
 end

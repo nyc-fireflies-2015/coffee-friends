@@ -8,7 +8,7 @@ class MenuItemsController < ApplicationController
     if !menu_item.save
       flash[:error] = menu_item.errors.full_messages
     end
-    redirect_to cafe_path(cafe)
+    redirect_to cafes_profile_path
   end
 
   def update
@@ -16,13 +16,13 @@ class MenuItemsController < ApplicationController
     if !@menu_item.update_attributes(menu_item_params)
       flash[:error] = @menu_item.errors.full_messages
     end
-    redirect_to cafe_path(@cafe)
+    redirect_to cafes_profile_path
   end
 
   def destroy
     @cafe = @menu_item.cafe
     @menu_item.destroy
-    redirect_to cafe_path(@cafe)
+    redirect_to cafes_profile_path
   end
 
   private
