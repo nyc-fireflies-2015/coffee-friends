@@ -12,8 +12,19 @@
 		<%= render partial:"menu_items/new", locals:{menu_item: @menu_item, cafe: @cafe} %>
 
   <h3>Unredeemed Gifts</h3>
-    <ul><% @cafe.unredeemed_coffee_gifts.each do |gift| %>
-      <li><b>Receiver</b>: <%= gift.receiver.username %>... Drink: <%=gift.name %>...<b>Secret Redemption Code</b>: <%= gift.passphrase %><%= form_for gift do |f| %><%= f.submit "redeem" %><% end%>
+
+    <ul>
+      <% @cafe.unredeemed_coffee_gifts.each do |gift| %>
+        <li>
+        <% if gift.receiver %>
+          <%= form_for gift do |f| %>
+            <%= f.submit "redeem" %>
+          <% end%>
+          <b>Receiver</b>:<%= gift.receiver.username %>...
+        <% else%>
+          <b>Receiver</b>:<%= gift.phone %>(unregistered user)
+        <%end%>
+        Drink: <%=gift.name %>...<b>Secret Redemption Code</b>: <%= gift.passphrase %></li>
       <%end%>
     </ul>
 

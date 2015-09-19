@@ -7,10 +7,10 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       log_in_user(@user)
-      flash[:notice] = "Account has been Created!!"
+      @user.find_associated_coffees
+      flash[:notice] = "Account has been created!!"
       redirect_to root_path
     else
-      flash[:error] = @user.errors.full_messages
       render :new
     end
   end
