@@ -1,10 +1,20 @@
- <div class="Sign_Form">
-  <h1>Register</h1>
-  <%= form_for(@user) do |f| %>
-    <p> Username:</br> <%= f.text_field :username, value: @user.username%> </p>
-    <p> Email:</br> <%= f.text_field :email, value: @user.email%> </p>
-    <p> Phone: </br> <%= f.text_field :phone, value: @user.phone%> </p>
-    <p> Password:</br> <%= f.password_field :password%></p>
-    <%= f.submit :Register %>
-  <% end %>
-</div>
+<h1>Register</h1>
+
+<%= form_for(@user) do |f| %>
+  <%= f.label :username, "Username:" %>
+  <%= f.text_field :username, value: @user.username%>
+  <%= @user.errors[:username].first %>
+
+  <%= f.label :email, "Email:" %>
+  <%= f.text_field :email, value: @user.email%>
+  <%= @user.errors[:email].first %>
+
+  <%= f.label :phone, "Phone:" %>
+  <%= f.text_field :phone, value: @user.phone%>
+  <%= @user.errors[:phone].first %>
+
+  <%= f.label :password, "Password:" %>
+  <%= f.password_field :password%>
+  <%= f.submit :Register %>
+<% end %>
+
