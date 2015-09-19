@@ -10,7 +10,6 @@ class UsersController < ApplicationController
       flash[:notice] = "Account has been Created!!"
       redirect_to root_path
     else
-      flash[:error] = @user.errors.full_messages
       render :new
     end
   end

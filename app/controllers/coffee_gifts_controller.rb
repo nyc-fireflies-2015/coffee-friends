@@ -17,7 +17,6 @@ class CoffeeGiftsController < ApplicationController
 			text.send!
 			redirect_to confirmation_path(coffee_gift)
 		else
-			flash[:error] = coffee_gift.errors.full_messages
 			redirect_to new_cafe_coffee_gift_path(@cafe)
 		end
 	end
