@@ -2,6 +2,7 @@ class CoffeeGiftsController < ApplicationController
 
 	before_action :authenticate_user, except: [:update]
 	before_action :authorize_user, only: [:show]
+	before_action :find_coffee_gift, except: [:new, :create]
 
 	def new
 		@cafe = Cafe.find_by(id: params[:cafe_id])
@@ -22,7 +23,6 @@ class CoffeeGiftsController < ApplicationController
 	end
 
 	def update
-		find_coffee_gift
 		if @coffee_gift.update_attributes(redeemed: true)
 			flash[:notice] = ["Coffee Redeemed!"]
 			# some type of notice to the receiver
@@ -34,12 +34,10 @@ class CoffeeGiftsController < ApplicationController
 	end
 
 	def show
-		find_coffee_gift
 		@cafe = @coffee_gift.cafe
 	end
 
 	def confirm
-		@coffee_gift = CoffeeGift.find_by(id: params[:id])
 		@cafe = @coffee_gift.cafe
 	end
 
@@ -66,7 +64,7 @@ class CoffeeGiftsController < ApplicationController
 	end
 
 	def coffee_gift_params
-		receiver = User.find_by(username: params[:coffee_gift][:receiver])
+		receiver = User.find_by(username: params[:coffee_gift][:receiver]) || User.find_by(phone: params[:coffee_gift][:phone])
 		menu_item = MenuItem.find_by(id: params[:coffee_gift][:menu_item])
 		coffee_gift_basic_params.merge(receiver: receiver, menu_item: menu_item)
 	end
