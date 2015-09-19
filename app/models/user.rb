@@ -8,8 +8,7 @@ class User < ActiveRecord::Base
 
 	validates_presence_of :email, :phone, :first_name, :last_name
 	validates_presence_of :username, :on => :save
-	validates_uniqueness_of :email, :phone
-	validates_uniqueness_of :username, :on => :save
+	validates_uniqueness_of :username, :email, :phone, :on => :save
 	validates :username, length: {maximum: 50}, :on => :save
 	validates_length_of :phone, :is => 10
 	validates :first_name, length: {maximum: 25}
