@@ -60,7 +60,7 @@ class CoffeeGiftsController < ApplicationController
 	end
 
 	def coffee_gift_basic_params
-		params.require(:coffee_gift).permit(:message)
+		params.require(:coffee_gift).permit(:message, :phone)
 	end
 
 	def coffee_gift_params
