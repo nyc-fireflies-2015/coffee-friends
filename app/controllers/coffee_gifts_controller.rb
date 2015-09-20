@@ -7,6 +7,7 @@ class CoffeeGiftsController < ApplicationController
 	def new
 		@cafe = Cafe.find_by(id: params[:cafe_id])
 		@menu_items = @cafe.menu_items
+		@receivers = User.all
 		@coffee_gift = CoffeeGift.new
 	end
 
