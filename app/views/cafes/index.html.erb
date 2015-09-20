@@ -1,5 +1,12 @@
 <h1>All Cafes</h1>
 <br>
+
+<%= search_form_for @q do |f| %>
+  <%= f.label :name_cont %>
+  <%= f.search_field :name_cont %>
+  <%= f.submit %>
+<% end %>
+
 <ul>
 <li><%= render @cafes %></li>
 </ul>
