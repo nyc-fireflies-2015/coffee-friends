@@ -1,13 +1,11 @@
-<h1>Coffee Voucher</h1>
+<h1><%=@coffee_gift.name%></h1>
 
-<p>From: <%=@coffee_gift.giver.username%></p>
-<p>To: <%=@coffee_gift.receiver.username%></p>
+<p>From: <%=@coffee_gift.giver.first_name%> <%=@coffee_gift.giver.last_name%></p>
 
-<p>Good for one <%=@coffee_gift.name%> at <%=@cafe.name%></p>
+<p>Pickup: <%=@cafe.name%></p>
 
-<p>Value: <%= @coffee_gift.price %>
+<p>Address: <%=@cafe.address %></p>
 
-<p>Pick up at: <%=@cafe.address %></p>
 
 
 

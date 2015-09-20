@@ -68,6 +68,7 @@ c = Cafe.create(name: "Champignon Cafe", username: "cafe20", address: "1389 Madi
 c = Cafe.create(name: "Cafe Grumpy", username: "cafe21", address: "13 Essex St, New York, NY 10011", email: "cafe21@example.com", password: 'password', neighborhood: "Chinatown")
 5.times { c.menu_items.create(FactoryGirl.attributes_for(:menu_item)) }
 
+
 Cafe.all.each { |c| c.update_attributes(borough:"Manhattan")}
 
 
