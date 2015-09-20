@@ -29,6 +29,10 @@
   display: block;
 }
 
+.header_title {
+  font-size: 12pt;
+}
+
 .btn  {
   padding: 10px 20px;
   background:  #F4F4F2;
@@ -87,10 +91,17 @@ a.btn_red  {
   right:  0;
   top: 0;
   padding: 10px 15px;
-  background: #E4E4E2;
   cursor:  pointer;
   color: #aaa;
   font-size: 16px;
+  width: 12%;
+  height: 30%;
+}
+
+
+.modal_close img{
+ width: 100%;
+ z-index: 1;
 }
 
 .popupBody  {

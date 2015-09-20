@@ -1,39 +1,22 @@
 
 <div id="login-modal" class="popupContainer">
 
-<div id="user-login">
-  <header class="popupHeader">
-    <span class="header_title">Log In</span>
-    <span class="modal_close"><i class="fa fa-times"></i></span>
-  </header>  
+  <div id="user-login">
+    <header class="popupHeader">
+      <h3 class="header_title">Log In</h3>
+      <div class="modal_close"><%= image_tag("grey-close.png") %></div>
+    </header>  
+
     <section class="popupBody">
      <%= form_for(:user_session, url: users_sessions_path) do |f| %>
+     <%= f.text_field :email, placeholder: "Email" %></p>
+     <%= f.password_field :password, placeholder: "Password"%></p>
+     <%= f.submit "Log in", class: "button round" %>
+     <% end %>   
+     <p id="login-as-cafe">Log in as a cafe</p> 
+   </section>
+ </div>    
 
-      <%= f.text_field :email, placeholder: "Email" %></p>
-      <%= f.password_field :password, placeholder: "Password"%></p>
-
-      <%= f.submit "Log in", class: "button round" %>
-    <% end %>   
-
-    <p id="login-as-cafe">Log in as a cafe</p> 
-    </section>
-</div>    
-
-<div id="cafe-login">
-  <header class="popupHeader">
-    <span class="header_title">Cafe Log In</span>
-    <span class="modal_close"><i class="fa fa-times"></i></span>
-  </header>  
-    <section class="popupBody">
-      <%= form_for :cafe_session, url: cafes_sessions_path do |f| %>
-      <%= f.text_field :email, placeholder: "Email"%>
-
-      <%= f.password_field :password, placeholder: "Password"%>
-
-      <%= f.submit "Login", class: "button round" %>
-      <% end %>
-
-      <p id="login-as-user">Log in as a user</p> 
-    </section>
-</div>    
+ <%= render "welcome/cafe_login" %>
+  
 </div>
