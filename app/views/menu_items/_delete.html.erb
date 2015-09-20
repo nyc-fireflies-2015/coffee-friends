@@ -1,4 +1,4 @@
 <%= form_for menu_item, url: menu_item_path(menu_item) do |f| %>
 <%= hidden_field_tag "_method", "delete" %>
-<%= f.submit "Delete item" %>
+<%= f.submit "Delete item", :class=>"button tiny round alert" %>
 <% end %>

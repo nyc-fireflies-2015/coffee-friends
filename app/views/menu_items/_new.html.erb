@@ -1,11 +1,11 @@
 <%= form_for @menu_item, url: menu_items_path(@menu_item) do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name, value: @menu_item.name %>
-  <%= @menu_item.errors[:name].first %>
+      <%= f.label :name %>
+      <%= f.text_field :name, value: @menu_item.name %>
+      <%= @menu_item.errors[:name].first %>
 
-  <%= f.label :price %>
-  <%= f.text_field :price, value: @menu_item.price %>
-  <%= @menu_item.errors[:price].first %>
+      <%= f.label :price %>
+      <%= f.text_field :price, value: @menu_item.price %>
+      <%= @menu_item.errors[:price].first %>
 
-  <%= f.submit "Add new item" %>
-<% end %>
+      <%= f.submit "Add new item", :class=>"button tiny round" %>
+    <% end %>

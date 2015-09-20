@@ -1,11 +1,11 @@
 <li>
-<ul>
-	<li><%= menu_item.name %>: $<%=menu_item.price %></li>
-	<li>
-		<%= render partial:"menu_items/delete", locals: {menu_item: menu_item, cafe: @cafe} %>
-	</li>
-	<li>
-		<%= render partial:"menu_items/edit", locals: {menu_item: menu_item, cafe: @cafe} %>
-	</li>	
-</ul>
+    <ul>
+    	<h4><%= menu_item.name %>: $<%=menu_item.price %></h4>
+    	<li>
+    		<%= render partial:"menu_items/delete", locals: {menu_item: menu_item, cafe: @cafe} %>
+    	</li>
+    	<li>
+    		<%= render partial:"menu_items/edit", locals: {menu_item: menu_item, cafe: @cafe} %>
+    	</li>
+    </ul>
 </li>
