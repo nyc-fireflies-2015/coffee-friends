@@ -14,7 +14,7 @@
 //= require jquery_ujs
 //= require foundation
 //= require_tree .
-//= require_directory ./modal_js
+//= require modal_js
 
 $(function(){ $(document).foundation(); });
 
