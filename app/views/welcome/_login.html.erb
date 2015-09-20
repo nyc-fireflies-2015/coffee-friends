@@ -8,11 +8,8 @@
       <div class="user_login">
      <%= form_for(:user_session, url: users_sessions_path) do |f| %>
 
-      <p><%= f.label :username %><br>
-      <%= f.text_field :username%></p>
-
-      <p><%= f.label :password %><br>
-      <%= f.password_field :password%></p>
+      <%= f.text_field :email, placeholder: "Email" %></p>
+      <%= f.password_field :password, placeholder: "Password"%></p>
 
       <%= f.submit "Log in", class: "btn btn-primary" %>
     <% end %>

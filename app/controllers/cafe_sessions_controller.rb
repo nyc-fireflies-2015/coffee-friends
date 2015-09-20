@@ -21,7 +21,7 @@ class CafeSessionsController < ApplicationController
   def destroy
     log_out_cafe
     flash[:notice] = "You have successfully logged out."
-    redirect_to cafes_login_path
+    redirect_to root_path
   end
 
   private
