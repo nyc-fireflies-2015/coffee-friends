@@ -4,9 +4,8 @@
     <span class="modal_close"><i class="fa fa-times"></i></span>
   </header>  
 
-    <section class="popupBody">
-      <div class="user_register">
-  <%= form_for :user, url: users_path do |f| %>
+  <section class="popupBody user-register">
+    <%= form_for :user, url: users_path do |f| %>
     <%= f.text_field :first_name, placeholder: "First Name"%>
 
     <%= f.text_field :last_name, placeholder: "Last Name"%>
@@ -19,7 +18,5 @@
     <%= f.submit :Register, :class=>"button round" %>
   <% end %>
 
-      </div>
     </section>
 </div>
-
