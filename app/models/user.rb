@@ -39,6 +39,10 @@ class User < ActiveRecord::Base
 	  received_coffees << coffee_gift if coffee_gift
 	end
 
+	def full_name
+		[first_name, last_name].join(" ")
+	end	
+
 	private
 
 	def extract_username

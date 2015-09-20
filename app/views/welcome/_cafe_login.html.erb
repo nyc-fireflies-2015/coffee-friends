@@ -1,0 +1,19 @@
+<div id="cafe-modal" class="popupContainer">
+  <header class="popupHeader">
+    <span class="header_title">Cafe Log In</span>
+    <span class="modal_close"><i class="fa fa-times"></i></span>
+  </header>  
+
+  <section class="popupBody">
+    <div class="user_login">
+      <%= form_for :cafe_session, url: cafes_sessions_path do |f| %>
+      <%= f.text_field :email, placeholder: "Email"%>
+
+      <%= f.password_field :password, placeholder: "Password"%>
+
+      <%= f.submit "Login", :class=>"button round" %>
+      <% end %>
+    </div>
+    
+  </section>
+</div>

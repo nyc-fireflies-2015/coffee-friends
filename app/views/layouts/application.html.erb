@@ -1,37 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "CoffeeMates" %></title>
+  <title><%= content_for?(:title) ? yield(:title) : "CoffeeMates" %></title>
 
-    <%= stylesheet_link_tag    'application' %>
-    <%= javascript_include_tag "vendor/modernizr" %>
-    <%= javascript_include_tag "application"  %>
-    <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag    'application' %>
+  <%= javascript_include_tag "vendor/modernizr" %>
+  <%= javascript_include_tag "application"  %>
+  <%= csrf_meta_tags %>
 
-  </head>
+</head>
 
-  <body>
+<body>
 
-      <%= render "layouts/header" %>
+  <%= render "layouts/header" %>
+  <%= render "welcome/register" %>
+  <%= render "welcome/login" %>
+  <%= render "welcome/cafe_login" %>
 
-<div class="row">
-  <div class="small-12 columns">
-        <% if flash[:error] %>
-        <ul class="no-bullet"><% flash[:error].each do |error| %>
-          <li data-alert class="alert-box alert">
-          <%= error %>
-          <a href="#" class="close">&times;</a>
-          </li>
-        <%end%>
-        </ul>
-        <%end%>
-
-    <%= yield %>
+  <div class="row">
+    <div class="small-12 columns">
+      <%= yield %>
+    </div>
   </div>
-</div>
   <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?sensor=false&callback=initMap" %>
-  </body>
+</body>
 </html>
