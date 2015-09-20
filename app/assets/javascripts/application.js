@@ -14,9 +14,6 @@
 //= require jquery_ujs
 //= require foundation
 //= require_tree .
-//= require modal_js
+// = require jquery.leanModal.min.js
 
 $(function(){ $(document).foundation(); });
-
-
-
