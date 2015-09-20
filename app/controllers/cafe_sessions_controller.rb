@@ -4,17 +4,17 @@ class CafeSessionsController < ApplicationController
   end
 
   def create
-    @cafe = Cafe.find_by(username: cafe_session_params[:username])
+    @cafe = Cafe.find_by(email: cafe_session_params[:email])
     if @cafe && @cafe.authenticate(cafe_session_params[:password])
       log_in_cafe(@cafe)
       redirect_to cafes_profile_path
     elsif @cafe
       flash[:password_error] = "Incorrect password"
-      render :new
+      redirect_to root_path
     else
       @cafe = Cafe.new(cafe_session_params)
       flash[:auth_error] = "Username not found"
-      render :new
+      redirect_to root_path
     end
   end
 
@@ -27,7 +27,7 @@ class CafeSessionsController < ApplicationController
   private
 
   def cafe_session_params
-    params.require(:cafe_session).permit(:username, :password)
+    params.require(:cafe_session).permit(:email, :password)
   end
 
 end

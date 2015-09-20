@@ -9,8 +9,8 @@
     display: none;
 }
  
-/* Modal box or Popup box */
 .popupContainer{
+    display:none;
 	position:absolute;
 	width:330px;
 	height: auto;
@@ -43,7 +43,7 @@
     background:  #C12B05;
 }
  
-a.btn  {
+.btn  {
     color: #666;
      text-align:  center;
      text-decoration:  none;
@@ -64,7 +64,6 @@ a.btn_red  {
      margin-left: 5%;
 }
 
-/* Popup Styles*/
 .popupHeader  {
     font-size: 16px;
      text-transform:  uppercase;
@@ -92,4 +91,5 @@ a.btn_red  {
 .popupBody  {
     padding: 20px;
 }
+
 
