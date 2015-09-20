@@ -6,4 +6,7 @@ class MenuItem < ActiveRecord::Base
 	validates :name, length: {maximum: 30}
   validates :price, :format => { :with => /\A\d{1,4}(\.\d{0,2})?\z/ }, :numericality => {:greater_than => 0.99}
 
+  def combined_value
+    "#{self.name}" + " ($#{self.price})"
+  end
 end
