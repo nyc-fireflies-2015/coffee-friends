@@ -1,13 +1,40 @@
-<nav class="header-nav">
-  <% if user_logged_in? %>
-    <%= link_to "Profile", profile_path %>
-    <%= link_to "Log Out", logout_path, method: :delete %>
-  <% elsif cafe_logged_in? %>
-    <%= link_to "Profile", cafes_profile_path %>
-    <%= link_to "Log Out", cafes_logout_path, method: :delete %>
-  <% else %>
-    <%= link_to "Sign Up As User", register_path, class: "button" %>
-    <%= link_to "Log In As User", login_path, class: "button" %>
-    <%= link_to "Log In As Cafe", cafes_login_path, class: "button" %>
-  <% end %>
-</nav>
+
+<div class="row">
+  <div class="large-12 columns">
+
+    <nav class="top-bar" data-topbar>
+      <ul class="title-area">
+
+        <li class="name">
+          <h1>
+            <a href="/">
+              CoffeeMates
+            </a>
+          </h1>
+        </li>
+        <li class="toggle-topbar menu-icon"><a href="#"><span>menu</span></a></li>
+      </ul>
+
+      <section class="top-bar-section">
+        <ul class="left">
+          <% if user_logged_in? %>
+            <li><a href="#"><%= link_to "Profile", profile_path %></a></li>
+            <li><a href="#"><%= link_to "Log Out", logout_path, method: :delete %></a></li>
+          <% elsif cafe_logged_in? %>
+            <li><a href="#"><%= link_to "Profile", cafes_profile_path %></a></li>
+            <li><a href="#"><%= link_to "Log Out", cafes_logout_path, method: :delete %></a></li>
+          <% else %>
+            <li><a href="#"><%= link_to "Sign Up As User", register_path %></a></li>
+            <li><a href="#"><%= link_to "Log In As User", login_path %></a></li>
+            <li><a href="#"><%= link_to "Log In As Cafe", cafes_login_path %></a></li>
+          <% end %>
+        </ul>
+      </section>
+    </nav>
+
+  </div>
+</div>
+
+
+
+
