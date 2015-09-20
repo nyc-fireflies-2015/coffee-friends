@@ -16,6 +16,11 @@
   	<%= f.collection_select(:menu_item, @menu_items, :id ,:name) %>
     <%= @coffee_gift.errors[:menu_item].first %>
 
+    <div class = "Payment">Payment Information </div>
+    <input id="cc_num" name="cc[num]" type="text" placeholder="cc number: (XXXXXXXXXXXXXXXX)"/>
+    <input id="cc_exp_date" name = "cc[exp_date]" placeholder="cc Expiration Date(XX/XX)", type="text" /><br>
+
+    <br>
   	<%= f.label :message, "Include a personal note: "%><br/>
   	<%= f.text_area :message, size: "30x6"  %><br/>
 
