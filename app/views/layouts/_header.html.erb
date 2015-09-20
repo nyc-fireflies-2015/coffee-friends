@@ -23,8 +23,8 @@
             <li><a href="#"><%= link_to "Profile", cafes_profile_path %></a></li>
             <li><a href="#"><%= link_to "Log Out", cafes_logout_path, method: :delete %></a></li>
           <% else %>
-    <%= link_to "Register", "#register-modal", class: "button", id: "register-modal-trigger" %>
-    <%= link_to "Log In", "#login-modal", class: "button", id:"login-modal-trigger" %>
+    <%= link_to "Register", "#register-modal", class: "button", id: "register-modal-trigger", rel:"leanModal" %>
+    <%= link_to "Log In", "#login-modal", class: "button", id:"login-modal-trigger", rel:"leanModal" %>
     <%= link_to "Cafe Log In", cafes_login_path, class: "button" %>
           <% end %>
         </ul>
