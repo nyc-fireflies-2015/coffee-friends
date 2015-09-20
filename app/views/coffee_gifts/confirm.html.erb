@@ -1,15 +1,22 @@
-<h1>Thanks for sending the coffee gift!</h1>
+<% if flash[:error] %>
+  <h1><%=flash[:error]%></h1>
+<% elsif flash[:notice] %>
+  <h1><%=flash[:notice]%></h1>
 
-<h2>Here are the details of your purchase: </h2>
+  <h2>Here are the details of your purchase: </h2>
+
+  <% if @coffee_gift.receiver %>
+    <p>Sent To: <%=@coffee_gift.receiver.username%></p>
+  <% else %>
+    <p>Sent To: <%=@coffee_gift.phone%></p>
+  <% end %>
+
+  <p>Good for one <%=@coffee_gift.name%> at <%=@cafe.name%></p>
+
+  <p>Pick up at: <%=@cafe.address %></p>
+<% end %>
 
 
-<% if @coffee_gift.receiver %>
-	<p>Sent To: <%=@coffee_gift.receiver.username%></p>
-<% else %>
-	<p>Sent To: <%=@coffee_gift.phone%></p>
-<% end %>	
 
-<p>Good for one <%=@coffee_gift.name%> at <%=@cafe.name%></p>
 
-<p>Pick up at: <%=@cafe.address %></p>
 

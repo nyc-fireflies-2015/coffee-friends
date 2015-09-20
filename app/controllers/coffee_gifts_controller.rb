@@ -13,7 +13,9 @@ class CoffeeGiftsController < ApplicationController
 	def create
 		coffee_gift = current_user.given_coffees.build(coffee_gift_params)
 		if coffee_gift.save
+			transaction = BraintreePayment.new(coffee_gift)
 			text = TwilioTextSender.new(coffee_gift)
+			send_payment(transaction)
 			text.send!
 			redirect_to confirmation_path(coffee_gift)
 		else
@@ -23,7 +25,7 @@ class CoffeeGiftsController < ApplicationController
 
 	def update
 		if @coffee_gift.update_attributes(redeemed: true)
-			flash[:notice] = ["Coffee Redeemed!"]
+			flash[:notice] = "Coffee Redeemed!"
 			redeem_text = TwilioTextSender.new(@coffee_gift)
 			redeem_text.send!
 			redirect_to cafes_profile_path
@@ -42,6 +44,23 @@ class CoffeeGiftsController < ApplicationController
 	end
 
 	private
+
+	def send_payment(transaction)
+		result = transaction.send_payment!
+		if result.success?
+      @transaction_id = result.transaction.id
+      flash[:notice] = "Transaction successful. Your confirmation number is #{@transaction_id}."
+    elsif result.transaction
+      @processor_response_code = result.transaction.processor_response_code
+      @processor_response_text = result.transaction.processor_response_text
+      flash[:error] = "Error processing transaction:
+        code: #{@processor_response_code}
+        text: #{@processor_response_text}"
+    else
+      errors = result.errors
+      flash[:error] = "Errors processing transaction: #{errors}"
+    end
+	end
 
 	def find_coffee_gift
 		@coffee_gift = CoffeeGift.find_by(id: params[:id])
