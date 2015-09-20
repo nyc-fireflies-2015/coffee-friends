@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get '/cafes/profile' => 'cafes#show'
 
   resources :cafes, only: [:index, :show] do
+    get '/borough' => 'cafes#borough'
+    get '/neighborhood' => 'cafes#neighborhood'
     resources :coffee_gifts, only: [:new, :create]
   end
 

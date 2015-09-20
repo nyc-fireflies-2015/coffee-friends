@@ -30,29 +30,33 @@
 </div>
 
 <div class='row'>
-  <%= search_form_for @q do |f| %>
-  <div class="small-12 medium-10 columns">
-    <%= f.search_field :name_cont, :placeholder => 'Cafe Name' %>
-  </div>
-  <div class="small-12 medium-2 columns">
-    <%= f.submit 'search', :class => 'button tiny round' %>
-  </div>
-  <% end %>
-</div>
-
-<div class='row'>
   <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-3">
+
     <% @cafes.each do |cafe| %>
     <li><figure>
       <%= link_to image_tag("http://i.dailymail.co.uk/i/pix/2014/08/05/1407225932091_wps_6_SANTA_MONICA_CA_AUGUST_04.jpg"), cafe %>
       <figcaption>
         <h4><%= cafe.name %></h4>
-        <span><%= cafe.address %></span>
+        <span>
+          <% if cafe.neighborhood %>
+            <%= link_to cafe.neighborhood, cafe_neighborhood_path(cafe)%>
+          <% end %>
+          <% if cafe.borough %>
+            <%= link_to cafe.borough, cafe_borough_path(cafe)%>
+          <% end %>
+        </span>
         <br>
-        <%= link_to 'select this cafe', cafe %>
       </figcaption>
     </figure></li>
-    <%end%>
+    <% end %>
+
   </ul>
 </div>
+
+
+
+
+
+
+
 

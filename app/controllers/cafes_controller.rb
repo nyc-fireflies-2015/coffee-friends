@@ -1,8 +1,7 @@
 class CafesController < ApplicationController
 
   def index
-    @q = Cafe.ransack(params[:q])
-    @cafes = @q.result(distinct: true)
+    @cafes = Cafe.all
   end
 
   def show
@@ -11,4 +10,20 @@ class CafesController < ApplicationController
     @menu_item = MenuItem.new
     @menu_items = @cafe.menu_items
   end
+
+  def borough
+    @cafe = Cafe.find_by(id: params[:cafe_id])
+    @cafes = @cafe.filter_by_borough
+    render :index
+  end
+
+  def neighborhood
+    @cafe = Cafe.find_by(id: params[:cafe_id])
+    @cafes = @cafe.filter_by_neighborhood
+    render :index
+  end
+
 end
+
+
+
