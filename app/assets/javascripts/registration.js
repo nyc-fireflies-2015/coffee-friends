@@ -1,5 +1,6 @@
 $(document).ready(function() {
-	$("#modal_trigger").leanModal({top : 200, overlay : 0.6, closeButton: ".modal_close" });
+	$("a[rel*=register-modal-trigger]").leanModal({top : 150, overlay : 0.6, closeButton: ".modal_close" });
+	$("#login-modal-trigger").leanModal({top : 150, overlay : 0.6, closeButton: ".modal_close" });
 
 	// $(function () {
 	//     // Calling Login Form
