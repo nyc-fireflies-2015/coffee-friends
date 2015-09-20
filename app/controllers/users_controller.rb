@@ -4,14 +4,15 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
-    if @user.save
-      log_in_user(@user)
-      @user.find_associated_coffees
+    user = User.new(user_params)
+    if user.save
+      log_in_user(user)
+      user.find_associated_coffees
       flash[:notice] = "Account has been created!!"
       redirect_to root_path
     else
-      render :new
+      redirect_to root_path
+      # render :new
     end
   end
 

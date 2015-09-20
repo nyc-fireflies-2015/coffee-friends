@@ -6,13 +6,18 @@
 
     <section class="popupBody">
       <div class="user_register">
-<%= form_for :user, url: users_path do |f| %>
-  <p> Username:</br> <%= f.text_field :username%> </p>
-  <p> Email:</br> <%= f.text_field :email%> </p>
-  <p> Phone: </br> <%= f.text_field :phone%> </p>
-  <p> Password:</br> <%= f.password_field :password%></p>
-  <%= f.submit :Register %>
-<% end %>
+  <%= form_for :user, url: users_path do |f| %>
+    <%= f.text_field :first_name, placeholder: "First Name"%>
+
+    <%= f.text_field :last_name, placeholder: "Last Name"%>
+
+    <%= f.text_field :email, placeholder: "Email"%>
+
+    <%= f.text_field :phone, placeholder: "Phone"%>
+
+    <%= f.password_field :password, placeholder: "Password"%>
+    <%= f.submit :Register, :class=>"button round" %>
+  <% end %>
 
       </div>
     </section>
