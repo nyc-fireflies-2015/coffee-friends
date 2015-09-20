@@ -35,7 +35,8 @@ class User < ActiveRecord::Base
 	end
 
 	def find_associated_coffees
-	  received_coffees << coffee_gift if coffee_gift = CoffeeGift.find_by(phone: phone)
+		coffee_gift = CoffeeGift.find_by(phone: phone)
+	  received_coffees << coffee_gift if coffee_gift
 	end
 
 	private
