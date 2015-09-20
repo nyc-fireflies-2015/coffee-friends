@@ -17,11 +17,6 @@
 //= require jquery.leanModal.min.js
 //= require chosen.jquery.min.js
 //= require chosen.proto.min.js
-<<<<<<< HEAD
 
 $(function(){ $(document).foundation(); });
 
-
-
-=======
->>>>>>> 843d3535f4bfd0016a04e4a00273843ee125a702
