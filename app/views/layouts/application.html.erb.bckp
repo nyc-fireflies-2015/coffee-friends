@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CoffeeMates</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <%= render "layouts/header" %>
+
+<% if flash[:error] %>
+<ul><% flash[:error].each do |error| %>
+  <li><%= error %></li>
+<%end%>
+</ul>
+<%end%>
+
+
+
+<%= yield %>
+
+
+</body>
+</html>
