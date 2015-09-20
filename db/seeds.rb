@@ -3,7 +3,7 @@
 
 User.create(first_name:"Derpson",last_name:"Lastname", password: "password", email:"user@example.com", phone:"1231231234")
 
-10.times {FactoryGirl.create(:user)}
+100.times {FactoryGirl.create(:user)}
 
 c = Cafe.create(name: "Bluestone Lane", username: "cafe", address: "30 Broad St, New York, NY 10004", email: "cafe@example.com", password: 'password')
 5.times { c.menu_items.create(FactoryGirl.attributes_for(:menu_item)) }
