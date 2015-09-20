@@ -1,20 +1,25 @@
-<h1>Send Some Coffee from <%=@cafe.name%>!</h1>
+<div class="row">
+  <div class="small-12 medium-9 medium-centered large-6 large-centered columns">
+    <br>
+  <h1>Send Some Coffee from <%=@cafe.name%>!</h1>
 
-<%= form_for @coffee_gift, url: cafe_coffee_gifts_path(@cafe) do |f| %>
-	<%= f.label :receiver, "Search for user: " %>
-	<%= f.text_field :receiver %><br/>
-  <%= @coffee_gift.errors[:reciever].first %>
+  <%= form_for @coffee_gift, url: cafe_coffee_gifts_path(@cafe) do |f| %>
+  	<%= f.label :receiver, "Search for user: " %>
+  	<%= f.text_field :receiver %><br/>
+    <%= @coffee_gift.errors[:reciever].first %>
 
-	<%= f.label :phone, "Enter phone number: "%><br/>
-	<%= f.text_field :phone %><br/>
-  <%= @coffee_gift.errors[:phone].first %>
+  	<%= f.label :phone, "Enter phone number: "%><br/>
+  	<%= f.text_field :phone %><br/>
+    <%= @coffee_gift.errors[:phone].first %>
 
-	<%= f.label :menu_item, "Menu Items: "%>
-	<%= f.collection_select(:menu_item, @menu_items, :id ,:name) %>
-  <%= @coffee_gift.errors[:menu_item].first %>
+  	<%= f.label :menu_item, "Menu Items: "%>
+  	<%= f.collection_select(:menu_item, @menu_items, :id ,:name) %>
+    <%= @coffee_gift.errors[:menu_item].first %>
 
-	<%= f.label :message, "Include a personal note: "%><br/>
-	<%= f.text_area :message, size: "30x6"  %><br/>
+  	<%= f.label :message, "Include a personal note: "%><br/>
+  	<%= f.text_area :message, size: "30x6"  %><br/>
 
-	<%= f.submit "Send coffee" %>
-<% end %>
+  	<%= f.submit "Send coffee", :class=>"button round" %>
+  <% end %>
+  </div>
+</div>
