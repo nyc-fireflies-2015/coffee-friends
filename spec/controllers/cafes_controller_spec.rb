@@ -46,37 +46,37 @@ describe CafesController do
     end
   end
 
-  # describe 'GET #borough' do
-  #   context 'shows a particular cafe' do
+  describe 'GET #borough' do
+    context 'cafe index page filtered by borough' do
 
-  #     before :each do
-  #       get :show, id: cafe.id
-  #     end
+      before :each do
+        get :borough, cafe_id: cafe.id
+      end
 
-  #     it 'assigns the correct cafe to @cafe' do
-  #       expect(assigns(:cafe)).to eq(cafe)
-  #     end
+      it 'assigns all cafes to @cafes' do
+        expect(assigns(:cafes)).to eq(Cafe.all.where(borough: cafe.borough))
+      end
 
-  #     it 'renders the correct page' do
-  #       expect(response).to render_template('show')
-  #     end
-  #   end
-  # end
+      it 'renders the correct page' do
+        expect(response).to render_template :index
+      end
+    end
+  end
 
-  # describe 'GET #neighborhood' do
-  #   context 'shows a particular cafe' do
+  describe 'GET #neighborhood' do
+    context 'cafe index page filtered by neighborhood' do
 
-  #     before :each do
-  #       get :show, id: cafe.id
-  #     end
+      before :each do
+        get :neighborhood, cafe_id: cafe.id
+      end
 
-  #     it 'assigns the correct cafe to @cafe' do
-  #       expect(assigns(:cafe)).to eq(cafe)
-  #     end
+      it 'assigns all cafes to @cafes' do
+        expect(assigns(:cafes)).to eq(Cafe.all.where(neighborhood: cafe.neighborhood))
+      end
 
-  #     it 'renders the correct page' do
-  #       expect(response).to render_template('show')
-  #     end
-  #   end
-  # end
+      it 'renders the correct page' do
+        expect(response).to render_template :index
+      end
+    end
+  end
 end
