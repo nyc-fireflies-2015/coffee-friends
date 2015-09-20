@@ -16,7 +16,7 @@
       </ul>
 
       <section class="top-bar-section">
-        <ul class="left">
+        <ul class="right">
           <% if user_logged_in? %>
             <li><a href="#"><%= link_to "Profile", profile_path %></a></li>
             <li><a href="#"><%= link_to "Log Out", logout_path, method: :delete %></a></li>
