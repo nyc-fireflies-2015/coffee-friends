@@ -17,15 +17,17 @@
 
       <%= render "layouts/header" %>
 
+    <div class="row">
+      <div class="small-12 columns">
         <% if flash[:error] %>
         <ul><% flash[:error].each do |error| %>
           <li><%= error %></li>
         <%end%>
         </ul>
         <%end%>
-
-    <%= yield %>
-
+        <%= yield %>
+      </div>
+    </div>
   <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?sensor=false&callback=initMap" %>
   </body>
 </html>

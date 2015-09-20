@@ -1,44 +1,58 @@
-<h1><%=@cafe.name%></h1>
+<div class="row">
+  <div class="small-12 columns">
+    <h1><%=@cafe.name%></h1>
+  </div>
+</div>
 
-<div id="map"></div>
-<input id="address" type="hidden" value="<%=@cafe.address%>">
+<div class="row">
+  <div class="small-12 columns">
+    <div style="height:400px;width:100%" id="map"></div>
+    <input id="address" type="hidden" value="<%=@cafe.address%>">
+  </div>
+</div>
 
 
-<% if @cafe.owner?(current_cafe) %>
-  <h2>Menu Items</h2>
+<div class="row">
+  <div class="small-12 columns">
+      <% if @cafe.owner?(current_cafe) %>
+      <h2 class="subheader">Menu Items</h2>
 
-	<ul>
-		<%= render @menu_items %>
-	</ul>
+      <ul>
+        <%= render @menu_items %>
+      </ul>
 
-	<h3>Add a new item</h3>
-		<%= render partial:"menu_items/new", locals:{menu_item: @menu_item, cafe: @cafe} %>
+      <h3>Add a new item</h3>
+        <%= render partial:"menu_items/new", locals:{menu_item: @menu_item, cafe: @cafe} %>
 
-  <h3>Unredeemed Gifts</h3>
+      <h3>Unredeemed Gifts</h3>
 
-    <ul>
-      <% @cafe.unredeemed_coffee_gifts.each do |gift| %>
-        <li>
-        <% if gift.receiver %>
-          <%= form_for gift do |f| %>
-            <%= f.submit "redeem" %>
-          <% end%>
-          <b>Receiver</b>:<%= gift.receiver.username %>...
-        <% else%>
-          <b>Receiver</b>:<%= gift.phone %>(unregistered user)
-        <%end%>
-        Drink: <%=gift.name %>...<b>Secret Redemption Code</b>: <%= gift.passphrase %></li>
-      <%end%>
-    </ul>
+        <ul>
+          <% @cafe.unredeemed_coffee_gifts.each do |gift| %>
+            <li>
+            <% if gift.receiver %>
+              <%= form_for gift do |f| %>
+                <%= f.submit "redeem" %>
+              <% end%>
+              <b>Receiver</b>:<%= gift.receiver.username %>...
+            <% else%>
+              <b>Receiver</b>:<%= gift.phone %>(unregistered user)
+            <%end%>
+            Drink: <%=gift.name %>...<b>Secret Redemption Code</b>: <%= gift.passphrase %></li>
+          <%end%>
+        </ul>
 
-  <h3>Redeemed Gift Count: <%= @cafe.redeemed_coffee_gifts.count %></h3>
+      <h3>Redeemed Gift Count: <%= @cafe.redeemed_coffee_gifts.count %></h3>
 
-<% else %>
-  <h2>Menu Items</h2>
+    <% else %>
+      <h2 class="subheader">Menu Items</h2>
 
-	<ul>
-		<%= render partial:"menu_items/display_item", collection: @menu_items, as: :menu_item %>
-	</ul>
+      <ul>
+        <%= render partial:"menu_items/display_item", collection: @menu_items, as: :menu_item %>
+      </ul>
 
-	<%= link_to "Buy coffee for a friend", new_cafe_coffee_gift_path(@cafe) %>
-<% end %>
+      <%= link_to "Buy coffee for a friend", new_cafe_coffee_gift_path(@cafe) %>
+    <% end %>
+  </div>
+</div>
+
+
