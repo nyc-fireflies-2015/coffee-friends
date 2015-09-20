@@ -1,16 +1,16 @@
 #lean_overlay {
-    position: fixed;
-    z-index:100;
-    top: 0px;
-    left: 0px;
-    height:100%;
-    width:100%;
-    background: #000;
-    display: none;
+  position: fixed;
+  z-index:100;
+  top: 0px;
+  left: 0px;
+  height:100%;
+  width:100%;
+  background: #000;
+  display: none;
 }
 
 .popupContainer{
-    display:none;
+  display:none;
 	position:absolute;
 	width:330px;
 	height: auto;
@@ -19,77 +19,81 @@
 	background: #FFF;
 }
 
+#cafe-login {
+  display:none;
+}
+
 #modal_trigger  {
-    margin: 100px auto;
-     width: 100px;
-     display: block;
+  margin: 100px auto;
+  width: 100px;
+  display: block;
 }
- 
+
 .btn  {
-    padding: 10px 20px;
-     background:  #F4F4F2;
+  padding: 10px 20px;
+  background:  #F4F4F2;
 }
- 
+
 .btn_red  {
-    background:  #ED6347;
-     color:  #FFF;
+  background:  #ED6347;
+  color:  #FFF;
 }
- 
+
 .btn:hover  {
-    background:  #E4E4E2;
+  background:  #E4E4E2;
 }
- 
+
 .btn_red:hover  {
-    background:  #C12B05;
+  background:  #C12B05;
 }
- 
+
 
 .btn  {
-    color: #666;
-     text-align:  center;
-     text-decoration:  none;
+  color: #666;
+  text-align:  center;
+  text-decoration:  none;
 }
- 
+
 a.btn_red  {
-    color:  #FFF;
+  color:  #FFF;
 }
- 
+
 .one_half  {
-    width: 50%;
-     display:  block;
-     float: left;
+  width: 50%;
+  display:  block;
+  float: left;
 }
- 
+
 .one_half.last  {
-    width: 45%;
-     margin-left: 5%;
+  width: 45%;
+  margin-left: 5%;
 }
 
 .popupHeader  {
-    font-size: 16px;
-     text-transform:  uppercase;
+  font-size: 16px;
+  text-transform:  uppercase;
 }
- 
+
 .popupHeader  {
-    background: #F4F4F2;
-     position: relative;
-     padding: 10px 20px;
-     border-bottom: 1px solid #DDD;
-     font-weight: bold;
+  background: #F4F4F2;
+  position: relative;
+  padding: 10px 20px;
+  border-bottom: 1px solid #DDD;
+  font-weight: bold;
 }
- 
+
 .popupHeader .modal_close  {
-    position:  absolute;
-     right:  0;
-     top: 0;
-     padding: 10px 15px;
-     background: #E4E4E2;
-     cursor:  pointer;
-     color: #aaa;
-     font-size: 16px;
+  position:  absolute;
+  right:  0;
+  top: 0;
+  padding: 10px 15px;
+  background: #E4E4E2;
+  cursor:  pointer;
+  color: #aaa;
+  font-size: 16px;
 }
- 
+
 .popupBody  {
-    padding: 20px;
+  padding: 20px;
 }
 
