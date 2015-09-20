@@ -13,7 +13,7 @@
     <%= @coffee_gift.errors[:phone].first %>
 
   	<%= f.label :menu_item, "Menu Items: "%>
-  	<%= f.collection_select(:menu_item, @menu_items, :id ,:name) %>
+  	<%= f.collection_select(:menu_item, @menu_items, :id ,:combined_value) %>
     <%= @coffee_gift.errors[:menu_item].first %>
 
     <div class = "Payment">Payment Information </div>
