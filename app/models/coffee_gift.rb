@@ -24,6 +24,4 @@ class CoffeeGift < ActiveRecord::Base
     self.redemption_code = rand(36**8).to_s(36)
   end
 
-
-
 end
