@@ -16,6 +16,16 @@ class CafesController < ApplicationController
     @menu_items = @cafe.menu_items
   end
 
+  def update
+    @cafe = current_cafe
+    if params[:cafe]
+      @cafe.update_attributes(params[:cafe])
+    else
+      flash[:error] = ["Something Went Wrong! Your Picture Was Not Uploaded"]
+    end
+    render :show
+  end
+
   def borough
     if request.xhr?
       @cafes = Cafe.filter_by_borough(params[:tag])

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   post '/cafes/borough' => 'cafes#borough'
   post '/cafes/neighborhood' => 'cafes#neighborhood'
 
-  resources :cafes, only: [:index, :show] do
+  resources :cafes, only: [:index, :show, :update] do
     resources :coffee_gifts, only: [:new, :create]
   end
 
