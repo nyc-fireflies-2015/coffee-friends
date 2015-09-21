@@ -57,6 +57,7 @@ describe CoffeeGiftsController do
 			log_in_user(user)
 			attrs = FactoryGirl.attributes_for(:coffee_gift).merge(receiver: twilio_receiver.id, menu_item: menu_item)
 			post :create, cafe_id: cafe, coffee_gift: attrs, cc: cc_info
+			binding.pry
 			expect(response).to redirect_to(confirmation_path(CoffeeGift.last))
 		end
 	end
