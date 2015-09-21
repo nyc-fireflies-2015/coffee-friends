@@ -10,7 +10,7 @@
 
     <p>OR</p>
 
-    <%= f.text_field :phone, placeholder: "Enter phone number" %><br/>
+    <%= f.text_field :phone, placeholder: "Enter phone number", maxlength: "10" %><br/>
     <%= @coffee_gift.errors[:phone].first %>
 
     <%= f.collection_select(:menu_item, @menu_items, :id ,:combined_value, include_blank: true)  %>
@@ -20,8 +20,8 @@
 
     Payment Information
     <%= fields_for :cc do |cc| %>
-      <%= cc.text_field :num, placeholder: "cc number: (XXXXXXXXXXXXXXXX)"%>
-      <%= cc.text_field :exp_date, placeholder: "cc expiration date: (MM/YY)"%>
+      <%= cc.text_field :num, placeholder: "cc number: (XXXXXXXXXXXXXXXX)", maxlength: "16"%>
+      <%= cc.text_field :exp_date, placeholder: "cc expiration date: (MM/YY)", maxlength: "5"%>
     <%end%>
 
     <br>
