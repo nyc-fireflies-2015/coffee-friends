@@ -1,4 +1,4 @@
-function initFilter() {
+function initCafeFilter() {
   $(".cafes-container").on('click','.tag-container', function(e) {
     e.preventDefault();
     var url = $(this).attr('href');
