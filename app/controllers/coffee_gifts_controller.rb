@@ -16,7 +16,6 @@ class CoffeeGiftsController < ApplicationController
 		# prepare_and_send_payment
 		cc = CreditCard.new(params["cc"])
 		transaction = BraintreePayment.new(coffee_gift, cc)
-		# send_payment(transaction)
 		if coffee_gift.save && send_payment(transaction)
 			text = TwilioTextSender.new(coffee_gift)
 			text.send!
