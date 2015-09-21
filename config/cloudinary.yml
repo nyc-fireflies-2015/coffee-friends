@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: jchai002
+  api_key: '652865661562971'
+  api_secret: TXqRDFFRXSkUyxme8X9pa8km--E
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: jchai002
+  api_key: '652865661562971'
+  api_secret: TXqRDFFRXSkUyxme8X9pa8km--E
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: jchai002
+  api_key: '652865661562971'
+  api_secret: TXqRDFFRXSkUyxme8X9pa8km--E
+  enhance_image_tag: true
+  static_image_support: false

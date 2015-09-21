@@ -20,3 +20,5 @@
 
 $(function(){ $(document).foundation(); });
 
+//= require cloudinary
+

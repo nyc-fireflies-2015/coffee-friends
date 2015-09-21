@@ -6,10 +6,12 @@
 
   <title><%= content_for?(:title) ? yield(:title) : "CoffeeMates" %></title>
 
+
   <%= stylesheet_link_tag    'application' %>
   <%= javascript_include_tag "vendor/modernizr" %>
   <%= javascript_include_tag "application"  %>
   <%= csrf_meta_tags %>
+  <%= cloudinary_js_config %>
 
 </head>
 
