@@ -13,6 +13,10 @@
     <%= f.text_field :phone, placeholder: "Enter phone number", maxlength: "10" %><br/>
     <%= @coffee_gift.errors[:phone].first %>
 
+    <p>OR</p>
+    <%= f.check_box :charitable %>
+    <%= f.label :charitable, "Charity time! Send some coffee to someone who needs it." %>
+
     <%= f.collection_select(:menu_item, @menu_items, :id ,:combined_value, include_blank: true)  %>
     <%= @coffee_gift.errors[:menu_item].first %>
 

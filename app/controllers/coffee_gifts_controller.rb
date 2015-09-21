@@ -66,7 +66,7 @@ class CoffeeGiftsController < ApplicationController
 	end
 
 	def coffee_gift_params
-		params.require(:coffee_gift).permit(:message, :phone)
+		params.require(:coffee_gift).permit(:message, :phone, :charitable)
 	end
 
 end
