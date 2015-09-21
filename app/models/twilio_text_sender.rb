@@ -23,7 +23,7 @@ class TwilioTextSender
 	def send_text(text_body)
 		begin
 			@client.account.messages.create({
-				from: '+12178074310',
+				from: ENV["twilio_phone"],
 				to: @coffee_gift.phone,
 				body: text_body
 			})
