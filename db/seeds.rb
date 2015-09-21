@@ -113,6 +113,19 @@ Cafe.all.each do |c|
 	end
 end
 
+User.all.each do |u|
+  (2..7).to_a.sample.times do
+    # redeemed
+    u.redeemed_coffee_gifts.create(giver: User.all.sample, phone:Random.new.rand(1_000_000_000..9_999_999_999).to_s, menu_item: MenuItem.all.sample, redeemed: true)
+    # unredeemed
+    u.unredeemed_coffee_gifts.create(giver: User.all.sample, phone:Random.new.rand(1_000_000_000..9_999_999_999).to_s, menu_item: MenuItem.all.sample, redeemed: false)
+    # redeemed sent
+    User.all.sample.redeemed_coffee_gifts.create(giver: u, phone:Random.new.rand(1_000_000_000..9_999_999_999).to_s, menu_item: MenuItem.all.sample, redeemed: true)
+    # unredeemed sent
+    User.all.sample.redeemed_coffee_gifts.create(giver: u, phone:Random.new.rand(1_000_000_000..9_999_999_999).to_s, menu_item: MenuItem.all.sample, redeemed: false)
+  end
+end
+
 
 
 
