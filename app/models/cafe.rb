@@ -35,4 +35,8 @@ class Cafe < ActiveRecord::Base
 		self.all.where(neighborhood: tag)
 	end
 
+	def charitable_gifts
+		coffee_gifts.where(charitable: true)
+	end	
+
 end
