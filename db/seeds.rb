@@ -105,6 +105,8 @@ Bronx, NY 10463", email: "cafe36@example.com", password: 'password',
 neighborhood: "Riverdale", borough: "The Bronx")
 
 Cafe.all.each do |c|
+  c.picture = File.open(Rails.root + "app/assets/images/cafe.jpg")
+  c.save!
 	(2..7).to_a.sample.times do
 		drinks = drinks.dup.shuffle
 		c.menu_items.create(name: drinks.pop, price: prices.sample)

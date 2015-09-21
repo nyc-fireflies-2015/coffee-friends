@@ -52,7 +52,7 @@
       <div class="row">
         <div class="small-12 medium-6 columns">
           <h2 class="subheader">Menu Items</h2>
-          <% @menu_items.each do |item| %>
+          <% @cafe.menu_items.each do |item| %>
           <ul class="accordion" data-accordion>
             <li class="accordion-navigation">
             <a href="#"><%=item.name%>......$<%=item.price%></a>
