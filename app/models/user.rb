@@ -40,7 +40,7 @@ class User < ActiveRecord::Base
 	private
 
 	def extract_username
-		self.username = self.email.split('@').first
+		self.username = self.email.split('@').first.downcase
 	end
 
 	def downcase_names
