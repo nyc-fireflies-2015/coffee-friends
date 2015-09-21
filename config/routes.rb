@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   end
 
   resources :menu_items, only: [:destroy, :create, :update]
-  resources :users, only: [:create]
+  resources :users, only: [:create, :edit, :update]
   resources :coffee_gifts, only: [:show, :update]
 
   get '/login' => 'user_sessions#new'
