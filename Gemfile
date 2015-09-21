@@ -44,6 +44,7 @@ gem 'braintree'
 gem 'foundation-rails', '~> 5.5.0.0'
 #client side image upload support
 gem 'carrierwave'
+
 gem 'cloudinary'
 
 gem 'factory_girl_rails'
