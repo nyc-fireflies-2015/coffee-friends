@@ -15,7 +15,7 @@
 
     <p>OR</p>
     <%= f.check_box :charitable %>
-    <%= f.label :charitable, "Charity time! Send some coffee to someone who needs it." %>
+    <%= f.label :charitable, "Do something extra nice! Send coffee to someone you don't know." %>
 
     <%= f.collection_select(:menu_item, @menu_items, :id ,:combined_value, include_blank: true)  %>
     <%= @coffee_gift.errors[:menu_item].first %>

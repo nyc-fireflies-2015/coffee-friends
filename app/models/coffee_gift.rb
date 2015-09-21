@@ -9,7 +9,8 @@ class CoffeeGift < ActiveRecord::Base
 
   before_save :generate_passphrase
 
-  validates_presence_of :menu_item, :phone, unless: Proc.new { |gift| gift.charitable }
+  validates_presence_of :menu_item
+  validates_presence_of :phone, unless: Proc.new { |gift| gift.charitable }
 
   def assign_phone(params)
     self.menu_item = MenuItem.find_by(id: params[:menu_item])
