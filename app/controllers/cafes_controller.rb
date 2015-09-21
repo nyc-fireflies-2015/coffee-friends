@@ -2,6 +2,11 @@ class CafesController < ApplicationController
 
   def index
     @cafes = Cafe.all
+    if request.xhr?
+      render @cafes
+    else
+      render :index
+    end
   end
 
   def show
@@ -12,21 +17,21 @@ class CafesController < ApplicationController
   end
 
   def borough
-    @cafe = Cafe.find_by(id: params[:cafe_id])
-    @cafes = @cafe.filter_by_borough
     if request.xhr?
+      @cafes = Cafe.filter_by_borough(params[:tag])
       render @cafes
     else
+      @cafes = Cafe.all
       render :index
     end
   end
 
   def neighborhood
-    @cafe = Cafe.find_by(id: params[:cafe_id])
-    @cafes = @cafe.filter_by_neighborhood
     if request.xhr?
+      @cafes = Cafe.filter_by_neighborhood(params[:tag])
       render @cafes
     else
+      @cafes = Cafe.all
       render :index
     end
   end
