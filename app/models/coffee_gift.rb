@@ -11,11 +11,20 @@ class CoffeeGift < ActiveRecord::Base
 
   validates_presence_of :menu_item, :phone
 
-  def assign_menu_receiver_phone(params)
-    self.receiver = User.find_by(username: params[:coffee_gift][:receiver]) || User.find_by(phone: params[:coffee_gift][:phone])
-    self.menu_item = MenuItem.find_by(id: params[:coffee_gift][:menu_item])
-    self.phone = self.receiver.phone if self.receiver && self.phone.blank?
-  end  
+  def assign_phone(params)
+    m = params[:coffee_gift][:menu_item]
+    r = params[:coffee_gift][:receiver]
+    p = params[:coffee_gift][:phone]
+
+    self.menu_item = MenuItem.find_by(id: m)
+    user = User.find_by(id: r) || User.find_by(phone: p)
+    if user
+      self.receiver = user
+      self.phone = user.phone if self.phone.blank?
+    else
+      puts "ERROR"
+    end
+  end
 
   private
 
