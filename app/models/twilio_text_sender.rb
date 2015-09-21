@@ -7,8 +7,8 @@ class TwilioTextSender
 	end
 
 	def configure_client
-		account_sid = 'ACf56291e066dcd809e0983ac5e491b499'
-		auth_token = 'b0b59b6b759eeb2713fc6137a19e726f'
+		account_sid = ENV["twilio_account_sid"]
+		auth_token = ENV["twilio_auth_token"]
 
 		Twilio.configure do |config|
 		  config.account_sid = account_sid
