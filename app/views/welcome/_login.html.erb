@@ -10,8 +10,8 @@
 
     <section class="popupBody">
      <%= form_for(:user_session, url: users_sessions_path) do |f| %>
-     <%= f.text_field :email, placeholder: "Email" %></p>
-     <%= f.password_field :password, placeholder: "Password"%></p>
+     <%= f.text_field :email, placeholder: "Email" %>
+     <%= f.password_field :password, placeholder: "Password"%>
      <%= f.submit "Log in", class: "button tiny" %>
      <% end %>
      <label id="login-as-cafe" class="secondary label radius">Log in as a cafe</label>
