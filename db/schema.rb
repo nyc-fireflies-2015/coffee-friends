@@ -21,22 +21,26 @@ ActiveRecord::Schema.define(version: 20150921025516) do
     t.string   "name",            limit: 50,  null: false
     t.string   "address",         limit: 150, null: false
     t.string   "password_digest",             null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.string   "borough"
     t.string   "neighborhood"
+    t.string   "picture"
+
+    t.datetime "created_at"
+    t.datetime "updated_at"
+
   end
 
   create_table "coffee_gifts", force: true do |t|
     t.integer  "giver_id"
     t.integer  "receiver_id"
     t.integer  "menu_item_id"
-    t.boolean  "redeemed",     default: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.boolean  "redeemed",        default: false
+    t.boolean  "charitable",      default: false
     t.text     "message"
     t.string   "phone"
-    t.string   "passphrase"
+    t.string   "redemption_code"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "menu_items", force: true do |t|

@@ -5,6 +5,10 @@ class CreateCoffeeGifts < ActiveRecord::Migration
     	t.references :receiver
     	t.references :menu_item
     	t.boolean :redeemed, default: false
+    	t.boolean :charitable, default: false
+    	t.text :message
+    	t.string :phone
+    	t.string :redemption_code
       t.timestamps
     end
   end

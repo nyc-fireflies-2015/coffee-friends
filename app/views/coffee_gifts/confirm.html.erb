@@ -7,6 +7,8 @@
 
   <% if @coffee_gift.receiver %>
     <p>Sent To: <%=@coffee_gift.receiver.full_name%></p>
+  <% elsif @coffee_gift.charitable %>
+    <p>Sent To: some lucky person!</p>
   <% else %>
     <p>Sent To: <%=@coffee_gift.phone%></p>
   <% end %>

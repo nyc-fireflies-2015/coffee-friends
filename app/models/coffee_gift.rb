@@ -7,29 +7,21 @@ class CoffeeGift < ActiveRecord::Base
 	delegate :cafe, to: :menu_item
   delegate :price, to: :menu_item
 
-  before_save :generate_passphrase
+  before_create :generate_redemption_code
 
-  validates_presence_of :menu_item, :phone
+  validates_presence_of :menu_item
+  validates_presence_of :phone, unless: Proc.new { |gift| gift.charitable }
 
   def assign_phone(params)
-    m = params[:coffee_gift][:menu_item]
-    r = params[:coffee_gift][:receiver]
-    p = params[:coffee_gift][:phone]
-
-    self.menu_item = MenuItem.find_by(id: m)
-    user = User.find_by(id: r) || User.find_by(phone: p)
-    if user
-      self.receiver = user
-      self.phone = user.phone if self.phone.blank?
-    else
-      puts "ERROR"
-    end
+    self.menu_item = MenuItem.find_by(id: params[:menu_item])
+    self.receiver = User.find_by(id: params[:receiver]) || User.find_by(phone: params[:phone])
+    self.phone = self.receiver.phone if self.phone.blank? && self.receiver
   end
 
   private
 
-  def generate_passphrase
-    self.passphrase = Faker::Company.buzzwords.shuffle[0..4].join(" ")
+  def generate_redemption_code
+    self.redemption_code = rand(36**8).to_s(36)
   end
 
 end

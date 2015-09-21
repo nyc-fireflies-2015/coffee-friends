@@ -6,8 +6,7 @@
 
 <div class="row">
   <div class="small-12 columns">
-    <div style="height:400px;width:100%" id="map"></div>
-    <input id="address" type="hidden" value="<%=@cafe.address%>">
+    <%= image_tag("cafe.jpg", :class=>"square") %>
   </div>
 </div>
 
@@ -15,6 +14,12 @@
 <div class="row">
   <div class="small-12 columns">
       <% if @cafe.owner?(current_cafe) %>
+      <div class="search">
+        <%= form_tag(@cafe, :method => "get", id: "search-form") do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search Redemption Codes" %>
+        <%= submit_tag "Search" %>
+        <% end %>
+      </div>
 
     <div class="row">
       <div class="small-12 medium-9 medium-centered large-6 large-centered columns">
@@ -29,7 +34,7 @@
         <hr>
           <h3 class="subheader">Unredeemed Gifts</h3>
             <ul>
-              <% @cafe.unredeemed_coffee_gifts.each do |gift| %>
+              <% @unredeemed_coffee_gifts.each do |gift| %>
                 <li>
                 <% if gift.receiver %>
                   <%= form_for gift do |f| %>
@@ -39,7 +44,7 @@
                 <% else%>
                   <b>Receiver</b>:<%= gift.phone %>(unregistered user)
                 <%end%>
-                Drink: <%=gift.name %>...<b>Secret Redemption Code</b>: <%= gift.passphrase %></li>
+                Drink: <%=gift.name %>...<b>Secret Redemption Code</b>: <%= gift.redemption_code %></li>
               <%end%>
             </ul>
 
@@ -48,15 +53,37 @@
       </div>
     </div>
     <% else %>
-      <h2 class="subheader">Menu Items</h2>
-      <ul>
-        <%= render partial:"menu_items/display_item", collection: @menu_items, as: :menu_item %>
-      </ul>
-
-      <%= link_to "Buy coffee for a friend", new_cafe_coffee_gift_path(@cafe) %>
-    <% end %>
-  </div>
-</div>
+<hr>
+      <div class="row">
+        <div class="small-12 medium-6  columns">
+            <h2 class="subheader">Address</h2>
+            <ul class="vcard">
+              <li><%=@cafe.address%></li>
+            </ul>
+            <div class="show-for-medium-up">
+                <div style="height:350px;width:100%" id="map"></div>
+                <input id="address" type="hidden" value="<%=@cafe.address%>">
+            </div>
+        </div>
+          <div class="small-12 medium-6 columns">
+            <h2 class="subheader">Menu Items</h2>
+            <br><br><br>
+            <% @cafe.menu_items.each do |item| %>
+            <ul class="accordion" data-accordion>
+              <li class="accordion-navigation">
+              <a><%=item.name%>......$<%=item.price%></a>
+              </li>
+            </ul>
+            <%end%>
+            <br>
+            <% end %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-12 columns">
+        <%= link_to "Buy coffee for a friend", new_cafe_coffee_gift_path(@cafe), :class=>"button expand" %>
+        </div>
+      </div>
 
 <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?sensor=false&callback=initMap" %>
 
