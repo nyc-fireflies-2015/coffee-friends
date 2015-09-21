@@ -1,5 +1,5 @@
 function initRegistrationPopups() {
-	$("a[rel*=leanModal]").leanModal({top : 150, overlay : 0.6, closeButton: ".modal_close" });
+	$("a[rel*=leanModal]").leanModal({top : 100, overlay : 0.6, closeButton: ".modal_close" });
 
 	$("#login-as-cafe").on("click", function(e){
 		e.preventDefault();
