@@ -10,9 +10,9 @@
 <%end%>
 
 <script type="text/javascript">
-//display selected file in dropzone
 var input  = document.getElementById('upload_input');
 var display = document.getElementById('upload_display')
+
 input.addEventListener('change', function () {
    var filename = this.value.substring(12)
    display.innerText = filename;
