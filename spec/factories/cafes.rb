@@ -8,7 +8,6 @@ FactoryGirl.define do
       #{Faker::Address.zip}"
     }
     password "password"
-    username { Faker::Internet.user_name }
     email { Faker::Internet.email }
     neighborhood {Faker::Address.city}
     borough {Faker::Address.city}

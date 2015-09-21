@@ -17,7 +17,6 @@ ActiveRecord::Schema.define(version: 20150921025516) do
   enable_extension "plpgsql"
 
   create_table "cafes", force: true do |t|
-    t.string   "username",        limit: 20,  null: false
     t.string   "email",           limit: 50,  null: false
     t.string   "name",            limit: 50,  null: false
     t.string   "address",         limit: 150, null: false

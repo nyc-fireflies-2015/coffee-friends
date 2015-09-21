@@ -3,12 +3,11 @@ class Cafe < ActiveRecord::Base
 	has_many :menu_items
 	has_many :coffee_gifts, through: :menu_items
 
-	validates_presence_of :name, :address, :username, :email
-	validates :username, length: {maximum: 20}
+	validates_presence_of :name, :address, :email
 	validates :email, :name, length: {maximum: 50}
 	validates :address, length: {maximum: 150}
 	validates_email_format_of :email, message: "is not in the correct format"
-  validates_uniqueness_of :email, :username
+  validates_uniqueness_of :email
 	validates :password, :presence => true, :length => {minimum: 6}, :on => :create
 	mount_uploader :picture, PictureUploader
 
