@@ -39,4 +39,8 @@ class Cafe < ActiveRecord::Base
   	self.unredeemed_coffee_gifts.where("redemption_code LIKE ?", "%#{search}%")
 	end
 
+	def charitable_gifts
+		coffee_gifts.where(charitable: true)
+	end
+
 end
