@@ -8,9 +8,9 @@ class BraintreePayment
 
   def configure_environment
     Braintree::Configuration.environment = :sandbox
-    Braintree::Configuration.merchant_id = "k6xzvgt3mb7gx22w"
-    Braintree::Configuration.public_key = "dxv52q66dj2q6tbf"
-    Braintree::Configuration.private_key = "8ae5f3d3307c7e7c7dd69140f51c5859"
+    Braintree::Configuration.merchant_id = ENV["braintree_merchant_id"]
+    Braintree::Configuration.public_key = ENV["braintree_public_key"]
+    Braintree::Configuration.private_key = ENV["braintree_private_key"]
   end
 
   def send_payment!
