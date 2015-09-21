@@ -7,7 +7,7 @@ class CoffeeGift < ActiveRecord::Base
 	delegate :cafe, to: :menu_item
   delegate :price, to: :menu_item
 
-  before_save :generate_passphrase
+  before_create :generate_redemption_code
 
   validates_presence_of :menu_item, :phone
 
@@ -28,8 +28,10 @@ class CoffeeGift < ActiveRecord::Base
 
   private
 
-  def generate_passphrase
-    self.passphrase = Faker::Company.buzzwords.shuffle[0..4].join(" ")
+  def generate_redemption_code
+    self.redemption_code = rand(36**8).to_s(36)
   end
+
+
 
 end
