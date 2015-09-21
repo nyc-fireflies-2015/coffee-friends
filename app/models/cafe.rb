@@ -27,11 +27,12 @@ class Cafe < ActiveRecord::Base
 		self.coffee_gifts.where('redeemed = ?', true)
 	end
 
-	def filter_by_borough
-		Cafe.all.where(borough: self.borough)
+	def self.filter_by_borough(tag)
+		self.all.where(borough: tag)
 	end
 
-	def filter_by_neighborhood
-		Cafe.all.where(neighborhood: self.neighborhood)
+	def self.filter_by_neighborhood(tag)
+		self.all.where(neighborhood: tag)
 	end
+
 end
