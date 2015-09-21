@@ -14,7 +14,7 @@ class CoffeeGift < ActiveRecord::Base
   def assign_menu_receiver_phone(params)
     self.receiver = User.find_by(username: params[:coffee_gift][:receiver]) || User.find_by(phone: params[:coffee_gift][:phone])
     self.menu_item = MenuItem.find_by(id: params[:coffee_gift][:menu_item])
-    self.phone = self.receiver.phone if self.phone.empty? && self.receiver
+    self.phone = self.receiver.phone if self.receiver && self.phone.blank?
   end  
 
   private

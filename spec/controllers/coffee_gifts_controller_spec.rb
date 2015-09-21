@@ -5,16 +5,16 @@ describe CoffeeGiftsController do
 
 	let(:user) { FactoryGirl.create(:user) }
 	let(:cafe) { FactoryGirl.create(:cafe) }
-	let(:coffee_gift) { FactoryGirl.create(:coffee_gift) }
+	let(:coffee_gift) { FactoryGirl.build(:coffee_gift) }
 	let(:menu_item) { FactoryGirl.create(:menu_item) }
 	let(:twilio_receiver) { FactoryGirl.create(:twilio_receiver) }
 	let(:cc_info) {{"num" => "5105105105105100", "exp_date" => "05/12"}}
 
 	def prepare_coffee_gift_show
 		@user = FactoryGirl.create(:user)
-		log_in_user(user)
-		attrs = FactoryGirl.attributes_for(:coffee_gift).merge(receiver: twilio_receiver, menu_item: menu_item)
-		@coffee_gift = user.received_coffees.create(attrs)
+		log_in_user(@user)
+		attrs = FactoryGirl.attributes_for(:coffee_gift).merge(receiver: twilio_receiver, menu_item: menu_item, phone: twilio_receiver.phone)
+		@coffee_gift = @user.received_coffees.create(attrs)
 	end
 
 	def coffee_gift_attrs
@@ -57,12 +57,17 @@ describe CoffeeGiftsController do
 	context '#show' do
 
 		it 'redirects to root if not logged in' do
+			attrs = FactoryGirl.attributes_for(:coffee_gift).merge(receiver: twilio_receiver, menu_item: menu_item, phone: twilio_receiver.phone)
+			coffee_gift = user.received_coffees.create(attrs)
 			get :show, id: coffee_gift
 			expect(response).to redirect_to(root_path)
 		end
 
 		it 'redirects to root if not authorized to view coffee gift' do
 			log_in_user(user)
+			user2 = FactoryGirl.create(:user)
+			attrs = FactoryGirl.attributes_for(:coffee_gift).merge(receiver: twilio_receiver, menu_item: menu_item, phone: twilio_receiver.phone)
+			coffee_gift = user2.received_coffees.create(attrs)
 			get :show, id: coffee_gift
 			expect(response).to redirect_to(root_path)
 		end
