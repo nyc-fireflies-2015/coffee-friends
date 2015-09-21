@@ -22,9 +22,9 @@ describe CoffeeGift do
     it { expect(subject).to validate_presence_of(:phone) }
   end  
 
-  context 'validations do not run for charitable gift' do 
+  context 'phone validation does not run for charitable gift' do 
     coffee_gift = FactoryGirl.build(:coffee_gift)
-    coffee_gift.update_attributes(charitable: true)
+    coffee_gift.update_attributes(charitable: true, menu_item: FactoryGirl.create(:menu_item))
     coffee_gift.save
     it { expect(coffee_gift).to be_valid }
   end  
