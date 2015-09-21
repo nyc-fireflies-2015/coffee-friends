@@ -1,0 +1,19 @@
+<div class="given-coffees-container">
+
+<% @given_coffees.each do |gift| %>
+<li><%= link_to gift.name, coffee_gift_path(gift), class: "coffee-gift button" %></li>
+<%end%>
+
+</div>
+
+<div class="received-coffees-container">
+
+<% @received_coffees.each do |gift| %>
+<li><%= link_to gift.name, coffee_gift_path(gift), class: "coffee-gift button" %></li>
+<%end%>
+
+</div>
+
+
+
+

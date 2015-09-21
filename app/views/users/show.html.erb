@@ -6,7 +6,7 @@
 </div>
 
 <div class="row">
-  <hr>
+  <div class="small-12 columns"><hr></div>
 
   <div class="large-5 columns">
     <%= cl_image_tag(@user.picture, :width => 400, :height => 400, :crop => :fill) %>
@@ -30,17 +30,23 @@
 </div>
 
 
-<div class="row">
-  <div class="large-12 columns">
-    <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4 coffee-gift-container">
-      <hr>
-      <%= link_to "given", user_coffee_gifts_filter_path(@user) %>
-      <%= link_to "received", user_coffee_gifts_filter_path(@user) %>
-      <%= render "coffee_gift", locals: @user %>
+<div class="small-12 columns">
+  <div class="row">
+    <hr>
+    <%= link_to "given", "#", class: "profile-filter-tag" %>
+    <%= link_to "received", "#", class: "profile-filter-tag" %>
+  </div>
+
+
+  <div class="row">
+    <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4 coffee-gifts-container">
+      <%= render "coffee_gifts/coffee_gift" %>
     </ul>
   </div>
 </div>
 
-<%= cloudinary_js_config %>
+
+
+
 
 
