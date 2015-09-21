@@ -51,6 +51,9 @@ gem 'cloudinary'
 
 gem 'factory_girl_rails'
 
+# allows for secure storage of env vars
+gem 'figaro'
+
 group :development do
 	# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 	gem 'spring'
