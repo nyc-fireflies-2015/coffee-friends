@@ -4,8 +4,6 @@ class User < ActiveRecord::Base
 	has_many :given_coffees, class_name: :CoffeeGift, foreign_key: :giver_id
 	has_many :received_coffees, class_name: :CoffeeGift, foreign_key: :receiver_id
 
-	before_save :extract_username
-
 	validates_presence_of :email, :phone, :first_name, :last_name
 	validates_presence_of :username, :on => :save
 	validates_uniqueness_of :username, :email, :phone, :on => :save
@@ -15,6 +13,8 @@ class User < ActiveRecord::Base
 	validates_email_format_of :email, message: "is not in the correct format"
 	validates_format_of :phone, with: /\d{10}/, message: "is not in the correct format"
 	validates :password, :presence => true, :length => {minimum: 6}, :on => :create
+
+	before_save :extract_username, :downcase_names
 
 	def received_coffee?(coffee_gift)
 		self == coffee_gift.receiver
@@ -35,12 +35,17 @@ class User < ActiveRecord::Base
 
 	def full_name
 		"#{first_name} #{last_name}"
-	end	
+	end
 
 	private
 
 	def extract_username
-		self.username = self.email.split('@').first
+		self.username = self.email.split('@').first.downcase
+	end
+
+	def downcase_names
+		self.first_name = self.first_name.downcase
+		self.last_name = self.last_name.downcase
 	end
 
 end
