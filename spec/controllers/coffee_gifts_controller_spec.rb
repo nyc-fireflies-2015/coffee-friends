@@ -97,7 +97,8 @@ describe CoffeeGiftsController do
 	context '#confirm' do
 		it 'assigns the coffee gifts cafe to @cafe' do
 			log_in_user(user)
-
+			@menu_item = cafe.menu_items.create(FactoryGirl.attributes_for(:menu_item))
+			@coffee_gift = CoffeeGift.create(phone:"1234567890", menu_item: @menu_item)
 			get :confirm, id: @coffee_gift
 			expect(assigns(:cafe)).to be_a(Cafe)
 		end
