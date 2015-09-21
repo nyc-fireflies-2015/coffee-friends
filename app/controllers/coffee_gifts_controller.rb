@@ -18,10 +18,10 @@ class CoffeeGiftsController < ApplicationController
 		cc = CreditCard.new(params["cc"])
 		transaction = BraintreePayment.new(coffee_gift, cc)
 		if coffee_gift.save && transaction.send_payment(flash)
-			text = TwilioTextSender.new(coffee_gift)
-			text.send!
+			TwilioTextSender.send!(coffee_gift)
 			redirect_to confirmation_path(coffee_gift)
 		else
+			coffee_gift.destroy
 			flash[:error] = coffee_gift.errors.full_messages
 			redirect_to new_cafe_coffee_gift_path(cafe)
 		end
@@ -30,8 +30,7 @@ class CoffeeGiftsController < ApplicationController
 	def update
 		if @coffee_gift.update_attributes(redeemed: true)
 			flash[:notice] = "Coffee Redeemed!"
-			redeem_text = TwilioTextSender.new(@coffee_gift)
-			redeem_text.send!
+			TwilioTextSender.send!(@coffee_gift)
 			redirect_to cafes_profile_path
 		else
 			flash[:error] = ["Unable to redeem voucher"]
