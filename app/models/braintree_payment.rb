@@ -22,6 +22,26 @@ class BraintreePayment
       }
     )
   end
+
+  def send_payment(flash)
+    result = send_payment!
+    if result.success?
+      @transaction_id = result.transaction.id
+      flash[:notice] = "Transaction successful. Your confirmation number is #{@transaction_id}."
+      return true
+    elsif result.transaction
+      @processor_response_code = result.transaction.processor_response_code
+      @processor_response_text = result.transaction.processor_response_text
+      flash[:error] = ["Error processing transaction:
+        code: #{@processor_response_code}
+        text: #{@processor_response_text}"]
+        return false
+    else
+      errors = result.errors.to_a.last.message
+      flash[:error] = ["Errors processing transaction: #{errors}"]
+      return false
+    end
+  end
 end
 
 

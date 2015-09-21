@@ -17,6 +17,11 @@ describe CoffeeGift do
     end 
   end
 
+  context 'contains valid data' do 
+    it { expect(subject).to validate_presence_of(:menu_item) }
+    it { expect(subject).to validate_presence_of(:phone) }
+  end  
+
   context 'delegation' do
     it 'should delegate name to menu items' do
       should delegate_method(:name).to(:menu_item)
