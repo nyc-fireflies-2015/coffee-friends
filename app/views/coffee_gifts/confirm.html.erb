@@ -6,7 +6,7 @@
   <h2>Here are the details of your purchase: </h2>
 
   <% if @coffee_gift.receiver %>
-    <p>Sent To: <%=@coffee_gift.receiver.username%></p>
+    <p>Sent To: <%=@coffee_gift.receiver.full_name%></p>
   <% else %>
     <p>Sent To: <%=@coffee_gift.phone%></p>
   <% end %>

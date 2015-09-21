@@ -7,17 +7,17 @@ class CoffeeGiftsController < ApplicationController
 	def new
 		@cafe = Cafe.find_by(id: params[:cafe_id])
 		@menu_items = @cafe.menu_items
+		@receivers = User.all
 		@coffee_gift = CoffeeGift.new
 	end
 
 	def create
 		coffee_gift = current_user.given_coffees.build(coffee_gift_params)
-		cc = params["cc"]["num"]
-		exp_date = params["cc"]["exp_date"]
-		if coffee_gift.save
-			transaction = BraintreePayment.new(coffee_gift, cc, exp_date)
+		# prepare_and_send_payment
+		cc = CreditCard.new(params["cc"])
+		transaction = BraintreePayment.new(coffee_gift, cc)
+		if coffee_gift.save && send_payment(transaction)
 			text = TwilioTextSender.new(coffee_gift)
-			send_payment(transaction)
 			text.send!
 			redirect_to confirmation_path(coffee_gift)
 		else
@@ -52,16 +52,18 @@ class CoffeeGiftsController < ApplicationController
 		if result.success?
       @transaction_id = result.transaction.id
       flash[:notice] = "Transaction successful. Your confirmation number is #{@transaction_id}."
+    	return true
     elsif result.transaction
       @processor_response_code = result.transaction.processor_response_code
       @processor_response_text = result.transaction.processor_response_text
       flash[:error] = ["Error processing transaction:
         code: #{@processor_response_code}
         text: #{@processor_response_text}"]
+        return false
     else
-      errors = result.errors.to_a.last.message #doing this to display "invalid cc number"
+      errors = result.errors.to_a.last.message
       flash[:error] = ["Errors processing transaction: #{errors}"]
-      # redirect somewhere
+      return false
     end
 	end
 

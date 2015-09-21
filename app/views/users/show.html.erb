@@ -1,15 +1,77 @@
-<br><h1><%= @user.username %>'s Profile</h1>
+<div class="row">
+  <div class="large-12 columns">
+    <br>
+    <h1><%= @user.first_name %> <%= @user.last_name %></h1>
+  </div>
+</div>
 
-<h2>Your Un-Redeemed Gifts </h2>
-<ul><% @user.unredeemed_coffee_gifts.each do |gift| %>
-  <li><b>Drink</b>: <%= gift.name %>...<b>Giver</b>: <%= gift.giver.username %>...<b>Cafe</b>: <%= gift.cafe.name %>...<b>Secret Redemption Code</b>: <%= gift.passphrase %></li>
-  <%end%>
-</ul>
+<div class="row">
+  <hr>
+
+  <div class="large-5 columns">
+    <img src="http://placehold.it/300x500">
+  </div>
+
+  <div class="large-5 columns">
+    <br>
+
+    <ul class="no-bullet">
+      <li>username: <%= @user.username %></li>
+      <li>email: <%= @user.email %></li>
+      <li>phone: <%= @user.phone %></li>
+    </ul>
+
+    <div class="panel">
+      <h5>Send coffee to a friend</h5>
+      <h6 class="subheader">They would love to hear from you, you attractive person you.</h6>
+      <%= link_to "View Cafés", root_path, class: "small button"  %>
+    </div>
+  </div>
+</div>
 
 
-<br><h2> Your Redeemed Gifts </h2>
-<ul><% @user.redeemed_coffee_gifts.each do |gift| %>
-  <li><b>Drink:</b> <%= gift.name %>...<b>Giver:</b> <%= gift.giver.username %>...<b>Cafe:</b> <%= gift.cafe.name %></li>
-<%end%>
+<div class="row">
+  <div class="large-12 columns">
 
-</ul>
+      <% if @user.unredeemed_coffee_gifts.length > 0 %>
+        <hr>
+        <h4>Unredeemed Coffee:</h4>
+        <br>
+      <% end %>
+
+      <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
+
+      <% @user.unredeemed_coffee_gifts.each do |gift| %>
+      <li>
+        <%= link_to image_tag("http://placehold.it/200x150&text=[#{gift.name}]"), coffee_gift_path(gift) %>
+      </li>
+      <%end%>
+      </ul>
+
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="large-12 columns">
+
+      <% if @user.redeemed_coffee_gifts.length > 0 %>
+        <hr>
+        <h4>Redeemed Coffee:</h4>
+        <br>
+      <% end %>
+
+      <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
+
+      <% @user.redeemed_coffee_gifts.each do |gift| %>
+      <li>
+        <%= link_to image_tag("http://placehold.it/200x150&text=[#{gift.name}]"), coffee_gift_path(gift) %>
+      </li>
+      <%end%>
+      </ul>
+
+  </div>
+</div>
+
+
+
