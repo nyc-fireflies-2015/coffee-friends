@@ -80,7 +80,7 @@ neighborhood: "Williamsburg", borough: "Brooklyn", picture:"https://c1.staticfli
 
 Cafe.create(name: "Milk Bar", address: "620 Vanderbilt Ave,
 Brooklyn, NY 11238", email: "cafe28@example.com", password: 'password',
-neighborhood: "Prospect Heights", borough: "Brooklyn", "http://static1.squarespace.com/static/523760fbe4b0b1ca594cd7d8/523c6dade4b094ec97c93c74/5241d289e4b0c1d14dd7dfe7/1380045451902/milkbar_exterior1_lr.jpg?format=1500w")
+neighborhood: "Prospect Heights", borough: "Brooklyn", picture: "http://static1.squarespace.com/static/523760fbe4b0b1ca594cd7d8/523c6dade4b094ec97c93c74/5241d289e4b0c1d14dd7dfe7/1380045451902/milkbar_exterior1_lr.jpg?format=1500w")
 
 
 Cafe.create(name: "Propeller Coffee", address: "984 Manhattan Ave,
@@ -121,7 +121,6 @@ User.all.each do |u|
     User.all.sample.redeemed_coffee_gifts.create(giver: u, phone:Random.new.rand(1_000_000_000..9_999_999_999).to_s, menu_item: MenuItem.all.sample, redeemed: false)
   end
 end
-sss
 
 
 
