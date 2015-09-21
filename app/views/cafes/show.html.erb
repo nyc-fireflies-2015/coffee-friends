@@ -48,13 +48,22 @@
       </div>
     </div>
     <% else %>
-      <h2 class="subheader">Menu Items</h2>
-      <ul>
-        <%= render partial:"menu_items/display_item", collection: @menu_items, as: :menu_item %>
-      </ul>
 
-      <%= link_to "Buy coffee for a friend", new_cafe_coffee_gift_path(@cafe) %>
-    <% end %>
+      <div class="row">
+        <div class="small-12 medium-6 columns">
+          <h2 class="subheader">Menu Items</h2>
+          <% @menu_items.each do |item| %>
+          <ul class="accordion" data-accordion>
+            <li class="accordion-navigation">
+            <a href="#"><%=item.name%>......$<%=item.price%></a>
+            </li>
+          </ul>
+          <%end%>
+          <br>
+          <%= link_to "Buy coffee for a friend", new_cafe_coffee_gift_path(@cafe) %>
+        <% end %>
+        <div>
+      </div>
   </div>
 </div>
 
