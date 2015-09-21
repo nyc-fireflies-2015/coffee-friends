@@ -19,8 +19,8 @@
         <li><%= link_to "#{current_cafe.name}'s profile", cafes_profile_path %></li>
         <li><%= link_to "log out", cafes_logout_path, method: :delete %></li>
         <% else %>
-        <%= link_to "register", "#register-modal", class: "button", id: "register-modal-trigger", rel:"leanModal" %>
-        <%= link_to "log in", "#login-modal", class: "button", id:"login-modal-trigger", rel:"leanModal" %>
+        <li><%= link_to "register", "#register-modal", id: "register-modal-trigger", rel:"leanModal" %></li>
+        <li><%= link_to "log in", "#login-modal", id:"login-modal-trigger", rel:"leanModal" %></li>
         <% end %>
       </ul>
     </section>
