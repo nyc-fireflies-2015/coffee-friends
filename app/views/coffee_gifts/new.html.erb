@@ -17,9 +17,12 @@
     <%= @coffee_gift.errors[:menu_item].first %>
 
     <%= f.text_area :message, size: "30x6", placeholder: "Include a personal note!"  %><br/>
-    <div class = "Payment">Payment Information </div>
-    <input id="cc_num" name="cc[num]" type="text" placeholder="cc number: (XXXXXXXXXXXXXXXX)"/>
-    <input id="cc_exp_date" name = "cc[exp_date]" placeholder="cc Expiration Date(XX/XX)", type="text" /><br>
+
+    Payment Information
+    <%= fields_for :cc do |cc| %>
+      <%= cc.text_field :num, placeholder: "cc number: (XXXXXXXXXXXXXXXX)"%>
+      <%= cc.text_field :exp_date, placeholder: "cc expiration date: (MM/YY)"%>
+    <%end%>
 
     <br>
     <%= f.submit "Send coffee", :class=>"button round" %>
