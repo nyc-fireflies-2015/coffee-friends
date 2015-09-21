@@ -10,6 +10,8 @@
 
   <div class="large-5 columns">
     <%= cl_image_tag(@user.picture, :width => 400, :height => 400, :crop => :fill) %>
+    <hr>
+    <%= link_to "Edit Your Profile", edit_user_path(@user), class: "small button" %>
   </div>
 
   <div class="large-5 columns">
