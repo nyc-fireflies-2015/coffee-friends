@@ -3,6 +3,6 @@ class CreditCard
 
   def initialize(args)
     @number = args[:num]
-    @expiration_date = args[:exp]
+    @expiration_date = args[:exp_date]
   end
 end
