@@ -14,7 +14,7 @@ class CoffeeGiftsController < ApplicationController
 	def create
 		cafe = Cafe.find_by(id: params[:cafe_id])
 		coffee_gift = current_user.given_coffees.build(coffee_gift_params)
-		coffee_gift.assign_menu_receiver_phone(params)
+		coffee_gift.assign_phone(params)
 		cc = CreditCard.new(params["cc"])
 		transaction = BraintreePayment.new(coffee_gift, cc)
 		if coffee_gift.save && transaction.send_payment(flash)
