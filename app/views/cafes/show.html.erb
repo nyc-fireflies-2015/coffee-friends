@@ -15,6 +15,12 @@
 <div class="row">
   <div class="small-12 columns">
       <% if @cafe.owner?(current_cafe) %>
+      <div class="search">
+        <%= form_tag(@cafe, :method => "get", id: "search-form") do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search Redemption Codes" %>
+        <%= submit_tag "Search" %>
+        <% end %>
+      </div>
 
     <div class="row">
       <div class="small-12 medium-9 medium-centered large-6 large-centered columns">
@@ -29,7 +35,7 @@
         <hr>
           <h3 class="subheader">Unredeemed Gifts</h3>
             <ul>
-              <% @cafe.unredeemed_coffee_gifts.each do |gift| %>
+              <% @unredeemed_coffee_gifts.each do |gift| %>
                 <li>
                 <% if gift.receiver %>
                   <%= form_for gift do |f| %>
