@@ -5,27 +5,27 @@
 
 <%= form_for @coffee_gift, url: cafe_coffee_gifts_path(@cafe) do |f| %>
 
-    <%= f.collection_select(:receiver, @receivers, :id, :combined_value, include_blank: true)  %>
+    <%= f.collection_select(:receiver, @receivers, :id, :combined_value, include_blank: true, label:false)  %>
     <%= @coffee_gift.errors[:reciever].first %>
 
     <p>OR</p>
 
-    <%= f.text_field :phone, placeholder: "Enter phone number", maxlength: "10" %><br/>
+    <%= f.text_field :phone, placeholder: "Enter phone number", maxlength: "10", label: false %><br/>
     <%= @coffee_gift.errors[:phone].first %>
 
     <p>OR</p>
-    <%= f.check_box :charitable %>
+    <%= f.check_box :charitable, label: false %>
     <%= f.label :charitable, "Do something extra nice! Send coffee to someone you don't know." %>
 
-    <%= f.collection_select(:menu_item, @menu_items, :id ,:combined_value, include_blank: true)  %>
+    <%= f.collection_select(:menu_item, @menu_items, :id ,:combined_value, include_blank: true, label: false)  %>
     <%= @coffee_gift.errors[:menu_item].first %>
 
     <%= f.text_area :message, size: "30x6", placeholder: "Include a personal note!"  %><br/>
 
     Payment Information
     <%= fields_for :cc do |cc| %>
-      <%= cc.text_field :num, placeholder: "cc number: (XXXXXXXXXXXXXXXX)", maxlength: "16"%>
-      <%= cc.text_field :exp_date, placeholder: "cc expiration date: (MM/YY)", maxlength: "5"%>
+      <%= cc.text_field :num, placeholder: "cc number: (XXXXXXXXXXXXXXXX)", maxlength: "16", label: false%>
+      <%= cc.text_field :exp_date, placeholder: "cc expiration date: (MM/YY)", maxlength: "5", label: false%>
     <%end%>
 
     <br>
