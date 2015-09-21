@@ -33,12 +33,12 @@ ActiveRecord::Schema.define(version: 20150921052042) do
     t.integer  "giver_id"
     t.integer  "receiver_id"
     t.integer  "menu_item_id"
-    t.boolean  "redeemed",     default: false
+    t.boolean  "redeemed",        default: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "message"
     t.string   "phone"
-    t.string   "passphrase"
+    t.string   "redemption_code"
   end
 
   create_table "menu_items", force: true do |t|
