@@ -10,6 +10,7 @@ class Cafe < ActiveRecord::Base
 	validates_email_format_of :email, message: "is not in the correct format"
   validates_uniqueness_of :email, :username
 	validates :password, :presence => true, :length => {minimum: 6}, :on => :create
+	mount_uploader :picture, PictureUploader
 
 	def owns_item?(menu_item)
 		self == menu_item.cafe
@@ -27,12 +28,11 @@ class Cafe < ActiveRecord::Base
 		self.coffee_gifts.where('redeemed = ?', true)
 	end
 
-	def self.filter_by_borough(tag)
-		self.all.where(borough: tag)
+	def filter_by_borough
+		Cafe.all.where(borough: self.borough)
 	end
 
-	def self.filter_by_neighborhood(tag)
-		self.all.where(neighborhood: tag)
+	def filter_by_neighborhood
+		Cafe.all.where(neighborhood: self.neighborhood)
 	end
-
 end

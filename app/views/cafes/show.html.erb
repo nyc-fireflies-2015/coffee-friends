@@ -19,15 +19,6 @@
     <div class="row">
       <div class="small-12 medium-9 medium-centered large-6 large-centered columns">
         <br>
-          <h2 class="subheader">Change Cafe Picture</h2>
-          <br>
-          <%= form_for(:cafe, method: :put, url: cafe_path(@cafe)) do |f|%>
-            <%= f.hidden_field(:picture_cache)%>
-            <div class="upload"><span id="upload_display" class="label">No File Chosen</span><%= f.file_field(:picture, :id=>"upload_input")%></div>
-            <br>
-            <%= f.submit "Upload Picture", :class => "button tiny round" %>
-          <%end%>
-          <hr>
         <h2 class="subheader">Menu Items</h2>
           <ul class="no-bullet">
             <%= render @menu_items %>
