@@ -1,33 +1,28 @@
 <div class="row">
   <div class="large-12 columns">
 
-    <nav class="top-bar" data-topbar>
-      <ul class="title-area">
+  <nav class="top-bar" data-topbar>
+    <ul class="title-area">
 
-        <li class="name">
-          <h1>
-            <a href="/">
-              CoffeeMates
-            </a>
-          </h1>
-        </li>
-        <li class="toggle-topbar menu-icon"><a href="#"><span>menu</span></a></li>
+      <li class="name">
+        <h1><%= link_to "mojoe", root_path %></h1>
+      </li>
+      <li class="toggle-topbar menu-icon"><a href="#"><span>menu</span></a></li>
+    </ul>
+
+    <section class="top-bar-section">
+      <ul class="right">
+        <% if user_logged_in? %>
+        <li><%= link_to "#{current_user.first_name.downcase}'s profile", profile_path %></li>
+        <li><%= link_to "log out", logout_path, method: :delete %></li>
+        <% elsif cafe_logged_in? %>
+        <li><%= link_to "#{current_cafe.name.downcase}'s profile", cafes_profile_path %></li>
+        <li><%= link_to "log out", cafes_logout_path, method: :delete %></li>
+        <% else %>
+        <%= link_to "register", "#register-modal", class: "button", id: "register-modal-trigger", rel:"leanModal" %>
+        <%= link_to "log in", "#login-modal", class: "button", id:"login-modal-trigger", rel:"leanModal" %>
+        <% end %>
       </ul>
-
-      <section class="top-bar-section">
-        <ul class="right">
-          <% if user_logged_in? %>
-            <li><a href="#"><%= link_to "Profile", profile_path %></a></li>
-            <li><a href="#"><%= link_to "Log Out", logout_path, method: :delete %></a></li>
-          <% elsif cafe_logged_in? %>
-            <li><a href="#"><%= link_to "Profile", cafes_profile_path %></a></li>
-            <li><a href="#"><%= link_to "Log Out", cafes_logout_path, method: :delete %></a></li>
-          <% else %>
-    <%= link_to "Register", "#register-modal", class: "button", id: "register-modal-trigger", rel:"leanModal" %>
-    <%= link_to "Log In", "#login-modal", class: "button", id:"login-modal-trigger", rel:"leanModal" %>
-    <%= link_to "Cafe Log In", "#cafe-modal", class: "button", id:"cafe-login-modal-trigger", rel:"leanModal" %>
-          <% end %>
-        </ul>
-      </section>
-    </nav>
+    </section>
+  </nav> 
 

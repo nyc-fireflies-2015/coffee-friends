@@ -5,27 +5,23 @@ describe CafesController do
   let!(:cafe) {FactoryGirl.create(:cafe)}
 
   describe 'GET #index' do
-
     context 'cafe index page' do
 
       before :each do
         get :index
       end
 
-      xit 'assigns all cafes to search results for @cafes' do
-        pending
+      it 'assigns all cafes to @cafes' do
+        expect(assigns(:cafes)).to eq(Cafe.all)
       end
 
       it 'renders the correct page' do
         expect(response).to render_template :index
       end
-
     end
-
   end
 
   describe 'GET #show' do
-
     context 'shows a particular cafe' do
 
       before :each do
@@ -36,12 +32,51 @@ describe CafesController do
         expect(assigns(:cafe)).to eq(cafe)
       end
 
+      it 'assigns a new menu item to @menu_item' do
+        expect(assigns(:menu_item)).to be_a(MenuItem)
+      end
+
+      it 'assigns a cafes menu items to @menu_items' do
+        expect(assigns(:menu_items)).to eq(cafe.menu_items)
+      end
+
       it 'renders the correct page' do
         expect(response).to render_template('show')
       end
-
     end
-
   end
 
+  describe 'GET #borough' do
+    context 'cafe index page filtered by borough' do
+
+      before :each do
+        get :borough, cafe_id: cafe.id
+      end
+
+      it 'assigns all cafes to @cafes' do
+        expect(assigns(:cafes)).to eq(Cafe.all.where(borough: cafe.borough))
+      end
+
+      it 'renders the correct page' do
+        expect(response).to render_template :index
+      end
+    end
+  end
+
+  describe 'GET #neighborhood' do
+    context 'cafe index page filtered by neighborhood' do
+
+      before :each do
+        get :neighborhood, cafe_id: cafe.id
+      end
+
+      it 'assigns all cafes to @cafes' do
+        expect(assigns(:cafes)).to eq(Cafe.all.where(neighborhood: cafe.neighborhood))
+      end
+
+      it 'renders the correct page' do
+        expect(response).to render_template :index
+      end
+    end
+  end
 end

@@ -7,6 +7,6 @@ class MenuItem < ActiveRecord::Base
   validates :price, :format => { :with => /\A\d{1,4}(\.\d{0,2})?\z/ }, :numericality => {:greater_than => 0.99}
 
   def combined_value
-    "#{self.name}" + " ($#{self.price})"
+    "#{self.name} ($#{self.price})"
   end
 end

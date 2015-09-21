@@ -1,4 +1,4 @@
-require 'rails_helper'
+ require 'rails_helper'
 
 describe CoffeeGiftsController do
 	include UserSessionsHelper
@@ -35,11 +35,16 @@ describe CoffeeGiftsController do
 	end
 
 	context '#create' do
-
 		it 'redirects to root if not logged in' do
 			coffee_gift_attributes = FactoryGirl.attributes_for(:coffee_gift)
 			post :create, cafe_id: cafe, coffee_gift: coffee_gift_attributes
 			expect(response).to redirect_to(root_path)
+		end
+
+		xit 'redirects to new coffee gift if params are invalid' do
+			log_in_user(user)
+			post :create, cafe_id: cafe, coffee_gift: {menu_item: "bad data"}
+			expect(response).to redirect_to(new_cafe_coffee_gift_path(cafe))
 		end
 
 		it 'creates a new coffee gift' do
@@ -55,7 +60,6 @@ describe CoffeeGiftsController do
 	end
 
 	context '#show' do
-
 		it 'redirects to root if not logged in' do
 			get :show, id: coffee_gift
 			expect(response).to redirect_to(root_path)
@@ -78,6 +82,34 @@ describe CoffeeGiftsController do
 			get :show, id: @coffee_gift
 			expect(assigns(:coffee_gift)).to eq(@coffee_gift)
 			expect(assigns(:cafe)).to eq(@coffee_gift.cafe)
+		end
+	end
+
+	context '#update' do
+		xit 'creates new text sender' do
+		end
+		xit 'redirects to cafe profile path in success case' do
+		end
+		xit 'redirects to cafe profile in error case' do
+		end
+	end
+
+	context '#confirm' do
+		it 'assigns the coffee gifts cafe to @cafe' do
+			log_in_user(user)
+			@menu_item = cafe.menu_items.create(FactoryGirl.attributes_for(:menu_item))
+			@coffee_gift = CoffeeGift.create(phone:"1234567890", menu_item: @menu_item)
+			get :confirm, id: @coffee_gift
+			expect(assigns(:cafe)).to be_a(Cafe)
+		end
+	end
+
+	context 'transactions' do
+		xit 'assigns @processor_response_code in error case' do
+		end
+		xit 'assigns @processor_response_text in error case' do
+		end
+		xit 'assigns errors for invalid params' do
 		end
 	end
 
