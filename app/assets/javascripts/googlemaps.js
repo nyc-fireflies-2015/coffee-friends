@@ -1,6 +1,9 @@
 function initMap() {
   var geocoder;
   var map;
+  var service;
+
+
   var address = document.getElementById("address").value;
   geocoder = new google.maps.Geocoder();
 
@@ -20,6 +23,8 @@ function initMap() {
       alert("Geocode was not successful for the following reason: " + status);
     }
   });
+    service = new google.maps.places.PlacesService(map);
+    console.log(service)
 };
 
 
