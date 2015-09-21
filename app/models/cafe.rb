@@ -11,8 +11,6 @@ class Cafe < ActiveRecord::Base
   validates_uniqueness_of :email, :username
 	validates :password, :presence => true, :length => {minimum: 6}, :on => :create
 
-	before save :downcase_name
-
 	def owns_item?(menu_item)
 		self == menu_item.cafe
 	end
@@ -37,9 +35,4 @@ class Cafe < ActiveRecord::Base
 		Cafe.all.where(neighborhood: self.neighborhood)
 	end
 
-	private
-
-	def downcase_name
-		self.name = self.name.downcase
-	end
 end
