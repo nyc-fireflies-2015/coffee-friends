@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150921140757) do
+ActiveRecord::Schema.define(version: 20150921025516) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,10 +21,10 @@ ActiveRecord::Schema.define(version: 20150921140757) do
     t.string   "name",            limit: 50,  null: false
     t.string   "address",         limit: 150, null: false
     t.string   "password_digest",             null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.string   "borough"
     t.string   "neighborhood"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "coffee_gifts", force: true do |t|
@@ -32,12 +32,12 @@ ActiveRecord::Schema.define(version: 20150921140757) do
     t.integer  "receiver_id"
     t.integer  "menu_item_id"
     t.boolean  "redeemed",        default: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.boolean  "charitable",      default: false
     t.text     "message"
     t.string   "phone"
     t.string   "redemption_code"
-    t.boolean  "charitable",      default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "menu_items", force: true do |t|
