@@ -26,6 +26,8 @@
     <%= fields_for :cc do |cc| %>
       <%= cc.text_field :num, placeholder: "cc number: (XXXXXXXXXXXXXXXX)", maxlength: "16"%>
       <%= cc.text_field :exp_date, placeholder: "cc expiration date: (MM/YY)", maxlength: "5"%>
+      <%= cc.text_field :cvv, placeholder: "CVV code", maxlength: "4"%>
+      <%= cc.text_field :zip, placeholder: "Billing Zip Code", maxlength: "5"%>
     <%end%>
 
     <br>
