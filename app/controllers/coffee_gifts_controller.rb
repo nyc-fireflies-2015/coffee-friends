@@ -12,7 +12,9 @@ class CoffeeGiftsController < ApplicationController
 	end
 
 	def create
+		@cafe = Cafe.find_by(id: params[:cafe_id])
 		coffee_gift = current_user.given_coffees.build(coffee_gift_params)
+		binding.pry
 		# prepare_and_send_payment
 		cc = CreditCard.new(params["cc"])
 		transaction = BraintreePayment.new(coffee_gift, cc)
@@ -83,14 +85,18 @@ class CoffeeGiftsController < ApplicationController
 		end
 	end
 
-	def coffee_gift_basic_params
+	def coffee_gift_form_params
 		params.require(:coffee_gift).permit(:message, :phone)
 	end
 
-	def coffee_gift_params
+	def merge_coffee_gift_params
 		receiver = User.find_by(username: params[:coffee_gift][:receiver]) || User.find_by(phone: params[:coffee_gift][:phone])
 		menu_item = MenuItem.find_by(id: params[:coffee_gift][:menu_item])
-		coffee_gift_basic_params.merge(receiver: receiver, menu_item: menu_item)
+		coffee_gift_form_params.merge(receiver: receiver, menu_item: menu_item)
 	end
 
+	def coffee_gift_params
+		params = merge_coffee_gift_params
+		params["phone"].empty? ? params.merge(phone: params["receiver"].phone) : params
+	end	
 end
