@@ -1,0 +1,26 @@
+
+
+
+
+
+
+<% @user.unredeemed_coffee_gifts.each do |gift| %>
+<li><%= link_to gift.name, coffee_gift_path(gift), class: "coffee-gift button" %></li>
+<%end%>
+
+<% @user.redeemed_coffee_gifts.each do |gift| %>
+<li><%= link_to gift.name, coffee_gift_path(gift), class: "coffee-gift button" %></li>
+<%end%>
+
+
+
+
+
+<% @user.unredeemed_coffee_gifts.each do |gift| %>
+<li><%= link_to gift.name, coffee_gift_path(gift), class: "coffee-gift button" %></li>
+<%end%>
+
+<% @user.redeemed_coffee_gifts.each do |gift| %>
+<li><%= link_to gift.name, coffee_gift_path(gift), class: "coffee-gift button" %></li>
+<%end%>
+
