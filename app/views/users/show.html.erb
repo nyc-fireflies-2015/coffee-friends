@@ -9,7 +9,7 @@
   <hr>
 
   <div class="large-5 columns">
-    <img src="http://placehold.it/300x500">
+    <%= cl_image_tag(@user.picture, :width => 400, :height => 400, :crop => :fill) %>
   </div>
 
   <div class="large-5 columns">
