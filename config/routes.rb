@@ -4,10 +4,10 @@ Rails.application.routes.draw do
 
   get '/cafes/login' => 'cafe_sessions#new'
   get '/cafes/profile' => 'cafes#show'
+  post '/cafes/borough' => 'cafes#borough'
+  post '/cafes/neighborhood' => 'cafes#neighborhood'
 
   resources :cafes, only: [:index, :show] do
-    get '/borough' => 'cafes#borough'
-    get '/neighborhood' => 'cafes#neighborhood'
     resources :coffee_gifts, only: [:new, :create]
   end
 

@@ -9,4 +9,12 @@ class MenuItem < ActiveRecord::Base
   def combined_value
     "#{self.name} ($#{self.price})"
   end
+
+  def formatted_price
+    if self.price.to_s.split(".")[1].length == 1
+      return self.price.to_s << "0"
+    else
+      return self.price.to_s
+    end
+  end
 end
