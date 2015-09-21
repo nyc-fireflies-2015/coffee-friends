@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150921025516) do
+ActiveRecord::Schema.define(version: 20150921140757) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20150921025516) do
     t.text     "message"
     t.string   "phone"
     t.string   "passphrase"
+    t.boolean  "charitable",   default: false
   end
 
   create_table "menu_items", force: true do |t|
