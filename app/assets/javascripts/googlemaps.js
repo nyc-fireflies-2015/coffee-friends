@@ -1,4 +1,5 @@
-var geocoder;
+function initGeocoder() {
+  var geocoder;
   var map;
   function initMap() {
     var address = document.getElementById("address").value;
@@ -22,6 +23,6 @@ var geocoder;
     });
 
   }
-
+};
 
 
