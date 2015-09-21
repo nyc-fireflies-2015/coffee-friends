@@ -14,21 +14,23 @@ class CafesController < ApplicationController
   def borough
     @cafe = Cafe.find_by(id: params[:cafe_id])
     @cafes = @cafe.filter_by_borough
-    if request.xhr?
-      render @cafes
-    else
-      render :index
-    end
+    render :index
   end
 
   def neighborhood
     @cafe = Cafe.find_by(id: params[:cafe_id])
     @cafes = @cafe.filter_by_neighborhood
-    if request.xhr?
-      render @cafes
+    render :index
+  end
+
+  def update
+    @cafe = current_cafe
+    if params[:cafe]
+      @cafe.update_attributes(params[:cafe])
     else
-      render :index
+      flash[:error] = ["Something Went Wrong! Your Picture Was Not Uploaded"]
     end
+    render :show
   end
 
 end
