@@ -10,16 +10,19 @@
 
     <p>OR</p>
 
-    <%= f.text_field :phone, placeholder: "Enter phone number" %><br/>
+    <%= f.text_field :phone, placeholder: "Enter phone number", maxlength: "10" %><br/>
     <%= @coffee_gift.errors[:phone].first %>
 
     <%= f.collection_select(:menu_item, @menu_items, :id ,:combined_value, include_blank: true)  %>
     <%= @coffee_gift.errors[:menu_item].first %>
 
     <%= f.text_area :message, size: "30x6", placeholder: "Include a personal note!"  %><br/>
-    <div class = "Payment">Payment Information </div>
-    <input id="cc_num" name="cc[num]" type="text" placeholder="cc number: (XXXXXXXXXXXXXXXX)"/>
-    <input id="cc_exp_date" name = "cc[exp_date]" placeholder="cc Expiration Date(XX/XX)", type="text" /><br>
+
+    Payment Information
+    <%= fields_for :cc do |cc| %>
+      <%= cc.text_field :num, placeholder: "cc number: (XXXXXXXXXXXXXXXX)", maxlength: "16"%>
+      <%= cc.text_field :exp_date, placeholder: "cc expiration date: (MM/YY)", maxlength: "5"%>
+    <%end%>
 
     <br>
     <%= f.submit "Send coffee", :class=>"button round" %>

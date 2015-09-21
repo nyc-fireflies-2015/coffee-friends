@@ -12,16 +12,18 @@ class CoffeeGiftsController < ApplicationController
 	end
 
 	def create
+		cafe = Cafe.find_by(id: params[:cafe_id])
 		coffee_gift = current_user.given_coffees.build(coffee_gift_params)
-		# prepare_and_send_payment
+		coffee_gift.assign_menu_receiver_phone(params)
 		cc = CreditCard.new(params["cc"])
 		transaction = BraintreePayment.new(coffee_gift, cc)
-		if coffee_gift.save && send_payment(transaction)
+		if coffee_gift.save && transaction.send_payment(flash)
 			text = TwilioTextSender.new(coffee_gift)
 			text.send!
 			redirect_to confirmation_path(coffee_gift)
 		else
-			redirect_to new_cafe_coffee_gift_path(@cafe)
+			flash[:error] = coffee_gift.errors.full_messages
+			redirect_to new_cafe_coffee_gift_path(cafe)
 		end
 	end
 
@@ -47,26 +49,6 @@ class CoffeeGiftsController < ApplicationController
 
 	private
 
-	def send_payment(transaction)
-		result = transaction.send_payment!
-		if result.success?
-      @transaction_id = result.transaction.id
-      flash[:notice] = "Transaction successful. Your confirmation number is #{@transaction_id}."
-    	return true
-    elsif result.transaction
-      @processor_response_code = result.transaction.processor_response_code
-      @processor_response_text = result.transaction.processor_response_text
-      flash[:error] = ["Error processing transaction:
-        code: #{@processor_response_code}
-        text: #{@processor_response_text}"]
-        return false
-    else
-      errors = result.errors.to_a.last.message
-      flash[:error] = ["Errors processing transaction: #{errors}"]
-      return false
-    end
-	end
-
 	def find_coffee_gift
 		@coffee_gift = CoffeeGift.find_by(id: params[:id])
 	end
@@ -83,14 +65,8 @@ class CoffeeGiftsController < ApplicationController
 		end
 	end
 
-	def coffee_gift_basic_params
-		params.require(:coffee_gift).permit(:message, :phone)
-	end
-
 	def coffee_gift_params
-		receiver = User.find_by(username: params[:coffee_gift][:receiver]) || User.find_by(phone: params[:coffee_gift][:phone])
-		menu_item = MenuItem.find_by(id: params[:coffee_gift][:menu_item])
-		coffee_gift_basic_params.merge(receiver: receiver, menu_item: menu_item)
+		params.require(:coffee_gift).permit(:message, :phone)
 	end
 
 end

@@ -14,13 +14,21 @@ class CafesController < ApplicationController
   def borough
     @cafe = Cafe.find_by(id: params[:cafe_id])
     @cafes = @cafe.filter_by_borough
-    render :index
+    if request.xhr?
+      render @cafes
+    else
+      render :index
+    end
   end
 
   def neighborhood
     @cafe = Cafe.find_by(id: params[:cafe_id])
     @cafes = @cafe.filter_by_neighborhood
-    render :index
+    if request.xhr?
+      render @cafes
+    else
+      render :index
+    end
   end
 
 end

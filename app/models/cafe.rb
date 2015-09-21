@@ -34,4 +34,5 @@ class Cafe < ActiveRecord::Base
 	def filter_by_neighborhood
 		Cafe.all.where(neighborhood: self.neighborhood)
 	end
+
 end

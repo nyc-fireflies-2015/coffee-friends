@@ -1,15 +1,21 @@
 <div id="register-modal" class="popupContainer">
   <header class="popupHeader">
+
+    <span class="header_title">Register</span>
+    <span class="modal_close"><i class="fa fa-times"></i></span>
+  </header>
+
     <h3 class="header_title">Register</h3>
     <div class="modal_close"><%= image_tag("grey-close.png") %></div>
-  </header>  
+  </header>
+
 
   <section class="popupBody user-register">
     <%= form_for :user, url: users_path do |f| %>
     <%= f.text_field :first_name, placeholder: "First Name"%>
     <%= f.text_field :last_name, placeholder: "Last Name"%>
     <%= f.text_field :email, placeholder: "Email"%>
-    <%= f.text_field :phone, placeholder: "Phone"%>
+    <%= f.text_field :phone, placeholder: "Phone", maxlength: "10"%>
     <%= f.password_field :password, placeholder: "Password"%>
     <%= f.submit :Register, :class=>"button round" %>
   <% end %>
