@@ -12,11 +12,9 @@ class CoffeeGiftsController < ApplicationController
 	end
 
 	def create
-		@cafe = Cafe.find_by(id: params[:cafe_id])
+		cafe = Cafe.find_by(id: params[:cafe_id])
 		coffee_gift = current_user.given_coffees.build(coffee_gift_params)
-		coffee_gift.add_menu_and_receiver(params)
-		# coffee_gift.add_phone(params)
-		binding.pry
+		coffee_gift.assign_menu_receiver_phone(params)
 		# prepare_and_send_payment
 		cc = CreditCard.new(params["cc"])
 		transaction = BraintreePayment.new(coffee_gift, cc)
@@ -25,7 +23,8 @@ class CoffeeGiftsController < ApplicationController
 			text.send!
 			redirect_to confirmation_path(coffee_gift)
 		else
-			redirect_to new_cafe_coffee_gift_path(@cafe)
+			flash[:error] = coffee_gift.errors.full_messages
+			redirect_to new_cafe_coffee_gift_path(cafe)
 		end
 	end
 
@@ -91,14 +90,4 @@ class CoffeeGiftsController < ApplicationController
 		params.require(:coffee_gift).permit(:message, :phone)
 	end
 
-	# def merge_coffee_gift_params
-	# 	receiver = User.find_by(username: params[:coffee_gift][:receiver]) || User.find_by(phone: params[:coffee_gift][:phone])
-	# 	menu_item = MenuItem.find_by(id: params[:coffee_gift][:menu_item])
-	# 	coffee_gift_form_params.merge(receiver: receiver, menu_item: menu_item)
-	# end
-
-	# def coffee_gift_params
-	# 	params = merge_coffee_gift_params
-	# 	params["phone"].empty? ? params.merge(phone: params["receiver"].phone) : params
-	# end	
 end

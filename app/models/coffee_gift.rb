@@ -9,17 +9,13 @@ class CoffeeGift < ActiveRecord::Base
 
   before_save :generate_passphrase
 
-  def add_menu_and_receiver(params)
+  validates_presence_of :menu_item, :phone
+
+  def assign_menu_receiver_phone(params)
     self.receiver = User.find_by(username: params[:coffee_gift][:receiver]) || User.find_by(phone: params[:coffee_gift][:phone])
     self.menu_item = MenuItem.find_by(id: params[:coffee_gift][:menu_item])
-    self.phone = self.receiver.phone if self.phone.empty?
-    # self.assign_attributes(receiver: receiver, menu_item: menu_item, phone: phone)
-    binding.pry
+    self.phone = self.receiver.phone if self.phone.empty? && self.receiver
   end  
-
-  # def add_phone(params)
-  #   self.assign_attributes(phone:self.receiver.phone) if self.phone.nil?
-  # end  
 
   private
 
