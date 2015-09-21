@@ -42,7 +42,9 @@ describe CoffeeGiftsController do
 		end
 
 		xit 'redirects to new coffee gift if params are invalid' do
-
+			log_in_user(user)
+			post :create, cafe_id: cafe, coffee_gift: {menu_item: "bad data"}
+			expect(response).to redirect_to(new_cafe_coffee_gift_path(cafe))
 		end
 
 		it 'creates a new coffee gift' do
@@ -93,7 +95,11 @@ describe CoffeeGiftsController do
 	end
 
 	context '#confirm' do
-		xit 'assigns the coffee gifts cafe to @cafe' do
+		it 'assigns the coffee gifts cafe to @cafe' do
+			log_in_user(user)
+
+			get :confirm, id: @coffee_gift
+			expect(assigns(:cafe)).to be_a(Cafe)
 		end
 	end
 
