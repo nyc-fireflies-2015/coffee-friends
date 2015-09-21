@@ -1,8 +1,8 @@
 class CoffeeGiftsController < ApplicationController
 
-	before_action :authenticate_user, except: [:update]
+	before_action :authenticate_user, except: [:update, :filter]
 	before_action :authorize_user, only: [:show]
-	before_action :find_coffee_gift, except: [:new, :create]
+	before_action :find_coffee_gift, except: [:new, :create, :filter]
 
 	def new
 		@cafe = Cafe.find_by(id: params[:cafe_id])
@@ -37,11 +37,6 @@ class CoffeeGiftsController < ApplicationController
 			flash[:error] = ["Unable to redeem voucher"]
 			redirect_to cafes_profile_path
 		end
-	end
-
-	def filter
-		binding.pry
-		# accepts ajax params to determine which filter opt to use (given || revieved)
 	end
 
 	def show

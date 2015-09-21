@@ -20,6 +20,8 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
+    @given_coffees = @user.given_coffees
+    @received_coffees = @user.received_coffees
   end
 
   def edit
@@ -41,7 +43,7 @@ class UsersController < ApplicationController
 
   def authorize_user
     redirect_to root_url unless current_user
-  end  
+  end
 
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :password, :phone, :picture)

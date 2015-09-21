@@ -6,15 +6,14 @@ Rails.application.routes.draw do
   get '/cafes/profile' => 'cafes#show'
   post '/cafes/borough' => 'cafes#borough'
   post '/cafes/neighborhood' => 'cafes#neighborhood'
+  post '/coffee_gifts/filter' => 'coffee_gifts#filter'
 
   resources :cafes, only: [:index, :show, :update] do
     resources :coffee_gifts, only: [:new, :create]
   end
 
   resources :menu_items, only: [:destroy, :create, :update]
-  resources :users, only: [:create, :edit, :update] do
-    post '/coffee_gifts/filter' => 'coffee_gifts#filter'
-  end
+  resources :users, only: [:create, :edit, :update]
   resources :coffee_gifts, only: [:show, :update]
 
   get '/login' => 'user_sessions#new'
