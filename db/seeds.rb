@@ -126,8 +126,7 @@ User.all.each do |u|
     User.all.sample.redeemed_coffee_gifts.create(giver: u, phone:Random.new.rand(1_000_000_000..9_999_999_999).to_s, menu_item: MenuItem.all.sample, redeemed: false)
   end
 end
-
-
+sss
 
 
 

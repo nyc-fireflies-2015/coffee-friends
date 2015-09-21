@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/cafes/profile' => 'cafes#show'
   post '/cafes/borough' => 'cafes#borough'
   post '/cafes/neighborhood' => 'cafes#neighborhood'
+  post '/coffee_gifts/filter' => 'coffee_gifts#filter'
 
   resources :cafes, only: [:index, :show, :update] do
     resources :coffee_gifts, only: [:new, :create]

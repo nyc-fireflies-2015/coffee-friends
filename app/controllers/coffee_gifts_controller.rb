@@ -1,8 +1,8 @@
 class CoffeeGiftsController < ApplicationController
 
-	before_action :authenticate_user, except: [:update]
+	before_action :authenticate_user, except: [:update, :filter]
 	before_action :authorize_user, only: [:show]
-	before_action :find_coffee_gift, except: [:new, :create]
+	before_action :find_coffee_gift, except: [:new, :create, :filter]
 
 	def new
 		@cafe = Cafe.find_by(id: params[:cafe_id])

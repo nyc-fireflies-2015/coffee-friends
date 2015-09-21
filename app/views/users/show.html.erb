@@ -6,7 +6,7 @@
 </div>
 
 <div class="row">
-  <hr>
+  <div class="small-12 columns"><hr></div>
 
   <div class="large-5 columns">
     <%= cl_image_tag(@user.picture, :width => 400, :height => 400, :crop => :fill) %>
@@ -30,49 +30,30 @@
 </div>
 
 
-<div class="row">
-  <div class="large-12 columns">
+<div class="small-12 columns">
+  <div class="row">
+    <hr>
+    <%= link_to "given", "#", class: "profile-filter-tag" %>
+    <%= link_to "received", "#", class: "profile-filter-tag" %>
+  </div>
 
-      <% if @user.unredeemed_coffee_gifts.length > 0 %>
-        <hr>
-        <h4>Unredeemed Coffee:</h4>
-        <br>
-      <% end %>
-
-      <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
-
-      <% @user.unredeemed_coffee_gifts.each do |gift| %>
-      <li>
-        <%= link_to image_tag("http://placehold.it/200x150&text=[#{gift.name}, redemption-code: #{gift.redemption_code}]"), coffee_gift_path(gift) %>
-      </li>
-      <%end%>
-      </ul>
-
+  <br>
+  <div class="row">
+    <div class="given-coffees-container">
+    <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-3 coffee-gifts-container">
+      <%= render "coffee_gifts/given_coffee_gift" %>
+    </ul>
+    </div>
+    <div class="received-coffees-container">
+    <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-3 coffee-gifts-container">
+      <%= render "coffee_gifts/received_coffee_gift" %>
+    </ul>
+    </div>
   </div>
 </div>
 
 
-<div class="row">
-  <div class="large-12 columns">
 
-      <% if @user.redeemed_coffee_gifts.length > 0 %>
-        <hr>
-        <h4>Redeemed Coffee:</h4>
-        <br>
-      <% end %>
 
-      <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
-
-      <% @user.redeemed_coffee_gifts.each do |gift| %>
-      <li>
-        <%= link_to image_tag("http://placehold.it/200x150&text=[#{gift.name}]"), coffee_gift_path(gift) %>
-      </li>
-      <%end%>
-      </ul>
-
-  </div>
-</div>
-
-<%= cloudinary_js_config %>
 
 
