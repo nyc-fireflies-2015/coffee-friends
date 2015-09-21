@@ -23,8 +23,11 @@ ActiveRecord::Schema.define(version: 20150921025516) do
     t.string   "password_digest",             null: false
     t.string   "borough"
     t.string   "neighborhood"
+    t.string   "picture"
+
     t.datetime "created_at"
     t.datetime "updated_at"
+
   end
 
   create_table "coffee_gifts", force: true do |t|
