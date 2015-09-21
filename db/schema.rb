@@ -11,6 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20150921140757) do
 
   # These are extensions that must be enabled in order to support this database
@@ -31,7 +32,7 @@ ActiveRecord::Schema.define(version: 20150921140757) do
     t.integer  "giver_id"
     t.integer  "receiver_id"
     t.integer  "menu_item_id"
-    t.boolean  "redeemed",     default: false
+    t.boolean  "redeemed",        default: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "message"
