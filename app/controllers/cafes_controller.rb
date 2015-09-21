@@ -14,7 +14,6 @@ class CafesController < ApplicationController
     @cafe = current_cafe unless @cafe
     @menu_item = MenuItem.new
     @menu_items = @cafe.menu_items
-    binding.pry
     if params[:search]
       @unredeemed_coffee_gifts = @cafe.search(params[:search]).order("created_at DESC")
     else
