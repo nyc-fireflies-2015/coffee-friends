@@ -7,14 +7,6 @@ module CafeSessionsHelper
     @current_cafe ||= Cafe.find_by(id: session[:cafe_id])
   end
 
-  def cafe_logged_in?
-    !current_cafe.nil?
-  end
-
-  def cafe_owns_profile?(cafe)
-    current_cafe == cafe
-  end
-
   def log_out_cafe
     session.delete(:cafe_id)
     @current_cafe = nil
