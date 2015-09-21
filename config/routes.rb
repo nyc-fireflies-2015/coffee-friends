@@ -12,7 +12,9 @@ Rails.application.routes.draw do
   end
 
   resources :menu_items, only: [:destroy, :create, :update]
-  resources :users, only: [:create, :edit, :update]
+  resources :users, only: [:create, :edit, :update] do
+    post '/coffee_gifts/filter' => 'coffee_gifts#filter'
+  end
   resources :coffee_gifts, only: [:show, :update]
 
   get '/login' => 'user_sessions#new'

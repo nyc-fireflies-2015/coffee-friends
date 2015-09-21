@@ -39,6 +39,11 @@ class CoffeeGiftsController < ApplicationController
 		end
 	end
 
+	def filter
+		binding.pry
+		# accepts ajax params to determine which filter opt to use (given || revieved)
+	end
+
 	def show
 		@cafe = @coffee_gift.cafe
 	end
