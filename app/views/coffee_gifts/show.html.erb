@@ -1,13 +1,18 @@
-<h1><%=@coffee_gift.name%></h1>
 
-<p>From: <%=@coffee_gift.giver.first_name%> <%=@coffee_gift.giver.last_name%></p>
+<div class="row">
+    <div class="small-12 columns">
+    <ul class="pricing-table">
+      <li class="price"> Yay! You received a <%=@coffee_gift.name%> from <%=@coffee_gift.giver.first_name%> <%=@coffee_gift.giver.last_name%></li>
+      <li class="price"> You can pick it up at <%=@cafe.name%>
+        <hr>
+          <div style="height:350px;width:100%" id="map"></div>
+                <input id="address" type="hidden" value="<%=@cafe.address%>">
+      </li>
+      <li class="bullet-item"><%=@cafe.address %></li>
+    </ul>
+  </div>
+</div>
 
-<p>Pickup: <%=@cafe.name%></p>
-
-<p>Address: <%=@cafe.address %></p>
-
-<p>Redemption Code: <%= @coffee_gift.redemption_code %>
-
-
+<%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?sensor=false&callback=initMap" %>
 
 
