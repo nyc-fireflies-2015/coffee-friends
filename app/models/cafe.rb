@@ -9,7 +9,6 @@ class Cafe < ActiveRecord::Base
 	validates_email_format_of :email, message: "is not in the correct format"
   validates_uniqueness_of :email
 	validates :password, :presence => true, :length => {minimum: 6}, :on => :create
-	mount_uploader :picture, PictureUploader
 
 	def owns_item?(menu_item)
 		self == menu_item.cafe
