@@ -3,4 +3,9 @@ $(document).ready(function() {
   initRegistrationPopups();
   initDropdowns();
   initProfileToggle()
+
+  if ($('#map').length) {
+      initMap()
+  }
+
 });

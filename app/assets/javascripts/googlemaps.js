@@ -1,7 +1,6 @@
 function initMap() {
   var geocoder;
   var map;
-  var service;
 
 
   var address = document.getElementById("address").value;
@@ -17,31 +16,13 @@ function initMap() {
       map.setCenter(results[0].geometry.location);
       var marker = new google.maps.Marker({
           map: map,
-          position: results[0].geometry.location
+          position: map.center
       });
     } else {
       alert("Geocode was not successful for the following reason: " + status);
     }
   });
 
-
-    var request = {
-    location: new google.maps.LatLng(-33.8665433,151.1956316),
-    radius: '500',
-    types: ['store']
-  };
-
-    service = new google.maps.places.PlacesService(map);
-    service.nearbySearch(request, callback);
 };
 
 
-function callback(results, status) {
-  if (status == google.maps.places.PlacesServiceStatus.OK) {
-    for (var i = 0; i < results.length; i++) {
-      var place = results[i];
-      console.log(place)
-      createMarker(results[i]);
-    }
-  }
-}
