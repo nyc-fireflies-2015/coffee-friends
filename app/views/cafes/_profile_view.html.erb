@@ -7,15 +7,19 @@
 
 <div class="row">
   <div class="small-12 medium-9 medium-centered large-6 large-centered columns">
-    <br>
-    <h2 class="subheader">Menu Items</h2>
-    <ul class="no-bullet">
-      <%= render @menu_items %>
-    </ul>
     <hr>
-    <h3 class="subheader">Add a new item</h3>
-    <%= render partial:"menu_items/new", locals:{menu_item: @menu_item, cafe: @cafe} %>
-    <hr>
+
+    <ul class="accordion" data-accordion>
+  <li class="accordion-navigation">
+    <a href="#charitable">Charitable Gifts(<%=@charitable_gifts.count%>)</a>
+    <div id="charitable" class="content active">
+      <%= render @charitable_gifts %>
+    </div>
+  </li>
+</ul>
+
+    <h3 class="subheader">Redeemed Gift Count: <%= @cafe.redeemed_coffee_gifts.count %></h3>
+
     <h3 class="subheader">Unredeemed Gifts</h3>
     <ul>
       <% @unredeemed_coffee_gifts.each do |gift| %>
@@ -33,6 +37,6 @@
       </ul>
 
       <hr>
-      <h3 class="subheader">Redeemed Gift Count: <%= @cafe.redeemed_coffee_gifts.count %></h3>
+
     </div>
   </div>

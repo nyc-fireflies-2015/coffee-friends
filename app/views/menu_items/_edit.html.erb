@@ -5,7 +5,7 @@
   <%= @menu_item.errors[:name].first %>
 
   <%= f.label :price %>
-  <%= f.text_field :price, value: menu_item.formatted_price %>
+  <%= f.text_field :price, value: format_price(menu_item.price) %>
   <%= @menu_item.errors[:price].first %>
 
   <%= f.submit "Update item", :class=>"button tiny round" %>
