@@ -13,7 +13,7 @@ class TransactionsController < ApplicationController
               payment_method_nonce: params[:payment_method_nonce])
     session[:tmp_price] = nil
     if @result.success?
-      flash[:notice] = "Your transaction was successful!"
+      flash[:notice] = "Success!"
       @coffee_gift = CoffeeGift.find_by(id: session[:tmp_id])
       session[:tmp_id] = nil
       TwilioTextSender.send!(@coffee_gift)
