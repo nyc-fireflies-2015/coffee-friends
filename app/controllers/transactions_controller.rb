@@ -1,8 +1,7 @@
 class TransactionsController < ApplicationController
 
   def new
-    @coffee_gift = CoffeeGift.find_by(id: session[:tmp])
-    session[:tmp] = nil
+    @coffee_gift = CoffeeGift.find_by(id: session[:tmp_id])
     authenticate_user
     authorize_user
     gon.client_token = generate_client_token
@@ -14,8 +13,11 @@ class TransactionsController < ApplicationController
               payment_method_nonce: params[:payment_method_nonce])
     session[:tmp_price] = nil
     if @result.success?
-      flash[:alert] = "Congraulations! Your transaction was successful!"
-      redirect_to root_url
+      flash[:notice] = "Your transaction was successful!"
+      @coffee_gift = CoffeeGift.find_by(id: session[:tmp_id])
+      session[:tmp_id] = nil
+      TwilioTextSender.send!(@coffee_gift)
+      redirect_to confirmation_path(@coffee_gift)
     else
       flash[:alert] = "Something went wrong while processing your transaction. Please try again!"
       gon.client_token = generate_client_token
@@ -49,5 +51,4 @@ class TransactionsController < ApplicationController
 
 end
 
-# TwilioTextSender.send!(coffee_gift)
-#       redirect_to confirmation_path(coffee_gift)
+

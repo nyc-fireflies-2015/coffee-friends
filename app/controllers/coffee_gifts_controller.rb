@@ -16,7 +16,8 @@ class CoffeeGiftsController < ApplicationController
 		coffee_gift = current_user.given_coffees.build(coffee_gift_params)
 		coffee_gift.assign_phone(params[:coffee_gift])
 		if coffee_gift.save
-			session[:tmp] = coffee_gift.id
+			session[:tmp_id] = nil
+			session[:tmp_id] = coffee_gift.id
 			session[:tmp_price] = coffee_gift.price
 			redirect_to new_transaction_path
 		else
