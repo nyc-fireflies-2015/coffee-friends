@@ -2,9 +2,6 @@ $(document).ready(function() {
 
   initRegistrationPopups();
 
-  // adjust scope
-  initGiftFormDropdown();
-
   if ($('#map').length) {
     initMap()
   }
@@ -25,4 +22,10 @@ $(document).ready(function() {
     initPayments();
   }
 
+  if ($('.gift-form').length) {
+    initGiftFormDropdown();
+  }
+
 });
+
+
