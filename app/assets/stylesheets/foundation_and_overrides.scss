@@ -104,6 +104,9 @@ $header-links-color: #5e0231;
 $main-headers-font-color: #5e0231;
 $accent-blue-color: #3E6A81;
 $maroon-text-color: #5e0231;
+$light-blue: #60C2D2;
+$darker-blue: #49A4B3;
+
 $white       : #FFFFFF;
 // $ghost       : #FAFAFA;
 // $snow        : #F9F9F9;
@@ -458,7 +461,7 @@ $button-font-family: $body-font-family;
 // We use these to control button border and hover styles.
 // $button-border-width: 0px;
 // $button-border-style: solid;
-// $button-bg-color: $primary-color;
+$button-bg-color: $darker-blue;
 // $button-bg-hover: scale-color($button-bg-color, $lightness: $button-function-factor);
 // $button-border-color: $button-bg-hover;
 // $secondary-button-bg-hover: scale-color($secondary-color, $lightness: $button-function-factor);
