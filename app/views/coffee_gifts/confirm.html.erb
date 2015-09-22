@@ -1,9 +1,12 @@
-<!-- consider refactoring to reduce dependency on flash  -->
-
 <% if flash[:error] %>
+
   <h1><%=flash[:error]%></h1>
-<% elsif flash[:notice] %>
-  <h1><%=flash[:notice]%></h1>
+
+<% else  %>
+
+  <% if flash[:notice] %>
+   <h1><%=flash[:notice]%></h1>
+  <% end %>
 
   <h2>Here are the details of your purchase: </h2>
 
