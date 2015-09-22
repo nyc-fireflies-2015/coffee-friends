@@ -1,0 +1,11 @@
+<ul class="no-bullet">
+<% @given_coffees.each do |gift| %>
+<li><%= link_to "#{gift.cafe.name} (#{gift.name})", coffee_gift_path(gift), class: "coffee-gift" %></li><br>
+<%end%>
+</ul>
+
+
+
+
+
+

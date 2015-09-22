@@ -16,9 +16,9 @@
     <br>
 
     <ul class="no-bullet">
-      <li><span class="bold">username:</span> <%= @user.username %></li>
-      <li><span class="bold">email:</span> <%= @user.email %></li>
-      <li><span class="bold">phone:</span> <%= @user.phone %></li>
+      <li>username: <%= @user.username %></li>
+      <li>email: <%= @user.email %></li>
+      <li>phone: <%= @user.phone %></li>
     </ul>
 
     <div class="panel">
@@ -32,28 +32,22 @@
 
 <div class="row">
   <div class="small-12 columns">
-    <ul class="small-block-grid-1 medium-block-grid-2">
-      <li>
-        <ul class="accordion" data-accordion>
-          <li class="accordion-navigation">
-            <a href="#received">Coffee!</a>
-            <div id="received" class="content active">
-              <%= render partial: "coffee_gifts/coffee_gift", locals: {coffee_gifts: @received_coffees } %>
-            </div>
-          </li>
-        </ul>
-      </li>
-      <li>
-        <ul class="accordion" data-accordion>
-          <li class="accordion-navigation">
-            <a href="#given">Coffee Sent History</a>
-            <div id="given" class="content active">
-              <%= render partial: "coffee_gifts/coffee_gift", locals: {coffee_gifts: @given_coffees } %>
-            </div>
-          </li>
-        </ul>
-      </li>
-    </ul>
+
+  <ul class="accordion" data-accordion>
+    <li class="accordion-navigation">
+      <a href="#given">Given Coffee Gifts</a>
+      <div id="given" class="content active">
+        <%= render "coffee_gifts/given_coffee_gift" %>
+      </div>
+    </li>
+    <li class="accordion-navigation">
+      <a href="#received">Received Coffee Gifts</a>
+      <div id="received" class="content">
+        <%= render "coffee_gifts/received_coffee_gift" %>
+      </div>
+    </li>
+  </ul>
+
   </div>
 </div>
 
