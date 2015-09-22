@@ -27,6 +27,7 @@ body { background-color: $body-color; }
 		height: 60px;
 		margin-top: 10px;
 		margin-left: 10px;
+		// icon created by https://www.iconfinder.com/vivien274
 	}
 }
 
@@ -52,10 +53,6 @@ body { background-color: $body-color; }
   .top-bar-section li:not(.has-form) a:not(.button):hover {
  	background: $header-bar-color;
  }  
-
- .toggle-topbar .menu-icon a{
- 	color: $maroon-text-color;
- }
 
 #logo-text {
 	position: absolute;
