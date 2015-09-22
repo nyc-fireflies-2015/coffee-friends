@@ -8,6 +8,28 @@ body { background-color: $body-color; }
 
 .row { background-color: $body-color; }
 
+.title-area li {
+	display: inline-block;
+	vertical-align: center;
+}
+
+#logo {
+	position: relative;
+	width: 100%;
+	h1 {
+		top: -5px;
+		left: 50px;
+		position: absolute;
+		width: 100%;
+		z-index: 1;
+	}
+	img {
+		height: 60px;
+		margin-top: 10px;
+		margin-left: 10px;
+	}
+}
+
 .title-area .name h1 a {
 	font-family: "Pacifico", sans-serif;
 }
@@ -30,21 +52,6 @@ body { background-color: $body-color; }
   .top-bar-section li:not(.has-form) a:not(.button):hover {
  	background: $header-bar-color;
  }  
-
- .top-bar .name h1 a:before {
-    background-image: generated-image-url('coffee_logo.png');
-    background-repeat: no-repeat;
-    content: "";
-    display: inline-block;
-    height: 18px;
-    margin-right: 10px;
-    position: relative;
-    width: 18px;
-}
-
- .title-area #logo-img img {
- 	width: 50px;
- }
 
 #logo-text {
 	position: absolute;
