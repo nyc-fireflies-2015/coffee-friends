@@ -3,6 +3,20 @@
 	// font-size: 26pt;
 }
 
+.top-bar-section li a:not(.button) {
+    background:white;
+    color: black;
+    }
+
+.top-bar-section li a:not(.button):hover {
+    background:white;
+    color: black;
+    }
+
+ .top-bar-section li:not(.has-form) a:not(.button) {
+ 	background: white;
+ }   
+
 // .full-width {
 // 	// margin: 0;
 // 	// padding: 0;

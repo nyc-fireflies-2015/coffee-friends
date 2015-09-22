@@ -115,7 +115,7 @@ $smoke       : #EEEEEE;
 // $charcoal    : #555555;
 // $tuatara     : #444444;
 // $oil         : #333333;
-// $jet         : #222222;
+$jet         : #222222;
 // $black       : #000000;
 
 // We use these as default colors throughout
@@ -1369,7 +1369,7 @@ $tabs-navigation-font-family: $body-font-family;
 // $include-html-top-bar-classes: $include-html-classes;
 
 // Background color for the top bar
- $topbar-bg-color: rgba(0,0,0,0.9);
+ $topbar-bg-color: rgba(0,0,0,0);
  // $topbar-bg: $topbar-bg-color;
  // Height and margin
  $topbar-height: rem-calc(70);
@@ -1379,10 +1379,10 @@ $tabs-navigation-font-family: $body-font-family;
  $topbar-title-font-size: rem-calc(30);
  $topbar-title-font-family: "Pacifico";
  // Set the link colors and styles for top-level nav
- $topbar-link-color: $white;
- $topbar-link-color-hover: $white;
- $topbar-link-color-active: $white;
- $topbar-link-color-active-hover: $white;
+ $topbar-link-color: $jet;
+ $topbar-link-color-hover: $jet;
+ $topbar-link-color-active: $jet;
+ $topbar-link-color-active-hover: $jet;
  // $topbar-link-weight: $font-weight-normal;
  // $topbar-link-font-size: rem-calc(13);
  // $topbar-link-hover-lightness: -10%; // Darken by 10%
@@ -1423,7 +1423,7 @@ $topbar-link-font-family: $body-font-family;
 // $topbar-button-font-size: 0.75rem;
 // $topbar-button-top: 7px;
 
-// $topbar-dropdown-label-color: $monsoon;
+// $topbar-dropdown-label-color: $white;
 // $topbar-dropdown-label-text-transform: uppercase;
 // $topbar-dropdown-label-font-weight: $font-weight-bold;
 // $topbar-dropdown-label-font-size: rem-calc(10);
@@ -1434,7 +1434,7 @@ $topbar-link-font-family: $body-font-family;
 // $topbar-menu-link-font-size: rem-calc(13);
 // $topbar-menu-link-weight: $font-weight-bold;
 // $topbar-menu-link-color: $white;
-// $topbar-menu-icon-color: $white;
+$topbar-menu-icon-color: $white;
 // $topbar-menu-link-color-toggled: $jumbo;
 // $topbar-menu-icon-color-toggled: $jumbo;
 
