@@ -17,6 +17,18 @@
 	left:45%;
 	top:80px;
 	background: #FFF;
+
+  .popupErrors {
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-bottom: -15px;
+
+    p {
+      font-size: 8pt;
+      color: red;
+      line-height: 0.5;
+    }
+  }
 }
 
 #cafe-login {
@@ -107,4 +119,6 @@ a.btn_red  {
 .popupBody  {
   padding: 20px;
 }
+
+
 
