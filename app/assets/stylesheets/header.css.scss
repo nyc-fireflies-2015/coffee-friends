@@ -1,21 +1,39 @@
 .title-area .name h1 a {
 	font-family: "Pacifico", sans-serif;
-	// font-size: 26pt;
 }
 
 .top-bar-section li a:not(.button) {
     background:white;
     color: black;
-    }
+}
 
 .top-bar-section li a:not(.button):hover {
     background:white;
     color: black;
-    }
+ }
 
  .top-bar-section li:not(.has-form) a:not(.button) {
  	background: white;
  }   
+
+#logo-text {
+	position: absolute;
+	top: 200px;
+	z-index: 1;
+	width: 100%;
+	text-align: center;
+
+	p {
+		display: block;
+		color: white;
+		text-align: center;
+	}
+
+	#logo-title {
+		font-family: "Pacifico";
+		font-size: 80pt;
+	}
+}
 
 // .full-width {
 // 	// margin: 0;
