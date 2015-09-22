@@ -1,30 +1,28 @@
-<!-- <div class="row full-width">
-  <div class="large-12 columns"> -->
+<div>
+<nav class="top-bar" data-topbar>
+  <ul class="title-area">
 
-  <nav class="top-bar" data-topbar>
-    <ul class="title-area">
-
-      <li class="name">
-        <h1><%= link_to "mojoe", root_path %></h1>
-      </li>
-      <li class="toggle-topbar menu-icon"><a href="#"><span>menu</span></a></li>
+    <li class="name">
+      <h1><%= link_to "mojoe", root_path %></h1>
+    </li>
+    <li class="toggle-topbar menu-icon"><a href="#"><span>menu</span></a></li>
+  </ul>
+  <% flash[:error] %>
+  <section class="top-bar-section">
+    <ul class="right">
+      <% if user_logged_in? %>
+      <li><%= link_to "#{current_user.first_name}'s profile", profile_path %></li>
+      <li><%= link_to "log out", logout_path, method: :delete %></li>
+      <% elsif cafe_logged_in? %>
+      <li><%= link_to "#{current_cafe.name}'s profile", cafes_profile_path %></li>
+      <li><%= link_to "log out", cafes_logout_path, method: :delete %></li>
+      <% else %>
+      <li><%= link_to "register", "#register-modal", id: "register-modal-trigger", rel:"leanModal" %></li>
+      <li><%= link_to "log in", "#login-modal", id:"login-modal-trigger", rel:"leanModal" %></li>
+      <% end %>
     </ul>
-    <% flash[:error] %>
-    <section class="top-bar-section">
-      <ul class="right">
-        <% if user_logged_in? %>
-        <li><%= link_to "#{current_user.first_name}'s profile", profile_path %></li>
-        <li><%= link_to "log out", logout_path, method: :delete %></li>
-        <% elsif cafe_logged_in? %>
-        <li><%= link_to "#{current_cafe.name}'s profile", cafes_profile_path %></li>
-        <li><%= link_to "log out", cafes_logout_path, method: :delete %></li>
-        <% else %>
-        <li><%= link_to "register", "#register-modal", id: "register-modal-trigger", rel:"leanModal" %></li>
-        <li><%= link_to "log in", "#login-modal", id:"login-modal-trigger", rel:"leanModal" %></li>
-        <% end %>
-      </ul>
-    </section>
-  </nav>
-<!-- </div>
-</div>  
- -->
+  </section>
+</nav>
+</div>
+
+
