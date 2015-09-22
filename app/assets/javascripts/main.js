@@ -10,7 +10,7 @@ $(document).ready(function() {
     initProfileToggle()
   }
 
-  if ($('#cafe_index').length) {
+  if ($('.tags-topbar').length) {
     initCafeFilter();
   }
 
