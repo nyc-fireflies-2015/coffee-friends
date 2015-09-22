@@ -7,7 +7,8 @@ function initMap() {
   geocoder = new google.maps.Geocoder();
 
   var mapOptions = {
-    zoom: 16
+    zoom: 16,
+    scrollwheel: false
   }
   map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
