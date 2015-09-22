@@ -1,5 +1,5 @@
-$header-bar-color: #FFFFFF;
-$body-color: #F2F2ED;
+$header-bar-color: #f4f4f4;;
+$body-color: #e1e3e4;
 $raspberry-logo-color: #D15271;
 $maroon-text-color: #5e0231;
 $accent-blue-color: #3E6A81;
@@ -24,12 +24,27 @@ body { background-color: $body-color; }
  }
 
  .top-bar-section li:not(.has-form) a:not(.button) {
- 	background: white;
+ 	background: $header-bar-color;
  }   
 
   .top-bar-section li:not(.has-form) a:not(.button):hover {
- 	background: white;
+ 	background: $header-bar-color;
  }  
+
+ .top-bar .name h1 a:before {
+    background-image: generated-image-url('coffee_logo.png');
+    background-repeat: no-repeat;
+    content: "";
+    display: inline-block;
+    height: 18px;
+    margin-right: 10px;
+    position: relative;
+    width: 18px;
+}
+
+ .title-area #logo-img img {
+ 	width: 50px;
+ }
 
 #logo-text {
 	position: absolute;
@@ -60,5 +75,5 @@ body { background-color: $body-color; }
 }
 
 #main-img img {
-	opacity: 0.65;
+	opacity: 0.55;
 }
