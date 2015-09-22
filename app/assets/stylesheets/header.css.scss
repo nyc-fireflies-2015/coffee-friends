@@ -1,0 +1,89 @@
+$header-bar-color: #f4f4f4;;
+$body-color: #e1e3e4;
+$raspberry-logo-color: #D15271;
+$maroon-text-color: #5e0231;
+$light-blue: #60C2D2;
+$darker-blue: #49A4B3;
+
+
+body { background-color: $body-color; }
+
+.row { background-color: $body-color; }
+
+.title-area li {
+	display: inline-block;
+	vertical-align: center;
+}
+
+#logo {
+	position: relative;
+	width: 100%;
+	h1 {
+		top: -5px;
+		left: 50px;
+		position: absolute;
+		width: 100%;
+		z-index: 1;
+	}
+	img {
+		height: 60px;
+		margin-top: 10px;
+		margin-left: 10px;
+		// icon created by https://www.iconfinder.com/vivien274
+	}
+}
+
+.title-area .name h1 a {
+	font-family: "Pacifico", sans-serif;
+}
+
+.top-bar-section li a:not(.button) {
+    background:white;
+    color: $maroon-text-color;
+}
+
+.top-bar-section li a:not(.button):hover {
+    background:white;
+    color: $darker-blue;
+    font-weight: 700;
+ }
+
+ .top-bar-section li:not(.has-form) a:not(.button) {
+ 	background: $header-bar-color;
+ }   
+
+  .top-bar-section li:not(.has-form) a:not(.button):hover {
+ 	background: $header-bar-color;
+ }  
+
+#logo-text {
+	position: absolute;
+	top: 200px;
+	z-index: 1;
+	width: 100%;
+	text-align: center;
+
+	p {
+		display: block;
+		color: white;
+		text-align: center;
+		text-shadow: 0 0 6px #3D1F00;
+	}
+
+	#logo-subtitle {
+		font-family: "Quicksand";
+		font-size: 26pt;
+		padding: 0;
+		margin-top: -30px;
+		font-weight: 700;
+	}
+
+	#logo-title {
+		font-family: "Pacifico";
+		font-size: 100pt;
+	}
+}
+
+#main-img img {
+	opacity: 0.55;
+}
