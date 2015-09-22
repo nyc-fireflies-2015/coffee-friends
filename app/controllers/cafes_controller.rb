@@ -1,5 +1,6 @@
 class CafesController < ApplicationController
 
+
   def index
     @cafes = Cafe.all
     if request.xhr?
@@ -15,11 +16,13 @@ class CafesController < ApplicationController
     @menu_item = MenuItem.new
     @menu_items = @cafe.menu_items
     @charitable_gifts = @cafe.unredeemed_charitable_gifts
-    if params[:search]
+    @unredeemed_coffee_gifts = @cafe.unredeemed_coffee_gifts
+    if request.xhr?
       @unredeemed_coffee_gifts = @cafe.search(params[:search]).order("created_at DESC")
-    else
-      @unredeemed_coffee_gifts = @cafe.unredeemed_coffee_gifts
+      render :partial => "unredeemed_coffee_gift", collection: @unredeemed_coffee_gifts
     end
+
+
   end
 
   def update

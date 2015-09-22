@@ -3,11 +3,12 @@
   <div class="small-12 medium-9 medium-centered columns">
     <ul class="accordion" data-accordion>
   <li class="accordion-navigation">
-    <a href="#charitable">Charitable Gifts(<%=@charitable_gifts.count%>)</a>
-        <div id="charitable" class="content active">
+    <a href="#charitable">Charitable Gifts (<%=@charitable_gifts.count%>)</a>
+        <div id="charitable" class="content">
           <% @charitable_gifts.each do |gift| %>
             <ul class="vcard">
               <li class="fn"><%= gift.name %> </li>
+              <br>
               <li class="locality"><%= form_for gift do |f| %>
               <%= f.submit "redeem" %>
               <% end%></li>
@@ -17,33 +18,20 @@
     </li>
 
     <li class="accordion-navigation">
-    <a href="#search">Unredeemed Gifts(<%=@unredeemed_coffee_gifts.count%>)</a>
-        <div id="search" class="content active">
+    <a href="#search-wrapper">Unredeemed Gifts (<%=@unredeemed_coffee_gifts.count%>)</a>
+        <div id="search-wrapper" class="content">
            <%= form_tag(@cafe, :method => "get", id: "search-form") do %>
             <%= text_field_tag :search, params[:search], placeholder: "Search Redemption Codes" %>
             <% end %>
+            <br>
+            <div id= "search-results"></div>
         </div>
-    </li>
-</ul>
-
-
-    <h3 class="subheader">Unredeemed Gifts</h3>
-    <ul>
-      <% @unredeemed_coffee_gifts.each do |gift| %>
-      <li>
-        <% if gift.receiver %>
-        <%= form_for gift do |f| %>
-        <%= f.submit "redeem" %>
-        <% end%>
-        <b>Receiver</b>:<%= gift.receiver.username %>...
-        <% else%>
-        <b>Receiver</b>:<%= gift.phone %>(unregistered user)
-        <%end%>
-        Drink: <%=gift.name %>...<b>Secret Redemption Code</b>: <%= gift.redemption_code %></li>
-        <%end%>
-      </ul>
+        </li>
+    </ul>
 
       <hr>
-
     </div>
   </div>
+
+<input type="hidden" value="<%=@cafe.id%>" id="cafe_id">
+<input type="hidden" value="<%=@unredeemed_coffee_gifts%>" id="unredeemed_coffee_gifts">
