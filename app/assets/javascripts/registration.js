@@ -23,7 +23,7 @@ function initRegistrationPopups() {
 		$("#cafe-login").show();
 	}
 
-	if ($("#user-login-errors").text().length > 3) {
+	if ($("#user-login-errors").text().length > 5) {
 		$("#login-modal-trigger").click();
 	}
 };
