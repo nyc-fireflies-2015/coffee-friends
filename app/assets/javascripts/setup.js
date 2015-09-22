@@ -1,6 +1,21 @@
 $(document).ready(function() {
-  initCafeFilter();
+
   initRegistrationPopups();
-  initDropdowns();
-  initProfileToggle()
+
+  if ($('#map').length) {
+      initMap()
+  }
+
+  if ($('#user_profile').length) {
+      initProfileToggle()
+  }
+
+   if ($('#cafe_index').length) {
+      initCafeFilter();
+  }
+
+   if ($('#new_coffee').length) {
+        initDropdowns();
+    }
+
 });
