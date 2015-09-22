@@ -1,24 +1,31 @@
-<div class="search">
-  <%= form_tag(@cafe, :method => "get", id: "search-form") do %>
-  <%= text_field_tag :search, params[:search], placeholder: "Search Redemption Codes" %>
-  <%= submit_tag "Search" %>
-  <% end %>
-</div>
-
+<hr>
 <div class="row">
-  <div class="small-12 medium-9 medium-centered large-6 large-centered columns">
-    <hr>
-
+  <div class="small-12 medium-9 medium-centered columns">
     <ul class="accordion" data-accordion>
   <li class="accordion-navigation">
     <a href="#charitable">Charitable Gifts(<%=@charitable_gifts.count%>)</a>
-    <div id="charitable" class="content active">
-      <%= render @charitable_gifts %>
-    </div>
-  </li>
+        <div id="charitable" class="content active">
+          <% @charitable_gifts.each do |gift| %>
+            <ul class="vcard">
+              <li class="fn"><%= gift.name %> </li>
+              <li class="locality"><%= form_for gift do |f| %>
+              <%= f.submit "redeem" %>
+              <% end%></li>
+            </ul>
+            <%end%>
+        </div>
+    </li>
+
+    <li class="accordion-navigation">
+    <a href="#search">Unredeemed Gifts(<%=@unredeemed_coffee_gifts.count%>)</a>
+        <div id="search" class="content active">
+           <%= form_tag(@cafe, :method => "get", id: "search-form") do %>
+            <%= text_field_tag :search, params[:search], placeholder: "Search Redemption Codes" %>
+            <% end %>
+        </div>
+    </li>
 </ul>
 
-    <h3 class="subheader">Redeemed Gift Count: <%= @cafe.redeemed_coffee_gifts.count %></h3>
 
     <h3 class="subheader">Unredeemed Gifts</h3>
     <ul>
