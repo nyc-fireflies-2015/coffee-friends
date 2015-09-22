@@ -1,9 +1,12 @@
 User.create(first_name:"Derpson",last_name:"Appuccino", password: "password",
 email:"derpson@appuccino.com", phone:"2064326178")
 
-25.times {User.create( first_name: Faker::Name.first_name,
+25.times do
+  n = Faker::Name.first_name
+  User.create( first_name: n,
 last_name:Faker::Name.last_name,    password: "password",
-email:Faker::Internet.email, phone: Random.new.rand(1_000_000_000..9_999_999_999).to_s, picture: Faker::Avatar.image)}
+email:"#{n}#{rand(1000)}@example.com", phone: Random.new.rand(1_000_000_000..9_999_999_999).to_s, picture: Faker::Avatar.image)
+end
 
 prices = [2.85, 3.45, 3.95, 3.35, 4.45, 1.75, 2.10, 3.65, 4.65, 2.35]
 drinks = ["Americano", "Latte", "Cappuccino", "Macchiato", "Single origin aeropress", "Pour over", "Drip", "Espresso", "Cortado", "Flat white", "Affogato"]
