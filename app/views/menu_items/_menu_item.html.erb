@@ -1,6 +1,6 @@
 <li>
     <ul>
-    	<h4><%= menu_item.name %>: $<%=menu_item.formatted_price %></h4>
+    	<h4><%= menu_item.name %>: $<%= format_price(menu_item.price) %></h4>
     	<li>
     		<%= render partial:"menu_items/delete", locals: {menu_item: menu_item, cafe: @cafe} %>
     	</li>
