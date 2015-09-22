@@ -13,7 +13,7 @@ class UsersController < ApplicationController
       user.find_associated_coffees
       redirect_to root_path
     else
-      # display error on main page
+      flash[:reg_error]=user.errors.full_messages
       redirect_to root_path
     end
   end

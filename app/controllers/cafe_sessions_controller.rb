@@ -8,12 +8,8 @@ class CafeSessionsController < ApplicationController
     if @cafe && @cafe.authenticate(cafe_session_params[:password])
       log_in_cafe(@cafe)
       redirect_to cafes_profile_path
-    elsif @cafe
-      flash[:password_error] = "Incorrect password"
-      redirect_to root_path
     else
-      @cafe = Cafe.new(cafe_session_params)
-      flash[:auth_error] = "Username not found"
+      flash[:cafe_error] = "Incorrect username or password"
       redirect_to root_path
     end
   end

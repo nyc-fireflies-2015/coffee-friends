@@ -12,4 +12,14 @@ function initRegistrationPopups() {
 		$("#cafe-login").hide();
 		$("#user-login").show();
 	})
+
+	if ($("#registration-errors").text().length > 3) {
+		$("#register-modal-trigger").click();
+	}
+
+	if ($("#cafe-login-errors").text().length > 3) {
+		$("#login-modal-trigger").click();
+		$("#user-login").hide();
+		$("#cafe-login").show();
+	}
 };
