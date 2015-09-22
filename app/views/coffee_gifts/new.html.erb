@@ -12,12 +12,13 @@
 
     <%= f.text_area :message, size: "30x6", placeholder: "Include a personal note!", label: false  %>
 
-
+    <%= f.hidden_field :menu_item, :value => "$menu_item_id" %>
     <%= f.submit "Send coffee", :class=>"button expand" %>
   <% end %>
 
 
 </div>
+
 
 
 
