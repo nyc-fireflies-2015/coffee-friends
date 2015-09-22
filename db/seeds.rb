@@ -3,10 +3,12 @@ email:"derpson@appuccino.com", phone:"2064326178")
 
 25.times {User.create( first_name: Faker::Name.first_name,
 last_name:Faker::Name.last_name,    password: "password",
-email:Faker::Internet.email, phone: Random.new.rand(1_000_000_000..9_999_999_999).to_s, picture: Faker::Avatar.image)}
+
+email:Faker::Internet.email, phone: Random.new.rand(1_000_000_000..9_999_999_999).to_s)}
 
 prices = [2.85, 3.45, 3.95, 3.35, 4.45, 1.75, 2.10, 3.65, 4.65, 2.35]
 drinks = ["Americano", "Latte", "Cappuccino", "Macchiato", "Single origin aeropress", "Pour over", "Drip", "Espresso", "Cortado", "Flat white", "Affogato"]
+
 
 Cafe.create(name: "Bluestone Lane", address: "30 Broad
 St, New York, NY 10004", email: "cafe@example.com", password: 'password', borough:"Manhattan",

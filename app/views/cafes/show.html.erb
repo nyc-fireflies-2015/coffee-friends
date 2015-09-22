@@ -5,9 +5,38 @@
 </div>
 
 <div class="row">
-  <div class="small-12 columns">
-    <%= image_tag(@cafe.picture, :class=>"square") %>
-  </div>
+
+  <ul class="vcard">
+    <div class="small-12 medium-6 columns">
+            <ul data-orbit>
+        <li>
+          <%= image_tag(@cafe.picture, :class=>"square")%>
+          <div class="orbit-caption">
+            <%= @cafe.name%>
+          </div>
+        </li>
+        <li class="active">
+          <%= image_tag(@yelp_image, :class=>"square") %>
+          <div class="orbit-caption">
+            <%= image_tag("yelp_icon.png")%>
+          </div>
+        </li>
+    </ul>
+    </div>
+ <div class="small-12 medium-6 columns">
+    <%= image_tag("yelp.png")%>
+    <hr>
+    <li class="fn">Rating: </li>
+    <li><%= image_tag(@yelp_rating) %></li>
+    <br>
+    <li class="locality"><kbd><%=@yelp_review_count%></kbd> total reviews </li>
+    <br>
+    <li>Phone: <%= @yelp_phone%></li>
+    <br>
+    <li class="email"><a href="<%=@yelp_link%>"><%=@yelp_link%></a></li>
+</div>
+</ul>
+
 </div>
 
 
@@ -27,8 +56,10 @@
   </div>
 </div>
 
+
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0ANj-_Y97WTsypYl0KW0H4Jia784RfY8&libraries=places&callback=initMap"
 type="text/javascript"></script>
+
 
 
 

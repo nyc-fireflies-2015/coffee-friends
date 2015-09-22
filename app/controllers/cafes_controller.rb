@@ -14,6 +14,19 @@ class CafesController < ApplicationController
     @cafe = current_cafe unless @cafe
     @menu_item = MenuItem.new
     @menu_items = @cafe.menu_items
+
+    
+      @yelp = Yelp.client.search(@cafe.address.gsub!("\n",' '), {term: @cafe.name})
+      @yelp_image = @yelp.businesses.first.image_url.chomp('ms.jpg')+"o.jpg"
+      @yelp_rating = @yelp.businesses.first.rating_img_url_large
+      @yelp_review_count = @yelp.businesses.first.review_count
+      begin
+      @yelp_phone = @yelp.businesses.first.display_phone
+      rescue
+        @yelp_phone = "not found"
+      end
+      @yelp_link = @yelp.businesses.first.url
+
     if params[:search]
       @unredeemed_coffee_gifts = @cafe.search(params[:search]).order("created_at DESC")
     else
