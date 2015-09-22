@@ -2,6 +2,9 @@ $(document).ready(function() {
 
   initRegistrationPopups();
 
+  // adjust scope
+  initGiftFormDropdown();
+
   if ($('#map').length) {
     initMap()
   }

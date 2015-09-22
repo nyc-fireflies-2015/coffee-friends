@@ -9,6 +9,7 @@ class CoffeeGiftsController < ApplicationController
 		@menu_items = @cafe.menu_items
 		@receivers = User.all
 		@coffee_gift = CoffeeGift.new
+		render :new, layout: !request.xhr?
 	end
 
 	def create
