@@ -6,12 +6,24 @@
 
 <div class="row">
 
-    <ul class="vcard">
+  <ul class="vcard">
     <div class="small-12 medium-6 columns">
-      <%= image_tag(@yelp_image, :class=>"square") %>
+            <ul data-orbit>
+        <li>
+          <%= image_tag(@cafe.picture, :class=>"square")%>
+          <div class="orbit-caption">
+            <%= @cafe.name%>
+          </div>
+        </li>
+        <li class="active">
+          <%= image_tag(@yelp_image, :class=>"square") %>
+          <div class="orbit-caption">
+            <%= image_tag("yelp_icon.png")%>
+          </div>
+        </li>
+    </ul>
     </div>
-
-    <div class="small-12 medium-6 columns">
+ <div class="small-12 medium-6 columns">
     <%= image_tag("yelp.png")%>
     <hr>
     <li class="fn">Rating: </li>
@@ -22,8 +34,8 @@
     <li>Phone: <%= @yelp_phone%></li>
     <br>
     <li class="email"><a href="<%=@yelp_link%>"><%=@yelp_link%></a></li>
-    </div>
-  </ul>
+</div>
+</ul>
 
 </div>
 
