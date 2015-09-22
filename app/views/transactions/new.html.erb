@@ -1,0 +1,11 @@
+<div class="form-container radius-box glassy-bg small-10 small-centered medium-8 large-6 columns">
+  <% if flash[:alert] %>
+    <p class="alert"><%=flash[:alert]%></p>
+  <% end %>
+  <h2 class="mbs">New Transaction</h2>
+  <%= form_tag transactions_path do%>
+    <p>Please enter your payment details:</p>
+    <div id="dropin"></div>
+    <%=submit_tag "Pay #{@coffee_gift.price}$", class: "button mt1" %>
+  <%end%>
+</div>

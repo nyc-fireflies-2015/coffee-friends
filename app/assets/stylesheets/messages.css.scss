@@ -1,0 +1,7 @@
+@import "foundation/components/panels";
+
+.success-panel {
+  @include panel(
+    $bg:#E0F0B2
+  );
+}

@@ -6,18 +6,19 @@
 
   <title><%= content_for?(:title) ? yield(:title) : "mojoe" %></title>
 
-
+  <%= include_gon %>
   <%= stylesheet_link_tag    'application' %>
   <%= javascript_include_tag "vendor/modernizr" %>
   <%= javascript_include_tag "application"  %>
   <%= favicon_link_tag("coffee_logo.png") %>
   <%= csrf_meta_tags %>
   <link href='https://fonts.googleapis.com/css?family=Pacifico|Quicksand:400,300,700|Nunito:400,300,700' rel='stylesheet' type='text/css'>
+  <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?sensor=false" %>
+
 
 </head>
 
 <body>
-
   <%= render "layouts/header" %>
   <%= render "welcome/register" %>
   <%= render "welcome/login" %>
@@ -26,6 +27,7 @@
 
   <%= render "layouts/footer" %>
 
-
 </body>
+
+<script src="https://js.braintreegateway.com/v2/braintree.js"></script>
 </html>

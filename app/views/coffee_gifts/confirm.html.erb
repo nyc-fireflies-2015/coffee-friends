@@ -1,21 +1,43 @@
 <% if flash[:error] %>
+
   <h1><%=flash[:error]%></h1>
-<% elsif flash[:notice] %>
-  <h1><%=flash[:notice]%></h1>
+  <hr>
 
-  <h2>Here are the details of your purchase: </h2>
+<% else  %>
 
-  <% if @coffee_gift.receiver %>
-    <p>Sent To: <%=@coffee_gift.receiver.full_name%></p>
-  <% elsif @coffee_gift.charitable %>
-    <p>Sent To: some lucky person!</p>
-  <% else %>
-    <p>Sent To: <%=@coffee_gift.phone%></p>
+  <% if flash[:notice] %>
+   <h1><%=flash[:notice]%></h1>
+   <hr>
   <% end %>
 
-  <p>Good for one <%=@coffee_gift.name%> at <%=@cafe.name%></p>
+  <div class="success-panel text-center">
+    <p>Coffee has been sent </p>
+  </div>
 
-  <p>Pick up at: <%=@cafe.address %></p>
+
+  <% if @coffee_gift.charitable %>
+    <h4 class="text-center">
+    We will send an email to <span class="bold"><%=@cafe.name%></span>, informing them of your gift.
+    <h4>
+  <% elsif @coffee_gift.receiver %>
+    <h4 class="text-center">
+    We will send an SMS to <span class="bold"><%=@coffee_gift.receiver.full_name%></span>
+    <h4>
+
+    <h4 class="text-center">
+    Then they may pick up their <span class="bold"><%=@coffee_gift.name%></span> at <span class="bold"><%=@cafe.name%></span>.
+     <h4>
+  <% else %>
+    <h4 class="text-center">
+    We will send an SMS to <span class="bold"><%=format_phone(@coffee_gift.phone)%></span>
+    <h4>
+
+    <h4 class="text-center">
+    Then your friend may pick up their <span class="bold"><%=@coffee_gift.name%></span> at <span class="bold"><%=@cafe.name%></span>.
+     <h4>
+  <% end %>
+
+
 <% end %>
 
 

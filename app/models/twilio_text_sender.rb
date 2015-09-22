@@ -22,12 +22,12 @@ module TwilioTextSender
 		configure_client
 		begin
 			@client.account.messages.create({
-				from: '+12178074310',
+				from: ENV["twilio_phone"],
 				to: coffee_gift.phone,
 				body: text_body
 			})
 		rescue Twilio::REST::RequestError => e
-			puts e.message
+			puts "ERROR: #{e.message}"
 		end
 	end
 
