@@ -103,6 +103,7 @@ $header-logo-color: #D15271;
 $header-links-color: #5e0231;
 $main-headers-font-color: #5e0231;
 $accent-blue-color: #3E6A81;
+$maroon-text-color: #5e0231;
 $white       : #FFFFFF;
 // $ghost       : #FAFAFA;
 // $snow        : #F9F9F9;
@@ -1438,8 +1439,8 @@ $topbar-link-font-family: $body-font-family;
 // $topbar-menu-link-transform: uppercase;
 // $topbar-menu-link-font-size: rem-calc(13);
 // $topbar-menu-link-weight: $font-weight-bold;
-// $topbar-menu-link-color: $header-links-color;
-$topbar-menu-icon-color: $white;
+$topbar-menu-link-color: $header-logo-color;
+$topbar-menu-icon-color: $header-logo-color;
 // $topbar-menu-link-color-toggled: $jumbo;
 // $topbar-menu-icon-color-toggled: $jumbo;
 

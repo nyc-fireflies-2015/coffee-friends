@@ -53,6 +53,10 @@ body { background-color: $body-color; }
  	background: $header-bar-color;
  }  
 
+ .toggle-topbar .menu-icon a{
+ 	color: $maroon-text-color;
+ }
+
 #logo-text {
 	position: absolute;
 	top: 200px;
