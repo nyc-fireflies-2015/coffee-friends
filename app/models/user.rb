@@ -17,6 +17,10 @@ class User < ActiveRecord::Base
 
 	before_save :extract_username, :downcase_names
 
+	def received_coffee?(coffee_gift)
+		self == coffee_gift.receiver
+	end
+
 	def sent_or_received_coffee?(coffee_gift)
 		self == coffee_gift.giver || self == coffee_gift.receiver
 	end
