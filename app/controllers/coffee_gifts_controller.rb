@@ -15,11 +15,10 @@ class CoffeeGiftsController < ApplicationController
 		cafe = Cafe.find_by(id: params[:cafe_id])
 		coffee_gift = current_user.given_coffees.build(coffee_gift_params)
 		coffee_gift.assign_phone(params[:coffee_gift])
-		cc = CreditCard.new(params["cc"])
-		transaction = BraintreePayment.new(coffee_gift, cc)
-		if coffee_gift.save && transaction.send_payment(flash)
-			TwilioTextSender.send!(coffee_gift)
-			redirect_to confirmation_path(coffee_gift)
+		if coffee_gift.save
+			session[:tmp] = coffee_gift.id
+			session[:tmp_price] = coffee_gift.price
+			redirect_to new_transaction_path
 		else
 			coffee_gift.destroy
 			flash[:error] = coffee_gift.errors.full_messages

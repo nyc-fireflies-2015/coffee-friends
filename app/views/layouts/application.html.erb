@@ -20,7 +20,7 @@
   <%= render "layouts/header" %>
   <%= render "welcome/register" %>
   <%= render "welcome/login" %>
-
+<%= flash[:alert] if flash[:alert] %>
   <div class="row">
     <div class="small-12 columns">
       <%= yield %>

@@ -3,7 +3,7 @@
     <br>
     <h1>Send Some Coffee from <%=@cafe.name%>!</h1>
 
-  <%= form_for @coffee_gift, url: new_transaction_path do |f| %>
+  <%= form_for @coffee_gift, url: cafe_coffee_gifts_path(@cafe) do |f| %>
 
     <%= f.collection_select(:receiver, @receivers, :id, :combined_value, include_blank: true, label:false)  %>
     <%= @coffee_gift.errors[:reciever].first %>
