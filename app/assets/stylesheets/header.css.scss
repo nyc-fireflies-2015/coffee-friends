@@ -35,8 +35,15 @@ body { background-color: #F2F2ED; }
 
 	p {
 		display: block;
-		color: #5e0231;
+		color: white;
 		text-align: center;
+	}
+
+	#logo-subtitle {
+		font-family: "Quicksand";
+		font-size: 26pt;
+		// font-style: italic;
+		font-weight: 700;
 	}
 
 	#logo-title {
