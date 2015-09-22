@@ -1,0 +1,23 @@
+<hr>
+<div class="row">
+  <div class="small-12 medium-6  columns">
+    <h2 class="subheader">Address</h2>
+    <ul class="vcard">
+      <li><%=@cafe.address%></li>
+    </ul>
+    <div class="show-for-medium-up">
+      <div style="height:350px;width:100%" id="map"></div>
+      <input id="address" type="hidden" value="<%=@cafe.address%>">
+    </div>
+  </div>
+  <div class="small-12 medium-6 columns">
+    <h2 class="subheader">Menu Items</h2>
+    <br><br><br>
+    <% @cafe.menu_items.each do |item| %>
+    <ul class="accordion" data-accordion>
+      <li class="accordion-navigation">
+        <a><%= render partial: "menu_items/display_item" ,locals: {menu_item: item} %></a>
+      </li>
+    </ul>
+    <%end%>
+    <br>
