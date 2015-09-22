@@ -1,7 +1,7 @@
 class CoffeeGiftsController < ApplicationController
 
 	before_action :authenticate_user, except: [:update, :filter]
-	before_action :authorize_user, only: [:show]
+	# before_action :authorize_user, only: [:show]
 	before_action :find_coffee_gift, except: [:new, :create, :filter]
 
 	def new
@@ -53,10 +53,9 @@ class CoffeeGiftsController < ApplicationController
 		@coffee_gift = CoffeeGift.find_by(id: params[:id])
 	end
 
-	def authorize_user
-		find_coffee_gift
-		redirect_to root_path unless current_user.received_coffee?(@coffee_gift)
-	end
+	# def authorize_user
+	# 	redirect_to root_path unless current_user.received_coffee?(@coffee_gift)
+	# end
 
 	def authenticate_user
 		unless current_user
