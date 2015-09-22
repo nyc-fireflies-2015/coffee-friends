@@ -28,8 +28,6 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'validates_email_format_of'
 
-gem 'phony_rails'
-
 gem 'faker'
 
 gem 'rails_12factor'
@@ -55,6 +53,15 @@ group :development do
 	# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 	gem 'spring'
 end
+
+# allows for secure storage of env vars
+gem 'figaro'
+
+# group :development do
+# 	# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+# 	gem 'spring'
+# end
+
 
 group :development, :test do
 	gem 'pry'

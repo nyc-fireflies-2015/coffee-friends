@@ -1,8 +1,8 @@
 class CoffeeGiftsController < ApplicationController
 
 	before_action :authenticate_user, except: [:update, :filter]
-	before_action :authorize_user, only: [:show]
 	before_action :find_coffee_gift, except: [:new, :create, :filter]
+	before_action :authorize_user, only: [:show]
 
 	def new
 		@cafe = Cafe.find_by(id: params[:cafe_id])
@@ -18,10 +18,10 @@ class CoffeeGiftsController < ApplicationController
 		cc = CreditCard.new(params["cc"])
 		transaction = BraintreePayment.new(coffee_gift, cc)
 		if coffee_gift.save && transaction.send_payment(flash)
-			text = TwilioTextSender.new(coffee_gift)
-			text.send!
+			TwilioTextSender.send!(coffee_gift)
 			redirect_to confirmation_path(coffee_gift)
 		else
+			coffee_gift.destroy
 			flash[:error] = coffee_gift.errors.full_messages
 			redirect_to new_cafe_coffee_gift_path(cafe)
 		end
@@ -30,8 +30,7 @@ class CoffeeGiftsController < ApplicationController
 	def update
 		if @coffee_gift.update_attributes(redeemed: true)
 			flash[:notice] = "Coffee Redeemed!"
-			redeem_text = TwilioTextSender.new(@coffee_gift)
-			redeem_text.send!
+			TwilioTextSender.send!(@coffee_gift)
 			redirect_to cafes_profile_path
 		else
 			flash[:error] = ["Unable to redeem voucher"]
@@ -55,7 +54,9 @@ class CoffeeGiftsController < ApplicationController
 
 	def authorize_user
 		find_coffee_gift
-		redirect_to root_path unless current_user.received_coffee?(@coffee_gift)
+		unless current_user.sent_or_received_coffee?(@coffee_gift)
+			redirect_to root_path
+		end
 	end
 
 	def authenticate_user
