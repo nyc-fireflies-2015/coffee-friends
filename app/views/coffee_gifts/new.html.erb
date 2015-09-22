@@ -2,23 +2,15 @@
 
   <%= form_for @coffee_gift, url: cafe_coffee_gifts_path(@cafe) do |f| %>
 
-    <%= f.collection_select(:receiver, @receivers, :id, :combined_value, include_blank: true, label:false)  %>
+    <%= f.collection_select(:receiver, @receivers, :id, :combined_value, include_blank: "Option 1: Search for a user", label:false)  %>
     <%= @coffee_gift.errors[:reciever].first %>
 
-    OR
-
-    <%= f.text_field :phone, placeholder: "Enter phone number", maxlength: "10", label: false %>
+    <%= f.text_field :phone, placeholder: "Option 2: Enter a phone number", maxlength: "10", label: false %>
     <%= @coffee_gift.errors[:phone].first %>
 
-    OR
+    <%= f.check_box :charitable, label: "Option 3: Buy coffee for a stranger" %>
 
-    <%= f.check_box :charitable, label: false %>
-    <%= f.label :charitable, "Do something extra nice! Send coffee to someone you don't know." %>
-
-    <%= f.collection_select(:menu_item, @menu_items, :id ,:combined_value, include_blank: true, label: false)  %>
-    <%= @coffee_gift.errors[:menu_item].first %>
-
-    <%= f.text_area :message, size: "30x6", placeholder: "Include a personal note!"  %>
+    <%= f.text_area :message, size: "30x6", placeholder: "Include a personal note!", label: false  %>
 
 
     <%= f.submit "Send coffee", :class=>"button expand" %>
@@ -26,5 +18,6 @@
 
 
 </div>
+
 
 
