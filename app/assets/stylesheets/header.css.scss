@@ -1,3 +1,5 @@
+$header-bar-color: #c7a693;
+
 .title-area .name h1 a {
 	font-family: "Pacifico", sans-serif;
 }
@@ -16,6 +18,10 @@
  	background: white;
  }   
 
+  .top-bar-section li:not(.has-form) a:not(.button):hover {
+ 	background: white;
+ }  
+
 #logo-text {
 	position: absolute;
 	top: 200px;
@@ -25,7 +31,7 @@
 
 	p {
 		display: block;
-		color: white;
+		color: #5e0231;
 		text-align: center;
 	}
 
@@ -36,7 +42,7 @@
 }
 
 #main-img img {
-	opacity: 0.75;
+	opacity: 0.55;
 }
 
 // .full-width {

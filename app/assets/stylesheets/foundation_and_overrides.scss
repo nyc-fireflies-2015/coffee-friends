@@ -90,7 +90,7 @@ $row-width: 100%;
 // We use these to define default font stacks
 // $font-family-sans-serif: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
 // $font-family-serif: Georgia, Cambria, "Times New Roman", Times, serif;
-$font-family-serif: 'Bitter', serif;
+$font-family-serif: 'Quicksand', serif;
 // $font-family-monospace: Consolas, "Liberation Mono", Courier, monospace;
 $font-family-monospace: 'Libre Baskerville', serif;
 
@@ -98,6 +98,8 @@ $font-family-monospace: 'Libre Baskerville', serif;
 // $font-weight-normal: normal !default;
 // $font-weight-bold: bold !default;
 
+$header-bar-color: #FFFFFF;
+$header-logo-color: #5e0231;
 $white       : #FFFFFF;
 // $ghost       : #FAFAFA;
 // $snow        : #F9F9F9;
@@ -209,7 +211,7 @@ $body-font-family: $font-family-serif;
 // $header-text-rendering: optimizeLegibility;
 
 // We use these to control header font sizes
-$h1-font-size: 26rem;
+// $h1-font-size: rem-calc(40);
 // $h2-font-size: rem-calc(37);
 // $h3-font-size: rem-calc(27);
 // $h4-font-size: rem-calc(23);
@@ -1369,7 +1371,7 @@ $tabs-navigation-font-family: $body-font-family;
 // $include-html-top-bar-classes: $include-html-classes;
 
 // Background color for the top bar
- $topbar-bg-color: rgba(0,0,0,0);
+ $topbar-bg-color: $header-bar-color;
  // $topbar-bg: $topbar-bg-color;
  // Height and margin
  $topbar-height: rem-calc(70);
@@ -1379,7 +1381,7 @@ $tabs-navigation-font-family: $body-font-family;
  $topbar-title-font-size: rem-calc(30);
  $topbar-title-font-family: "Pacifico";
  // Set the link colors and styles for top-level nav
- $topbar-link-color: $jet;
+ $topbar-link-color: $header-logo-color;
  $topbar-link-color-hover: $jet;
  $topbar-link-color-active: $jet;
  $topbar-link-color-active-hover: $jet;
