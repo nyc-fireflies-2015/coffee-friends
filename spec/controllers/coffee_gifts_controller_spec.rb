@@ -49,12 +49,14 @@ describe CoffeeGiftsController do
 
 		it 'creates a new coffee gift' do
 			log_in_user(user)
+			menu_item = cafe.menu_items.create(FactoryGirl.attributes_for(:menu_item))
 			attrs = FactoryGirl.attributes_for(:coffee_gift).merge(receiver: twilio_receiver.id, menu_item: menu_item)
 			expect{post :create, cafe_id: cafe, coffee_gift: attrs, cc: cc_info }.to change{CoffeeGift.all.count}.by(1)
 		end
 
 		it 'redirects to a confirmation page' do
 			log_in_user(user)
+			menu_item = cafe.menu_items.create(FactoryGirl.attributes_for(:menu_item))
 			attrs = FactoryGirl.attributes_for(:coffee_gift).merge(receiver: twilio_receiver.id, menu_item: menu_item)
 			post :create, cafe_id: cafe, coffee_gift: attrs, cc: cc_info
 			expect(response).to redirect_to(confirmation_path(CoffeeGift.last))
