@@ -2,16 +2,21 @@ class PictureUploader < CarrierWave::Uploader::Base
   include Cloudinary::CarrierWave
 
   process :convert => 'png'
-  process :tags => ['post_picture']
+  process :tags => ['picture']
 
-  version :standard do
+  version :mobile do
     eager
-    process :resize_to_fill => [400, 400, :north]
+    process :resize_to_fill => [600, 400, :north]
   end
 
-  version :small do
+  version :tablet do
     eager
-    process :resize_to_fill => [200, 200, :north]
+    process :resize_to_fill => [450, 300, :north]
+  end
+
+  version :desktop do
+    eager
+    process :resize_to_fill => [300, 200, :north]
   end
 
   version :thumbnail do
