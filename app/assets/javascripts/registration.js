@@ -22,4 +22,8 @@ function initRegistrationPopups() {
 		$("#user-login").hide();
 		$("#cafe-login").show();
 	}
+
+	if ($("#user-login-errors").text().length > 3) {
+		$("#login-modal-trigger").click();
+	}
 };

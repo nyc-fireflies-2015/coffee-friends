@@ -9,7 +9,7 @@ class CafeSessionsController < ApplicationController
       log_in_cafe(@cafe)
       redirect_to cafes_profile_path
     else
-      flash[:cafe_error] = "Incorrect username or password"
+      flash[:cafe_error] = "Incorrect email or password"
       redirect_to root_path
     end
   end
