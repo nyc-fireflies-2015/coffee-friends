@@ -1,8 +1,12 @@
-$header-bar-color: #c7a693;
+$header-bar-color: #FFFFFF;
+$body-color: #F2F2ED;
+$raspberry-logo-color: #D15271;
+$maroon-text-color: #5e0231;
+$accent-blue-color: #3E6A81;
 
-body { background-color: #F2F2ED; }
+body { background-color: $body-color; }
 
-.row { background-color: #F2F2ED; }
+.row { background-color: $body-color; }
 
 .title-area .name h1 a {
 	font-family: "Pacifico", sans-serif;
@@ -10,12 +14,13 @@ body { background-color: #F2F2ED; }
 
 .top-bar-section li a:not(.button) {
     background:white;
-    color: #5e0231;
+    color: $maroon-text-color;
 }
 
 .top-bar-section li a:not(.button):hover {
     background:white;
-    color: black;
+    color: $accent-blue-color;
+    font-weight: 700;
  }
 
  .top-bar-section li:not(.has-form) a:not(.button) {
@@ -37,12 +42,14 @@ body { background-color: #F2F2ED; }
 		display: block;
 		color: white;
 		text-align: center;
+		text-shadow: 0 0 6px #3D1F00;
 	}
 
 	#logo-subtitle {
 		font-family: "Quicksand";
 		font-size: 26pt;
-		// font-style: italic;
+		padding: 0;
+		margin-top: -30px;
 		font-weight: 700;
 	}
 
@@ -53,36 +60,5 @@ body { background-color: #F2F2ED; }
 }
 
 #main-img img {
-	opacity: 0.55;
+	opacity: 0.65;
 }
-
-// .full-width {
-// 	// margin: 0;
-// 	// padding: 0;
-// 	width: 100%;
-// 	// position: fixed;
-// 	margin-top: -70px;
-// 	// left: 0;
-// 	// right: 0;
-// 	z-index: 1;
-// }
-
-
-// .example-orbit {
-// 	width: 100% !important;
-// // }
-
-// .index-img {
-//  display:block;
-//  background: #FF5722 url('cafe.jpg') no-repeat center center fixed;
-//  -webkit-background-size: cover;
-//  -moz-background-size: cover;
-//  -o-background-size: cover;
-//  background-size: cover;
-//  width: 100%;
-//  height: auto;
-//  // min-height: auto;
-//  z-index:1;
-//  padding: 2rem;
-//  margin-top: -70px;
-// }
