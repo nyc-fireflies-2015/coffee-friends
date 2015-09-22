@@ -5,6 +5,12 @@
     <div class="modal_close"><%= image_tag("grey-close.png") %></div>
   </header>
 
+  <div id="cafe-login-errors" class="popupErrors">
+    <% if flash[:cafe_error] %>
+        <p><%= flash[:cafe_error] %></p>
+    <% end %>
+  </div>  
+
   <section class="popupBody">
     <%= form_for :cafe_session, url: cafes_sessions_path do |f| %>
     <%= f.text_field :email, placeholder: "Email", label: false%>

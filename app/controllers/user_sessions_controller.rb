@@ -7,11 +7,8 @@ class UserSessionsController < ApplicationController
     @user = User.find_by(email: user_session_params[:email])
     if @user && @user.authenticate(user_session_params[:password])
       log_in_user(@user)
-    elsif @user
-      flash[:password_error] = "Incorrect password"
     else
-      @user = User.new(user_session_params)
-      flash[:auth_error] = "Email not found"
+      flash[:login_error] = "Incorrect email or password"
     end
     redirect_to root_url
   end
