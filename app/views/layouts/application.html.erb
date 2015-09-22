@@ -6,7 +6,7 @@
 
   <title><%= content_for?(:title) ? yield(:title) : "mojoe" %></title>
 
-
+  <%= include_gon %>
   <%= stylesheet_link_tag    'application' %>
   <%= javascript_include_tag "vendor/modernizr" %>
   <%= javascript_include_tag "application"  %>
@@ -29,6 +29,7 @@
 
   <%= render "layouts/footer" %>
 
-
 </body>
+
+<script src="https://js.braintreegateway.com/v2/braintree.js"></script>
 </html>
