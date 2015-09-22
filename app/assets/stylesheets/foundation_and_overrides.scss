@@ -99,7 +99,8 @@ $font-family-monospace: 'Libre Baskerville', serif;
 // $font-weight-bold: bold !default;
 
 $header-bar-color: #FFFFFF;
-$header-logo-color: #5e0231;
+$header-logo-color: #D15271;
+$header-links-color: #5e0231;
 $white       : #FFFFFF;
 // $ghost       : #FAFAFA;
 // $snow        : #F9F9F9;
@@ -1435,7 +1436,7 @@ $topbar-link-font-family: $body-font-family;
 // $topbar-menu-link-transform: uppercase;
 // $topbar-menu-link-font-size: rem-calc(13);
 // $topbar-menu-link-weight: $font-weight-bold;
-// $topbar-menu-link-color: $white;
+$topbar-menu-link-color: $header-links-color;
 $topbar-menu-icon-color: $white;
 // $topbar-menu-link-color-toggled: $jumbo;
 // $topbar-menu-icon-color-toggled: $jumbo;

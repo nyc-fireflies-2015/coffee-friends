@@ -1,12 +1,16 @@
 $header-bar-color: #c7a693;
 
+body { background-color: #F2F2ED; }
+
+.row { background-color: #F2F2ED; }
+
 .title-area .name h1 a {
 	font-family: "Pacifico", sans-serif;
 }
 
 .top-bar-section li a:not(.button) {
     background:white;
-    color: black;
+    color: #5e0231;
 }
 
 .top-bar-section li a:not(.button):hover {
