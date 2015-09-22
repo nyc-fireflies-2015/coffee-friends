@@ -2,5 +2,6 @@ $(document).ready(function() {
   initCafeFilter();
   initRegistrationPopups();
   initDropdowns();
-  initProfileToggle()
+  initProfileToggle();
+  initPayments();
 });
