@@ -30,7 +30,13 @@
   <div class="row">
       <div class="small-12 columns">
       <ul class="pricing-table">
-        <li class="price"> You sent a <span class="bold"><%=@coffee_gift.name%></span> to <span class="bold"><%=@coffee_gift.receiver.first_name%> <%=@coffee_gift.receiver.last_name%></span> on <span class="bold"><%=@coffee_gift.created_at.strftime("%B %d, %Y")%></span></li>
+        <li class="price"> You sent a <span class="bold"><%=@coffee_gift.name%></span> to <span class="bold">
+          <% if @coffee_gift.receiver.first_name %>
+            <%=@coffee_gift.receiver.first_name%> <%=@coffee_gift.receiver.last_name%>
+          <% else %>
+            <%=@coffee_gift.phone%>
+          <% end %>
+          </span> on <span class="bold"><%=@coffee_gift.created_at.strftime("%B %d, %Y")%></span></li>
       </ul>
     </div>
   </div>
