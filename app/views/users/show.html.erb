@@ -38,6 +38,7 @@
               <a href="#received">Coffees Received (<%=@user.received_coffees.count%>)</a>
               <%unless @user.received_coffees.count == 0%>
               <div id="received" class="content">
+                <br>
                 <%= render partial: "coffee_gifts/coffee_gift", locals: {coffee_gifts: @received_coffees } %>
               </div>
               <%end%>
@@ -50,6 +51,7 @@
               <a href="#given">Coffees Sent (<%=@user.given_coffees.count%>)</a>
               <% unless @user.given_coffees.count == 0%>
               <div id="given" class="content active">
+                <br>
                 <%= render partial: "coffee_gifts/coffee_gift", locals: {coffee_gifts: @given_coffees } %>
               </div>
               <%end%>
