@@ -1,37 +1,36 @@
 <div id="user_profile" class="row">
-  <div class="large-12 columns">
-    <br>
+  <div class="small-12 medium-10 medium-offset-1 columns">
     <h1><%= @user.first_name %> <%= @user.last_name %></h1>
+    <hr>
   </div>
 </div>
 
-<div class="row">
-  <div class="small-12 columns"><hr></div>
+  <div class="row">
 
-  <div class="large-5 columns">
-    <%= cl_image_tag(@user.picture, :width => 400, :height => 400, :crop => :fill) %>
-  </div>
+    <div class="small-12 medium-10 medium-offset-1  columns">
 
-  <div class="large-5 columns">
-    <br>
+      <div class="small-12 medium-6  columns">
+      <%=cl_image_tag(@user.picture, :width=> 500, :height=> 500)%>
+      </div>
 
-    <ul class="no-bullet">
-      <li><span class="bold">username:</span> <%= @user.username %></li>
-      <li><span class="bold">email:</span> <%= @user.email %></li>
-      <li><span class="bold">phone:</span> <%= @user.phone %></li>
-    </ul>
-
-    <div class="panel">
-      <h5>Send coffee to a friend</h5>
-      <h6 class="subheader">They would love to hear from you, you attractive person you.</h6>
-      <%= link_to "View Cafés", root_path, class: "small button"  %>
+      <div class="small-12 medium-6  columns">
+        <ul class="no-bullet">
+          <li><span class="bold">username:</span> <%= @user.username %></li>
+          <li><span class="bold">email:</span> <%= @user.email %></li>
+          <li><span class="bold">phone:</span> <%= @user.phone %></li>
+        </ul>
+        <div class="panel">
+          <h5>Send coffee to a friend</h5>
+          <h6 class="subheader">They would love to hear from you, you attractive person you.</h6>
+          <%= link_to "View Cafés", root_path, class: "small button"  %>
+        </div>
+      </div>
     </div>
   </div>
-</div>
-
 
 <div class="row">
-  <div class="small-12 columns">
+  <hr>
+  <div class="small-12 medium-10 medium-offset-1 columns">
     <ul class="small-block-grid-1 medium-block-grid-2">
       <li>
         <ul class="accordion" data-accordion>
