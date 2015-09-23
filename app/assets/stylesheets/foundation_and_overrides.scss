@@ -80,6 +80,7 @@ $include-html-global-classes: $include-html-classes;
 // $include-xl-html-grid-classes: false;
 
 // $row-width: rem-calc(1000);
+$row-width: 100%;
 // $total-columns: 12;
 // $column-gutter: rem-calc(30);
 
@@ -89,13 +90,24 @@ $include-html-global-classes: $include-html-classes;
 // We use these to define default font stacks
 // $font-family-sans-serif: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
 // $font-family-serif: Georgia, Cambria, "Times New Roman", Times, serif;
+$font-family-serif: 'Quicksand', serif;
 // $font-family-monospace: Consolas, "Liberation Mono", Courier, monospace;
+$font-family-monospace: 'Nunito', serif;
 
 // We use these to define default font weights
 // $font-weight-normal: normal !default;
 // $font-weight-bold: bold !default;
 
-// $white       : #FFFFFF;
+$header-bar-color: #f4f4f4;
+$header-logo-color: #D15271;
+$header-links-color: #5e0231;
+$main-headers-font-color: #5e0231;
+$accent-blue-color: #3E6A81;
+$maroon-text-color: #5e0231;
+$light-blue: #60C2D2;
+$darker-blue: #49A4B3;
+
+$white       : #FFFFFF;
 // $ghost       : #FAFAFA;
 // $snow        : #F9F9F9;
 // $vapor       : #F6F6F6;
@@ -112,7 +124,7 @@ $smoke       : #EEEEEE;
 // $charcoal    : #555555;
 // $tuatara     : #444444;
 // $oil         : #333333;
-// $jet         : #222222;
+$jet         : #222222;
 // $black       : #000000;
 
 // We use these as default colors throughout
@@ -125,8 +137,8 @@ $smoke       : #EEEEEE;
 
 // We use these to control various global styles
 // $body-bg: $white;
-// $body-font-color: $jet;
-// $body-font-family: $font-family-sans-serif;
+// $body-font-color: $main-font-color;
+$body-font-family: $font-family-serif;
 // $body-font-weight: $font-weight-normal;
 // $body-font-style: normal;
 
@@ -196,16 +208,17 @@ $smoke       : #EEEEEE;
 
 // We use these to control header font styles
 // $header-font-family: $body-font-family;
+// $header-font-family: $body-font-family;
 // $header-font-weight: $font-weight-normal;
 // $header-font-style: normal;
-// $header-font-color: $jet;
+$header-font-color: $main-headers-font-color;
 // $header-line-height: 1.4;
 // $header-top-margin: .2rem;
 // $header-bottom-margin: .5rem;
 // $header-text-rendering: optimizeLegibility;
 
 // We use these to control header font sizes
-// $h1-font-size: rem-calc(44);
+// $h1-font-size: rem-calc(40);
 // $h2-font-size: rem-calc(37);
 // $h3-font-size: rem-calc(27);
 // $h4-font-size: rem-calc(23);
@@ -213,7 +226,7 @@ $smoke       : #EEEEEE;
 // $h6-font-size: 1rem;
 
 // We use these to control header size reduction on small screens
-// $h1-font-reduction: rem-calc(10) !default;
+$h1-font-reduction: rem-calc(10) !default;
 // $h2-font-reduction: rem-calc(10) !default;
 // $h3-font-reduction: rem-calc(5) !default;
 // $h4-font-reduction: rem-calc(5) !default;
@@ -233,6 +246,7 @@ $smoke       : #EEEEEE;
 
 // We use these to style paragraphs
 // $paragraph-font-family: inherit;
+$paragraph-font-family: $font-family-monospace;
 // $paragraph-font-weight: $font-weight-normal;
 // $paragraph-font-size: 1rem;
 // $paragraph-line-height: 1.6;
@@ -265,7 +279,7 @@ $smoke       : #EEEEEE;
 // $hr-margin: rem-calc(20);
 
 // We use these to style lists
-// $list-font-family: $paragraph-font-family;
+$list-font-family: $paragraph-font-family;
 // $list-font-size: $paragraph-font-size;
 // $list-line-height: $paragraph-line-height;
 // $list-margin-bottom: $paragraph-margin-bottom;
@@ -323,7 +337,7 @@ $smoke       : #EEEEEE;
 // $accordion-navigation-active-bg-color: scale-color($accordion-navigation-bg-color, $lightness: -3%);
 // $accordion-navigation-font-color: $jet;
 // $accordion-navigation-font-size: rem-calc(16);
-// $accordion-navigation-font-family: $body-font-family;
+$accordion-navigation-font-family: $body-font-family;
 
 // $accordion-content-padding: ($column-gutter/2);
 // $accordion-content-active-bg-color: $white;
@@ -431,7 +445,7 @@ $smoke       : #EEEEEE;
 // $button-margin-bottom: rem-calc(20);
 
 // We use these to control button text styles.
-// $button-font-family: $body-font-family;
+$button-font-family: $body-font-family;
 // $button-font-color: $white;
 // $button-font-color-alt: $oil;
 // $button-font-tny: rem-calc(11);
@@ -447,7 +461,7 @@ $smoke       : #EEEEEE;
 // We use these to control button border and hover styles.
 // $button-border-width: 0px;
 // $button-border-style: solid;
-// $button-bg-color: $primary-color;
+$button-bg-color: $darker-blue;
 // $button-bg-hover: scale-color($button-bg-color, $lightness: $button-function-factor);
 // $button-border-color: $button-bg-hover;
 // $secondary-button-bg-hover: scale-color($secondary-color, $lightness: $button-function-factor);
@@ -622,7 +636,7 @@ $smoke       : #EEEEEE;
 // $form-label-font-color: scale-color($black, $lightness: 30%);
 // $form-label-small-transform: capitalize;
 // $form-label-bottom-margin: 0;
-// $input-font-family: inherit;
+$input-font-family: $font-family-monospace;
 // $input-font-color: rgba(0,0,0,0.75);
 // $input-font-size: rem-calc(14);
 // $input-bg-color: $white;
@@ -790,7 +804,7 @@ $smoke       : #EEEEEE;
 // $label-font-weight: $font-weight-normal;
 // $label-font-color: $oil;
 // $label-font-color-alt: $white;
-// $label-font-family: $body-font-family;
+$label-font-family: $body-font-family;
 
 // 17. Magellan
 // - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -991,7 +1005,7 @@ $smoke       : #EEEEEE;
 // $price-title-color: $smoke;
 // $price-title-weight: $font-weight-normal;
 // $price-title-size: rem-calc(16);
-// $price-title-font-family: $body-font-family;
+$price-title-font-family: $body-font-family;
 
 // We use these to control the price styles
 // $price-money-bg: $vapor;
@@ -1000,7 +1014,7 @@ $smoke       : #EEEEEE;
 // $price-money-color: $oil;
 // $price-money-weight: $font-weight-normal;
 // $price-money-size: rem-calc(32);
-// $price-money-font-family: $body-font-family;
+$price-money-font-family: $body-font-family;
 
 // We use these to control the description styles
 // $price-bg: $white;
@@ -1308,7 +1322,7 @@ $smoke       : #EEEEEE;
 // $tabs-navigation-font-color: $jet;
 // $tabs-navigation-active-font-color: $tabs-navigation-font-color;
 // $tabs-navigation-font-size: rem-calc(16);
-// $tabs-navigation-font-family: $body-font-family;
+$tabs-navigation-font-family: $body-font-family;
 
 // $tabs-content-margin-bottom: rem-calc(24);
 // $tabs-content-padding: ($column-gutter/2);
@@ -1364,16 +1378,27 @@ $smoke       : #EEEEEE;
 // $include-html-top-bar-classes: $include-html-classes;
 
 // Background color for the top bar
-// $topbar-bg-color: $oil;
-// $topbar-bg: $topbar-bg-color;
-
-// Height and margin
-// $topbar-height: rem-calc(45);
-// $topbar-margin-bottom: 0;
-
-// Controlling the styles for the title in the top bar
-// $topbar-title-weight: $font-weight-normal;
-// $topbar-title-font-size: rem-calc(17);
+ $topbar-bg-color: $header-bar-color;
+ // $topbar-bg: $topbar-bg-color;
+ // Height and margin
+ $topbar-height: rem-calc(80);
+ // $topbar-margin-bottom: 0;
+ // Controlling the styles for the title in the top bar
+ // $topbar-title-weight: $font-weight-normal;
+ $topbar-title-font-size: rem-calc(30);
+ $topbar-title-font-family: "Pacifico";
+ // Set the link colors and styles for top-level nav
+ $topbar-link-color: $header-logo-color;
+ $topbar-link-color-hover: $jet;
+ $topbar-link-color-active: $jet;
+ $topbar-link-color-active-hover: $jet;
+ // $topbar-link-weight: $font-weight-normal;
+ // $topbar-link-font-size: rem-calc(13);
+ // $topbar-link-hover-lightness: -10%; // Darken by 10%
+ $topbar-link-bg: rgba(255,255,255,0);
+ $topbar-link-bg-hover: rgba(255,255,255,0);
+ $topbar-link-bg-color-hover: rgba(255,255,255,0);
+ $topbar-link-bg-active: rgba(255,255,255,0);
 
 // Style the top bar dropdown elements
 // $topbar-dropdown-bg: $oil;
@@ -1398,7 +1423,7 @@ $smoke       : #EEEEEE;
 // $topbar-link-bg-hover: $oil;
 // $topbar-link-bg-active: $primary-color;
 // $topbar-link-bg-active-hover: scale-color($primary-color, $lightness: -14%);
-// $topbar-link-font-family: $body-font-family;
+$topbar-link-font-family: $body-font-family;
 // $topbar-link-text-transform: none;
 // $topbar-link-padding: ($topbar-height / 3);
 // $topbar-back-link-size: $h5-font-size;
@@ -1407,7 +1432,7 @@ $smoke       : #EEEEEE;
 // $topbar-button-font-size: 0.75rem;
 // $topbar-button-top: 7px;
 
-// $topbar-dropdown-label-color: $monsoon;
+// $topbar-dropdown-label-color: $white;
 // $topbar-dropdown-label-text-transform: uppercase;
 // $topbar-dropdown-label-font-weight: $font-weight-bold;
 // $topbar-dropdown-label-font-size: rem-calc(10);
@@ -1417,8 +1442,8 @@ $smoke       : #EEEEEE;
 // $topbar-menu-link-transform: uppercase;
 // $topbar-menu-link-font-size: rem-calc(13);
 // $topbar-menu-link-weight: $font-weight-bold;
-// $topbar-menu-link-color: $white;
-// $topbar-menu-icon-color: $white;
+$topbar-menu-link-color: $header-logo-color;
+$topbar-menu-icon-color: $header-logo-color;
 // $topbar-menu-link-color-toggled: $jumbo;
 // $topbar-menu-icon-color-toggled: $jumbo;
 

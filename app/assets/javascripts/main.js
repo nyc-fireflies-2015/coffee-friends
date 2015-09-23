@@ -10,7 +10,7 @@ $(document).ready(function() {
     initProfileToggle()
   }
 
-  if ($('#cafe_index').length) {
+  if ($('.tags-topbar').length) {
     initCafeFilter();
   }
 
@@ -26,4 +26,10 @@ $(document).ready(function() {
     initGiftSearch();
   }
 
+  if ($('.gift-form').length) {
+    initGiftFormDropdown();
+  }
+
 });
+
+
