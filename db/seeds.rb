@@ -1,11 +1,23 @@
 User.create(first_name:"Derpson",last_name:"Appuccino", password: "password",
-email:"derpson@appuccino.com", phone:"2064326178")
+email:"derpson@appuccino.com", phone:"2064326179", picture:Cloudinary::Uploader.upload("http://vignette2.wikia.nocookie.net/mrbean/images/4/4b/Mr_beans_holiday_ver2.jpg/revision/latest?cb=20100424114324")["public_id"])
+
+User.create(first_name:"Jerry",last_name:"Chai", password: "password",
+email:"jchai002@gmail.com", phone:"5107317928", picture: Cloudinary::Uploader.upload("https://avatars3.githubusercontent.com/u/11948171?v=3&s=400")["public_id"])
+
+User.create(first_name:"Travis",last_name:"Allen", password: "password",
+email:"travis.william.allen@gmail.com", phone:"3475998150", picture: Cloudinary::Uploader.upload("https://lh4.googleusercontent.com/-ORtfJ8UGvU4/VDRhkx66wgI/AAAAAAAAADE/poe4URxiJvE/s702-no/50402df2-8c88-490d-86ef-b558d035a1ca")["public_id"])
+
+User.create(first_name:"Leah",last_name:"Goldberg", password: "password",
+email:"leahgoldberg31@gmail.com", phone:"2064326178", picture: Cloudinary::Uploader.upload("https://lh4.googleusercontent.com/-7EzpM0oSAYc/AAAAAAAAAAI/AAAAAAAAAdw/4T0tiqCAtcQ/photo.jpg")["public_id"])
+
+User.create(first_name:"Kelly",last_name:"Ripple", password: "password",
+email:"kelly.m.ripple@gmail.com", phone:"4438122021", picture: Cloudinary::Uploader.upload("https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/2/005/079/3bf/091d5ee.jpg")["public_id"])
 
 25.times do
   n = Faker::Name.first_name
   User.create( first_name: n,
 last_name:Faker::Name.last_name,    password: "password",
-email:"#{n}#{rand(1000)}@example.com", phone: Random.new.rand(1_000_000_000..9_999_999_999).to_s, picture: Faker::Avatar.image)
+email:"#{n}#{rand(1000)}@example.com", phone: Random.new.rand(1_000_000_000..9_999_999_999).to_s, picture: Cloudinary::Uploader.upload(Faker::Avatar.image)["public_id"])
 end
 
 prices = [2.85, 3.45, 3.95, 3.35, 4.45, 1.75, 2.10, 3.65, 4.65, 2.35]

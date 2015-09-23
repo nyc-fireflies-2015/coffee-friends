@@ -13,7 +13,6 @@ class User < ActiveRecord::Base
 	validates_email_format_of :email, message: "is not in the correct format"
 	validates_format_of :phone, with: /\d{10}/, message: "is not in the correct format"
 	validates :password, :presence => true, :length => {minimum: 6}, :on => :create
-	mount_uploader :picture, PictureUploader
 
 	before_save :extract_username, :downcase_names
 
