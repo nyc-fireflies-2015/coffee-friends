@@ -10,11 +10,11 @@ class CafesController < ApplicationController
   end
 
   def show
-    if request.xhr?
+    # if request.xhr?
       @cafe = Cafe.find_by_slug(params[:id])
-    else
-      @cafe = Cafe.find_by(id:params[:id])
-    end
+    # else
+      # @cafe = Cafe.find_by(id:params[:id])
+    # end
     @cafe = current_cafe unless @cafe
     @menu_item = MenuItem.new
     @menu_items = @cafe.menu_items
