@@ -12,20 +12,56 @@
   </header>
 </div>
 
-<div class="row">
-  <div class='small-12 medium-10 medium-offset-1 columns tags-topbar'>
-    <%= link_to "All", root_url, class: "tag-container"%>
-    <%= link_to "The Bronx", cafes_borough_path, class: "tag-container"%>
-    <%= link_to "Brooklyn", cafes_borough_path, class: "tag-container"%>
-    <%= link_to "Manhattan", cafes_borough_path, class: "tag-container"%>
-    <%= link_to "Queens", cafes_borough_path, class: "tag-container"%>
-    <%= link_to "Staten Island", cafes_borough_path, class: "tag-container"%>
-
-    <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-3 cafes-container">
-      <%= render @cafes %>
-    </ul>
-  </div>
+<div class="fill-margins">
+<div class='show-for-medium-up center-tags'>
+  <nav class="top-bar" data-topbar role="navigation">
+    <section class="top-bar-section">
+      <ul class="tags-topbar center-tags">
+        <li class="divider"></li>
+        <li><%= link_to "All", root_url, class: "tags-container"%></li>
+        <li class="divider"></li>
+        <li><%= link_to "The Bronx", cafes_borough_path, class: "tags-container"%></li>
+        <li class="divider"></li>
+        <li><%= link_to "Brooklyn", cafes_borough_path, class: "tags-container"%></li>
+        <li class="divider"></li>
+        <li><%= link_to "Manhattan", cafes_borough_path, class: "tags-container"%></li>
+        <li class="divider"></li>
+        <li><%= link_to "Queens", cafes_borough_path, class: "tags-container"%></li>
+        <li class="divider"></li>
+        <li><%= link_to "Staten Island", cafes_borough_path, class: "tags-container"%></li>
+        <li class="divider"></li>
+      </ul>
+    </section>
+  </nav>
 </div>
+</div>
+
+<div class='show-for-small'>
+  <ul class="accordion" data-accordion>
+    <li class="accordion-navigation">
+      <a href="#panel1a" class="text-center">filter by borough</a>
+      <div id="panel1a" class="content button-tags-container">
+        <ul class="tags-topbar no-bullet">
+        <li><%= link_to "All", root_url, class: "tags-container button expand button-tag"%></li>
+        <li><%= link_to "The Bronx", cafes_borough_path, class: "tags-container button expand button-tag"%></li>
+        <li><%= link_to "Brooklyn", cafes_borough_path, class: "tags-container button expand button-tag"%></li>
+        <li><%= link_to "Manhattan", cafes_borough_path, class: "tags-container button expand button-tag"%></li>
+        <li><%= link_to "Queens", cafes_borough_path, class: "tags-container button expand button-tag"%></li>
+        <li><%= link_to "Staten Island", cafes_borough_path, class: "tags-container button expand button-tag"%></li>
+      </ul>
+      </div>
+    </li>
+  </ul>
+</div>
+
+      <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-3 cafes-container">
+        <%= render @cafes %>
+      </ul>
+
+      </div>
+
+ </div>
+
 
 
 

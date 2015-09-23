@@ -8,7 +8,7 @@ function initCafeFilter() {
     }).fail(function(){console.log("failure to send data");});
   });
 
-  $(".tags-topbar").on('click','.tag-container', function(e) {
+  $(".tags-topbar").on('click','.tags-container', function(e) {
     e.preventDefault();
     url = $(this).attr('href');
     var tag = $(this).html();
