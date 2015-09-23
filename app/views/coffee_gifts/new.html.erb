@@ -1,24 +1,21 @@
-<div id="new_coffee" >
+<% if flash[:auth_error] %>
+    <%=flash[:auth_error]%>
+<% else %>
+    <div id="new_coffee" >
+      <%= form_for @coffee_gift, url: cafe_coffee_gifts_path(@cafe) do |f| %>
 
-  <%= form_for @coffee_gift, url: cafe_coffee_gifts_path(@cafe) do |f| %>
+        <%= f.collection_select(:receiver, @receivers, :id, :combined_value, include_blank: "Option 1: Search for a user", label:false)  %>
+        <%= @coffee_gift.errors[:reciever].first %>
 
-    <%= f.collection_select(:receiver, @receivers, :id, :combined_value, include_blank: "Option 1: Search for a user", label:false)  %>
-    <%= @coffee_gift.errors[:reciever].first %>
+        <%= f.text_field :phone, placeholder: "Option 2: Enter a phone number", maxlength: "10", label: false %>
+        <%= @coffee_gift.errors[:phone].first %>
 
-    <%= f.text_field :phone, placeholder: "Option 2: Enter a phone number", maxlength: "10", label: false %>
-    <%= @coffee_gift.errors[:phone].first %>
+        <%= f.check_box :charitable, label: "Option 3: Buy coffee for a stranger" %>
 
-    <%= f.check_box :charitable, label: "Option 3: Buy coffee for a stranger" %>
+        <%= f.text_area :message, size: "30x6", placeholder: "Include a personal note!", label: false  %>
 
-    <%= f.text_area :message, size: "30x6", placeholder: "Include a personal note!", label: false  %>
-
-    <%= f.hidden_field :menu_item, :value => "$menu_item_id" %>
-    <%= f.submit "Send coffee", :class=>"button expand" %>
-  <% end %>
-
-
-</div>
-
-
-
-
+        <%= f.hidden_field :menu_item, :value => "$menu_item_id" %>
+        <%= f.submit "Send coffee", :class=>"button expand" %>
+      <% end %>
+    </div>
+<% end %>
