@@ -5,7 +5,11 @@ class CoffeeGiftsController < ApplicationController
 	before_action :authorize_user, only: [:show]
 
 	def new
-		@cafe = Cafe.find_by(id: params[:cafe_id])
+		if request.xhr?
+			@cafe = Cafe.find_by(id: params[:cafe_id])
+		else
+			@cafe = Cafe.find_by_slug(params[:cafe_id])
+		end
 		@menu_items = @cafe.menu_items
 		@receivers = User.all
 		@coffee_gift = CoffeeGift.new
