@@ -32,7 +32,8 @@ module TwilioTextSender
 			})
 			return nil
 		rescue Twilio::REST::RequestError => e
-			return "ERROR: #{e.message}"
+			puts "ERROR: #{e.message}"
+			return "Sorry! Something went wrong on our end and we were unable to send a notification SMS. Please let your friend know where to pick up their coffee!"
 		end
 	end
 
