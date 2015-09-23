@@ -40,14 +40,14 @@
   <ul class="accordion" data-accordion>
     <li class="accordion-navigation">
       <a href="#panel1a" class="text-center">filter by borough</a>
-      <div id="panel1a" class="content">
-        <ul>
-        <li><%= link_to "All", root_url, class: "tags-container"%></li>
-        <li><%= link_to "The Bronx", cafes_borough_path, class: "tags-container"%></li>
-        <li><%= link_to "Brooklyn", cafes_borough_path, class: "tags-container"%></li>
-        <li><%= link_to "Manhattan", cafes_borough_path, class: "tags-container"%></li>
-        <li><%= link_to "Queens", cafes_borough_path, class: "tags-container"%></li>
-        <li><%= link_to "Staten Island", cafes_borough_path, class: "tags-container"%></li>
+      <div id="panel1a" class="content button-tags-container">
+        <ul class="tags-topbar no-bullet">
+        <li><%= link_to "All", root_url, class: "tags-container button expand button-tag"%></li>
+        <li><%= link_to "The Bronx", cafes_borough_path, class: "tags-container button expand button-tag"%></li>
+        <li><%= link_to "Brooklyn", cafes_borough_path, class: "tags-container button expand button-tag"%></li>
+        <li><%= link_to "Manhattan", cafes_borough_path, class: "tags-container button expand button-tag"%></li>
+        <li><%= link_to "Queens", cafes_borough_path, class: "tags-container button expand button-tag"%></li>
+        <li><%= link_to "Staten Island", cafes_borough_path, class: "tags-container button expand button-tag"%></li>
       </ul>
       </div>
     </li>
