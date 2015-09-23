@@ -1,6 +1,6 @@
 class CoffeeGiftsController < ApplicationController
 
-	before_action :authenticate_user, except: [:update, :filter, :redemption_confirmation]
+	before_action :authenticate_user, except: [:update, :filter, :confirm_redemption]
 	before_action :find_coffee_gift, except: [:new, :create, :filter]
 	before_action :authorize_user, only: [:show]
 
@@ -48,6 +48,10 @@ class CoffeeGiftsController < ApplicationController
 	end
 
 	def show
+		@cafe = @coffee_gift.cafe
+	end
+
+	def confirm_redemption
 		@cafe = @coffee_gift.cafe
 	end
 

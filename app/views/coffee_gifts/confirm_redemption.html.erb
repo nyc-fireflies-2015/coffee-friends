@@ -13,7 +13,7 @@
   </div>
   <% if @coffee_gift.charitable %>
     <h4 class="text-center">
-    Please make a cup of <%=@coffee_gift.name%> to earn some extra karma!
+    Please make a cup of <%=@coffee_gift.name%> to earn some extra karma! We will also send an email to <span class="bold"><%=@coffee_gift.giver.full_name%></span>, informing them of the karma boost.
     <h4>
   <% else %>
     <h4 class="text-center">
@@ -25,6 +25,6 @@
 </div>
 <div class="row">
   <div class= "small-2 columns small-centered">
-    <%= link_to "Go Back", @cafe, :class =>"button" %>
+    <%= link_to "Back to Profile", @cafe, :class =>"button" %>
   </div>
 </div>
