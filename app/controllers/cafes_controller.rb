@@ -10,18 +10,18 @@ class CafesController < ApplicationController
   end
 
   def show
-    # if request.xhr?
-      @cafe = Cafe.find_by_slug(params[:id])
-    # else
-      # @cafe = Cafe.find_by(id:params[:id])
-    # end
+    @cafe = Cafe.find_by_slug(params[:id])
     @cafe = current_cafe unless @cafe
     @menu_item = MenuItem.new
     @menu_items = @cafe.menu_items
     @charitable_gifts = @cafe.unredeemed_charitable_gifts
     @unredeemed_coffee_gifts = @cafe.unredeemed_coffee_gifts
     if request.xhr?
-      @unredeemed_coffee_gifts = @cafe.search(params[:search]).order("created_at DESC")
+      if params[:search] == ""
+        @unredeemed_coffee_gifts = []
+      else
+        @unredeemed_coffee_gifts = @cafe.search_non_charitable_gifts(params[:search]).order("created_at DESC")
+      end
       render :partial => "unredeemed_coffee_gift", collection: @unredeemed_coffee_gifts
     end
   end
