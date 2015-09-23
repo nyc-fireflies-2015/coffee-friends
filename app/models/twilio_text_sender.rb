@@ -15,7 +15,11 @@ module TwilioTextSender
 	end
 
 	def send!(coffee_gift)
-		coffee_gift.redeemed ? send_text(coffee_gift, redeem_message) : send_text(coffee_gift, receive_message(coffee_gift))
+		if coffee_gift.redeemed
+			return send_text(coffee_gift, redeem_message)
+		else
+			return send_text(coffee_gift, receive_message(coffee_gift))
+		end
 	end
 
 	def send_text(coffee_gift, text_body)
@@ -26,8 +30,9 @@ module TwilioTextSender
 				to: coffee_gift.phone,
 				body: text_body
 			})
+			return nil
 		rescue Twilio::REST::RequestError => e
-			puts "ERROR: #{e.message}"
+			return "ERROR: #{e.message}"
 		end
 	end
 
