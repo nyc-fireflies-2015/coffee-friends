@@ -4,6 +4,7 @@
     <ul class="accordion" data-accordion>
   <li class="accordion-navigation">
     <a href="#charitable">Charitable Gifts (<%=@charitable_gifts.count%>)</a>
+      <% unless @charitable_gifts.count == 0 %>
         <div id="charitable" class="content">
           <% @charitable_gifts.each do |gift| %>
             <ul class="vcard">
@@ -15,6 +16,7 @@
             </ul>
             <%end%>
         </div>
+      <%end%>
     </li>
 
     <li class="accordion-navigation">
