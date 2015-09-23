@@ -22,4 +22,8 @@ $(document).ready(function() {
     initPayments();
   }
 
+  if ($('#cafe_profile').length) {
+    initGiftSearch();
+  }
+
 });
