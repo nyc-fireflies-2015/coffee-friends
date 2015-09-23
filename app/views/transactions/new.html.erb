@@ -6,6 +6,6 @@
   <%= form_tag transactions_path do%>
     <p>Please enter your payment details:</p>
     <div id="dropin"></div>
-    <%=submit_tag "Pay #{@coffee_gift.price}$", class: "button mt1" %>
+    <%=submit_tag "Pay $#{format_price(@coffee_gift.price)}", class: "button mt1" %>
   <%end%>
 </div>
