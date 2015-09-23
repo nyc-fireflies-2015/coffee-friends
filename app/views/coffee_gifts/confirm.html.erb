@@ -1,47 +1,45 @@
-<div class="row">
-<% if flash[:error] %>
+<div class="row low_content">
+  <% if flash[:error] %>
 
-  <h1><%=flash[:error]%></h1>
-  <hr>
+    <h1><%=flash[:error]%></h1>
+    <hr>
 
-<% else  %>
+  <% else  %>
 
-  <% if flash[:notice] %>
-   <h1><%=flash[:notice]%></h1>
-   <hr>
+    <% if flash[:notice] %>
+     <h1><%=flash[:notice]%></h1>
+     <hr>
+    <% end %>
+
+    <div class="success-panel text-center">
+      <p>Coffee has been sent </p>
+    </div>
+
+
+    <% if @coffee_gift.charitable %>
+      <h4 class="text-center">
+      You rock! Thank you for making someone's day a little brighter.
+      <h4>
+    <% elsif @coffee_gift.receiver %>
+      <h4 class="text-center">
+      We will send an SMS to <span class="bold"><%=@coffee_gift.receiver.full_name%></span>
+      <h4>
+
+      <h4 class="text-center">
+      Then they may pick up their <span class="bold"><%=@coffee_gift.name%></span> at <span class="bold"><%=@cafe.name%></span>.
+       <h4>
+    <% else %>
+      <h4 class="text-center">
+      We will send an SMS to <span class="bold"><%=format_phone(@coffee_gift.phone)%></span>
+      <h4>
+
+      <h4 class="text-center">
+      Then your friend may pick up their <span class="bold"><%=@coffee_gift.name%></span> at <span class="bold"><%=@cafe.name%></span>.
+       <h4>
+    <% end %>
+
+
   <% end %>
-
-  <div class="success-panel text-center">
-    <p>Coffee has been sent </p>
   </div>
-
-
-  <% if @coffee_gift.charitable %>
-    <h4 class="text-center">
-    You rock! Thank you for making someone's day a little brighter.
-    <h4>
-  <% elsif @coffee_gift.receiver %>
-    <h4 class="text-center">
-    We will send an SMS to <span class="bold"><%=@coffee_gift.receiver.full_name%></span>
-    <h4>
-
-    <h4 class="text-center">
-    Then they may pick up their <span class="bold"><%=@coffee_gift.name%></span> at <span class="bold"><%=@cafe.name%></span>.
-     <h4>
-  <% else %>
-    <h4 class="text-center">
-    We will send an SMS to <span class="bold"><%=format_phone(@coffee_gift.phone)%></span>
-    <h4>
-
-    <h4 class="text-center">
-    Then your friend may pick up their <span class="bold"><%=@coffee_gift.name%></span> at <span class="bold"><%=@cafe.name%></span>.
-     <h4>
-  <% end %>
-
-
-<% end %>
-</div>
-
-
 
 
