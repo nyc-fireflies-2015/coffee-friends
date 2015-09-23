@@ -14,10 +14,6 @@ $(document).ready(function() {
     initCafeFilter();
   }
 
-  if ($('#new_coffee').length) {
-    initDropdowns();
-  }
-
   if ($('#dropin').length) {
     initPayments();
   }

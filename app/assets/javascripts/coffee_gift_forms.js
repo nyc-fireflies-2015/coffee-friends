@@ -7,6 +7,7 @@ function initGiftFormDropdown() {
     $.ajax('/cafes/' + cafeId + '/coffee_gifts/new').done(function(data) {
       var modData = data.replace("$menu_item_id", itemId);
       $(".gift-form").html(modData);
+      initDropdowns();
     }).fail(function(){console.log("failure to retrieve data");});
   });
 };
