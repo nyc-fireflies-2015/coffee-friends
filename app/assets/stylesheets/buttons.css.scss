@@ -1,0 +1,32 @@
+.tag-container, .profile-filter-tag {
+  word-break: keep-all;
+  word-wrap: normal;
+  display: inline;
+  padding: 4px 5px;
+  margin: 5px 5px 5px 0;
+  color: #999;
+  border: #ccc 1px solid;
+  border-radius: 3px;
+}
+
+.tag-container:hover, .profile-filter-tag:hover {
+  background-color: #EEEEEE;
+  color: black;
+}
+
+input[data-toggle] {
+  display: none;
+}
+
+input[data-toggle]:checked + label,
+input[data-toggle]:checked + label:active {
+  background-color: red;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15) inset,
+              0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.button-group.toggle {
+  li:not(first-child) {
+    margin: 0 -0.9rem;
+  }
+}
