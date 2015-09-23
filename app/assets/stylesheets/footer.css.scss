@@ -1,0 +1,23 @@
+$header-bar-color: #f4f4f4;;
+$body-color: #e1e3e4;
+$raspberry-logo-color: #D15271;
+$maroon-text-color: #5e0231;
+$light-blue: #60C2D2;
+$darker-blue: #49A4B3;
+$steel: #666666;
+
+
+
+.footer hr {
+    border: 0;
+    height: 1px;
+    background: $darker-blue;
+    background-image: -webkit-linear-gradient(left, #ccc, $darker-blue, #ccc);
+    background-image:    -moz-linear-gradient(left, #ccc, $darker-blue, #ccc);
+    background-image:     -ms-linear-gradient(left, #ccc, $darker-blue, #ccc);
+    background-image:      -o-linear-gradient(left, #ccc, $darker-blue, #ccc);
+}
+
+.footer p {
+    color: $steel;
+}
