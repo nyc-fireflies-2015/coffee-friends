@@ -1,20 +1,16 @@
+<div class="row">
+  <div class= "small-12 column">
 <% if flash[:error] %>
-
   <h1><%=flash[:error]%></h1>
   <hr>
-
 <% else  %>
-
   <% if flash[:notice] %>
    <h1><%=flash[:notice]%></h1>
    <hr>
   <% end %>
-
   <div class="success-panel text-center">
     <p>Redemption Confirmed</p>
   </div>
-
-
   <% if @coffee_gift.charitable %>
     <h4 class="text-center">
     Please make a cup of <%=@coffee_gift.name%> to earn some extra karma! We will also send an email to <span class="bold"><%=@coffee_gift.giver.full_name%></span>, informing them of the karma boost.
@@ -24,7 +20,11 @@
     Please make a cup of <%=@coffee_gift.name%> and brighten up <span class="bold"><%=@coffee_gift.receiver.full_name%>'s</span> day!
     <h4>
   <% end %>
-
 <% end %>
-
-<%= link_to "Back to profile", @cafe, :class=>"button" %>
+  </div>
+</div>
+<div class="row">
+  <div class= "small-2 columns small-centered">
+    <%= link_to "Back to Profile", @cafe, :class =>"button" %>
+  </div>
+</div>

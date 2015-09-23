@@ -1,11 +1,15 @@
 <div class='show-for-medium-up'>
-    <section id="logo-text">
-      <p id="logo-title">mojoe</p>
-      <p id="logo-subtitle">Send coffee to your friends!</p>
-    </section>
-  <div id="main-img">  
-    <%= image_tag "coffee.jpg", class:"banner"%>
-  </div>  
+  <header class="video-banner">
+      <div class="video-banner">
+         <section id="logo-text">
+          <p id="logo-title">mojoe</p>
+          <p id="logo-subtitle">Send coffee to your friends!</p>
+        </section>
+          <video autoplay loop muted>
+          <source src="<%= asset_path('coffee.mp4') %>" type="video/mp4">
+          </video>
+      </div>
+  </header>
 </div>
 
 
@@ -25,6 +29,7 @@
     <%= render @cafes %>
   </ul>
 </div>
+
 
 
 

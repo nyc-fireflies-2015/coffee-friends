@@ -28,7 +28,7 @@ class MenuItemsController < ApplicationController
   end
 
   def find_menu_item
-    @menu_item = MenuItem.find_by(id: params[:id])
+    @menu_item = MenuItem.find_by_slug(params[:id])
   end
 
   def authenticate_cafe
