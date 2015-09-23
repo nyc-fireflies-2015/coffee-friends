@@ -1,32 +1,24 @@
-<div id="new_coffee" class="row">
-  <div class="small-12 medium-9 medium-centered large-6 large-centered columns">
-    <br>
-    <h1>Send Some Coffee from <%=@cafe.name%>!</h1>
+<div id="new_coffee" >
 
   <%= form_for @coffee_gift, url: cafe_coffee_gifts_path(@cafe) do |f| %>
 
-    <%= f.collection_select(:receiver, @receivers, :id, :combined_value, include_blank: true, label:false)  %>
+    <%= f.collection_select(:receiver, @receivers, :id, :combined_value, include_blank: "Option 1: Search for a user", label:false)  %>
     <%= @coffee_gift.errors[:reciever].first %>
 
-    <p>OR</p>
-
-    <%= f.text_field :phone, placeholder: "Enter phone number", maxlength: "10", label: false %><br/>
+    <%= f.text_field :phone, placeholder: "Option 2: Enter a phone number", maxlength: "10", label: false %>
     <%= @coffee_gift.errors[:phone].first %>
 
-    <p>OR</p>
-    <%= f.check_box :charitable, label: false %>
-    <%= f.label :charitable, "Do something extra nice! Send coffee to someone you don't know." %>
+    <%= f.check_box :charitable, label: "Option 3: Buy coffee for a stranger" %>
 
-    <%= f.collection_select(:menu_item, @menu_items, :id ,:combined_value, include_blank: true, label: false)  %>
-    <%= @coffee_gift.errors[:menu_item].first %>
+    <%= f.text_area :message, size: "30x6", placeholder: "Include a personal note!", label: false  %>
 
-    <%= f.text_area :message, size: "30x6", placeholder: "Include a personal note!"  %><br/>
-
-    <br>
-    <%= f.submit "Send coffee", :class=>"button round" %>
+    <%= f.hidden_field :menu_item, :value => "$menu_item_id" %>
+    <%= f.submit "Send coffee", :class=>"button expand" %>
   <% end %>
 
+
 </div>
-</div>
+
+
 
 
