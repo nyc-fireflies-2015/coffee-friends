@@ -6,10 +6,6 @@ $light-blue: #60C2D2;
 $darker-blue: #49A4B3;
 
 
-body { background-color: $body-color; }
-
-.row { background-color: $body-color; }
-
 .title-area li {
 	display: inline-block;
 	vertical-align: center;
@@ -82,8 +78,4 @@ body { background-color: $body-color; }
 		font-family: "Pacifico";
 		font-size: 100pt;
 	}
-}
-
-#main-img img {
-	opacity: 0.55;
 }
