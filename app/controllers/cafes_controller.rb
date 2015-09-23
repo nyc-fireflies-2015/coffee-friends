@@ -1,6 +1,5 @@
 class CafesController < ApplicationController
 
-
   def index
     @cafes = Cafe.all
     if request.xhr?
@@ -11,7 +10,7 @@ class CafesController < ApplicationController
   end
 
   def show
-    @cafe = Cafe.find_by(id: params[:id])
+    @cafe = Cafe.find_by_slug(params[:id])
     @cafe = current_cafe unless @cafe
     @menu_item = MenuItem.new
     @menu_items = @cafe.menu_items

@@ -50,7 +50,7 @@ class CoffeeGiftsController < ApplicationController
 	private
 
 	def find_coffee_gift
-		@coffee_gift = CoffeeGift.find_by(id: params[:id])
+		@coffee_gift = CoffeeGift.find_by_slug(params[:id])
 	end
 
 	def authorize_user
