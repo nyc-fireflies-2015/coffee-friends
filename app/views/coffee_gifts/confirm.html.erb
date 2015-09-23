@@ -15,34 +15,46 @@
       <p>Coffee has been sent </p>
     </div>
 
+  <% if @coffee_gift.charitable %>
+    <h4 class="text-center">
+    You rock! Thank you for making someone's day a little brighter.
+    <h4>
+  <% elsif @coffee_gift.receiver %>
 
-    <% if @coffee_gift.charitable %>
-      <h4 class="text-center">
-      You rock! Thank you for making someone's day a little brighter.
-      <h4>
-    <% elsif @coffee_gift.receiver %>
+    <% if flash[:twilio_error] %>
+      <div class="fail-panel-yellow text-center">
+        <p><%=flash[:twilio_error]%></p>
+      </div>
+    <% else %>
       <h4 class="text-center">
       We will send an SMS to <span class="bold"><%=@coffee_gift.receiver.full_name%></span>
       <h4>
-
-      <h4 class="text-center">
-      Then they may pick up their <span class="bold"><%=@coffee_gift.name%></span> at <span class="bold"><%=@cafe.name%></span>.
-       <h4>
-    <% else %>
-      <h4 class="text-center">
-      We will send an SMS to <span class="bold"><%=format_phone(@coffee_gift.phone)%></span>
-      <h4>
-
-      <h4 class="text-center">
-      Then your friend may pick up their <span class="bold"><%=@coffee_gift.name%></span> at <span class="bold"><%=@cafe.name%></span>.
-       <h4>
     <% end %>
 
-    <hr>
-  <%= link_to "Back to Profile", profile_path, :class =>"button expanded small-8 small-offset-2 medium-4 medium-offset-4 large-2 large-offset-5 columns text-centered" %>
-  </div>
+    <h4 class="text-center">
+    They may pick up their <span class="bold"><%=@coffee_gift.name%></span> at <span class="bold"><%=@cafe.name%></span>.
+     <h4>
+  <% else %>
+      <% if flash[:twilio_error] %>
+        <div class="fail-panel-yellow text-center">
+          <p><%=flash[:twilio_error]%></p>
+        </div>
+      <% else %>
+        <h4 class="text-center">
+        We will send an SMS to <span class="bold"><%=format_phone(@coffee_gift.phone)%></span>
+        <h4>
+      <% end %>
 
+      <h4 class="text-center">
+      Your friend may pick up their <span class="bold"><%=@coffee_gift.name%></span> at <span class="bold"><%=@cafe.name%></span>.
+       <h4>
   <% end %>
-  </div>
+
+    <hr>
+    <%= link_to "Back to Profile", profile_path, :class =>"button expanded small-8 small-offset-2 medium-4 medium-offset-4 large-2 large-offset-5 columns text-centered" %>
+    </div>
+
+<%end%>
+</div>
 
 
