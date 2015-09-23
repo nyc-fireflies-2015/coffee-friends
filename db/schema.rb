@@ -51,11 +51,6 @@ ActiveRecord::Schema.define(version: 20150923005117) do
     t.datetime "updated_at"
   end
 
-  create_table "picture_uploaders", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "users", force: true do |t|
     t.string   "first_name",      limit: 25, null: false
     t.string   "last_name",       limit: 25, null: false

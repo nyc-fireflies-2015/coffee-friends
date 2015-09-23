@@ -1,60 +1,64 @@
-<div id="user_profile" class="row">
-  <div class="small-12 medium-10 medium-offset-1 columns">
-    <h1><%= @user.first_name %> <%= @user.last_name %></h1>
-    <hr>
-  </div>
-</div>
-
-  <div class="row">
-
-    <div class="small-12 medium-10 medium-offset-1  columns">
-
-      <div class="small-12 medium-6  columns">
-      <%=cl_image_tag(@user.picture, :width=> 500, :height=> 500)%>
-      </div>
-
-      <div class="small-12 medium-6  columns">
-        <ul class="no-bullet">
-          <li><span class="bold">username:</span> <%= @user.username %></li>
-          <li><span class="bold">email:</span> <%= @user.email %></li>
-          <li><span class="bold">phone:</span> <%= @user.phone %></li>
-        </ul>
-        <div class="panel">
-          <h5>Send coffee to a friend</h5>
-          <h6 class="subheader">They would love to hear from you, you attractive person you.</h6>
-          <%= link_to "View Cafés", root_path, class: "small button"  %>
-        </div>
-      </div>
+  <div id="user_profile" class="row">
+    <div class="small-12 medium-10 medium-offset-1 columns">
+      <h1><%= @user.first_name %> <%= @user.last_name %></h1>
+      <hr>
     </div>
   </div>
 
-<div class="row">
-  <hr>
-  <div class="small-12 medium-10 medium-offset-1 columns">
-    <ul class="small-block-grid-1 medium-block-grid-2">
-      <li>
-        <ul class="accordion" data-accordion>
-          <li class="accordion-navigation">
-            <a href="#received">Coffee!</a>
-            <div id="received" class="content active">
-              <%= render partial: "coffee_gifts/coffee_gift", locals: {coffee_gifts: @received_coffees } %>
-            </div>
-          </li>
-        </ul>
-      </li>
-      <li>
-        <ul class="accordion" data-accordion>
-          <li class="accordion-navigation">
-            <a href="#given">Coffee Sent History</a>
-            <div id="given" class="content active">
-              <%= render partial: "coffee_gifts/coffee_gift", locals: {coffee_gifts: @given_coffees } %>
-            </div>
-          </li>
-        </ul>
-      </li>
-    </ul>
+    <div class="row">
+
+      <div class="small-12 medium-10 medium-offset-1  columns">
+
+        <div class="small-12 medium-6  columns">
+        <%=cl_image_tag(@user.picture, :width=> 500, :height=> 500)%>
+        </div>
+
+        <div class="small-12 medium-6  columns">
+          <ul class="no-bullet">
+            <li><span class="bold">username:</span> <%= @user.username %></li>
+            <li><span class="bold">email:</span> <%= @user.email %></li>
+            <li><span class="bold">phone:</span> <%= @user.phone %></li>
+          </ul>
+          <div class="panel">
+            <h5>Send coffee to a friend</h5>
+            <h6 class="subheader">They would love to hear from you, you attractive person you.</h6>
+            <%= link_to "View Cafés", root_path, class: "small button"  %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <div class="row low_content">
+    <hr>
+    <div class="small-12 medium-10 medium-offset-1 columns">
+      <ul class="small-block-grid-1 medium-block-grid-2">
+        <li>
+          <ul class="accordion" data-accordion>
+            <li class="accordion-navigation">
+              <a href="#received">Coffees Received (<%=@user.received_coffees.count%>)</a>
+              <%unless @user.received_coffees.count == 0%>
+              <div id="received" class="content">
+                <%= render partial: "coffee_gifts/coffee_gift", locals: {coffee_gifts: @received_coffees } %>
+              </div>
+              <%end%>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <ul class="accordion" data-accordion>
+            <li class="accordion-navigation">
+              <a href="#given">Coffees Sent (<%=@user.given_coffees.count%>)</a>
+              <% unless @user.given_coffees.count == 0%>
+              <div id="given" class="content active">
+                <%= render partial: "coffee_gifts/coffee_gift", locals: {coffee_gifts: @given_coffees } %>
+              </div>
+              <%end%>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
   </div>
-</div>
 
 
 
