@@ -21,6 +21,19 @@ $darker-blue: #49A4B3;
 //   color: black;
 // }
 
+div.center-tags {
+  width: 90%;
+  margin: 0 auto;
+}
+.fill-margins {
+  background-color: $header-bar-color;
+  width:100%
+}
+ul.center-tags li {
+  width: 16%;
+  text-align:center;
+  white-space: nowrap;
+}
 
 
 

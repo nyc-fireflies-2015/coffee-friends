@@ -12,10 +12,11 @@
   </header>
 </div>
 
-<div class='show-for-medium-up'>
+<div class="fill-margins">
+<div class='show-for-medium-up center-tags'>
   <nav class="top-bar" data-topbar role="navigation">
     <section class="top-bar-section">
-      <ul class="center-buttons tags-topbar text-center">
+      <ul class="tags-topbar center-tags">
         <li class="divider"></li>
         <li><%= link_to "All", root_url, class: "tags-container"%></li>
         <li class="divider"></li>
@@ -33,11 +34,12 @@
     </section>
   </nav>
 </div>
+</div>
 
 <div class='show-for-small'>
   <ul class="accordion" data-accordion>
     <li class="accordion-navigation">
-      <a href="#panel1a" class="text-center">tags</a>
+      <a href="#panel1a" class="text-center">filter by borough</a>
       <div id="panel1a" class="content">
         <ul>
         <li><%= link_to "All", root_url, class: "tags-container"%></li>
