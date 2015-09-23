@@ -1,13 +1,18 @@
 class CoffeeGiftsController < ApplicationController
 
-	before_action :authenticate_user, except: [:update, :filter, :confirm_redemption]
+	before_action :authenticate_user, except: [:update, :filter, :confirm_redemption, :new]
 	before_action :find_coffee_gift, except: [:new, :create, :filter]
 	before_action :authorize_user, only: [:show]
 
 	def new
 		if request.xhr?
+			unless current_user
+				render partial: "error", layout: false
+				return
+			end
 			@cafe = Cafe.find_by(id: params[:cafe_id])
 		else
+			authenticate_user
 			@cafe = Cafe.find_by_slug(params[:cafe_id])
 		end
 		@menu_items = @cafe.menu_items
