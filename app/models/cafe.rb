@@ -10,6 +10,8 @@ class Cafe < ActiveRecord::Base
   validates_uniqueness_of :email
 	validates :password, :presence => true, :length => {minimum: 6}, :on => :create
 
+	before_save :generate_slug
+
 	def owns_item?(menu_item)
 		self == menu_item.cafe
 	end
@@ -44,6 +46,16 @@ class Cafe < ActiveRecord::Base
 
 	def unredeemed_charitable_gifts
 		coffee_gifts.where(charitable: true, redeemed: false)
+	end
+
+	def to_param
+    slug
+  end
+
+	private
+
+	def generate_slug
+		self.slug = self.name.parameterize
 	end
 
 end
