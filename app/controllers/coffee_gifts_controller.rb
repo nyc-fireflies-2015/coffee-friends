@@ -1,6 +1,6 @@
 class CoffeeGiftsController < ApplicationController
 
-	before_action :authenticate_user, except: [:update, :filter, :confirm_redemption, :new]
+	before_action :authenticate_user, except: [:update, :filter, :confirm_redemption]
 	before_action :find_coffee_gift, except: [:new, :create, :filter]
 	before_action :authorize_user, only: [:show]
 
@@ -15,7 +15,6 @@ class CoffeeGiftsController < ApplicationController
 				@coffee_gift = CoffeeGift.new
 			end
 		else
-			authenticate_user
 			@cafe = Cafe.find_by_slug(params[:cafe_id])
 			@menu_items = @cafe.menu_items
 			@receivers = User.all
@@ -81,7 +80,7 @@ class CoffeeGiftsController < ApplicationController
 	end
 
 	def authenticate_user
-		unless current_user
+		unless current_user || request.xhr?
 			flash[:error] = ["Please login to send coffee."]
 			redirect_to root_path
 		end
