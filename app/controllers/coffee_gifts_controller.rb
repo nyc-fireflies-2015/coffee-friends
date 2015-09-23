@@ -39,6 +39,10 @@ class CoffeeGiftsController < ApplicationController
 		end
 	end
 
+	def redemption_confirmation
+		@cafe = @coffee_gift.cafe
+	end
+
 	def show
 		@cafe = @coffee_gift.cafe
 	end

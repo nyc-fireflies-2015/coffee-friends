@@ -50,15 +50,15 @@ body { background-color: $body-color; }
 
  .top-bar-section li:not(.has-form) a:not(.button) {
  	background: $header-bar-color;
- }   
+ }
 
   .top-bar-section li:not(.has-form) a:not(.button):hover {
  	background: $header-bar-color;
- }  
+ }
 
 #logo-text {
-	position: absolute;
-	top: 200px;
+	position: relative;
+	top: 25%;
 	z-index: 1;
 	width: 100%;
 	text-align: center;

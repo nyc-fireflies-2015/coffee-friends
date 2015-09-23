@@ -1,0 +1,27 @@
+body{
+    margin:0;
+}
+header.video-banner {
+    position: relative;
+    overflow: hidden;
+    width:100vw;
+    height:100vh;
+    max-height:100vh;
+    text-align:center;
+}
+div.video-banner {
+    position:absolute;
+    height:100%;
+    width:200%;
+    left:-50%;
+}
+video {
+    position:absolute;
+    top: -99999px;
+    bottom: -99999px;
+    left: -99999px;
+    right: -99999px;
+    margin: auto;
+    min-height:100%;
+    min-width:50%;
+}
