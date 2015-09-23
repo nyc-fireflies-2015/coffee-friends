@@ -8,12 +8,12 @@ Rails.application.routes.draw do
   post '/cafes/neighborhood' => 'cafes#neighborhood'
   post '/coffee_gifts/filter' => 'coffee_gifts#filter'
 
-  resources :cafes, only: [:index, :show, :update] do
+  resources :cafes, only: [:index, :show] do
     resources :coffee_gifts, only: [:new, :create]
   end
 
   resources :menu_items, only: [:destroy, :create, :update]
-  resources :users, only: [:create, :edit, :update]
+  resources :users, only: [:create]
   resources :coffee_gifts, only: [:show, :update]
   resources :transactions, only: [:new, :create]
 

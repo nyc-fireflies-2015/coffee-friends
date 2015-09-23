@@ -28,17 +28,6 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
-  def update
-    @user = current_user
-    if params[:user]
-      @user.update_attributes(user_params.merge(params[:user]))
-    else
-      flash[:error] = ["Something Went Wrong! Your Picture Was Not Uploaded"]
-    end
-    render :show
-  end
-
-
   private
 
   def authorize_user
