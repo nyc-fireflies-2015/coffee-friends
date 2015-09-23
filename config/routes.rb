@@ -24,6 +24,8 @@ Rails.application.routes.draw do
   get '/register' => 'users#new'
   get '/confirmation/:id' => 'coffee_gifts#confirm', as: "confirmation"
 
+  get '/redemption_confirmation/:id' => 'coffee_gifts#redemption_confirmation', as: "redemption_confirmation"
+
   post '/cafes/sessions' => 'cafe_sessions#create'
   delete '/cafes/logout' => 'cafe_sessions#destroy'
 

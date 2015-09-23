@@ -1,6 +1,6 @@
 class CoffeeGiftsController < ApplicationController
 
-	before_action :authenticate_user, except: [:update, :filter]
+	before_action :authenticate_user, except: [:update, :filter, :redemption_confirmation]
 	before_action :find_coffee_gift, except: [:new, :create, :filter]
 	before_action :authorize_user, only: [:show]
 
@@ -32,7 +32,7 @@ class CoffeeGiftsController < ApplicationController
 		if @coffee_gift.update_attributes(redeemed: true)
 			flash[:notice] = "Coffee Redeemed!"
 			TwilioTextSender.send!(@coffee_gift)
-			redirect_to cafes_profile_path
+			redirect_to redemption_confirmation_path
 		else
 			flash[:error] = ["Unable to redeem voucher"]
 			redirect_to cafes_profile_path

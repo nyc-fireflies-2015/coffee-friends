@@ -21,8 +21,6 @@ class CafesController < ApplicationController
       @unredeemed_coffee_gifts = @cafe.search(params[:search]).order("created_at DESC")
       render :partial => "unredeemed_coffee_gift", collection: @unredeemed_coffee_gifts
     end
-
-
   end
 
   def update
