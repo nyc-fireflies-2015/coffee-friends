@@ -2,7 +2,7 @@
 <li><figure>
   <%= link_to cl_image_tag(cafe.picture, :width => 500, :height => 400, :crop => :fill ), cafe %>
   <figcaption>
-    <h4><%= cafe.name %></h4>
+    <h4><%= link_to cafe.name, cafe %></h4>
     <span>
       <% if cafe.neighborhood %>
         <%= link_to cafe.neighborhood, cafes_neighborhood_path, class: "tag-container"%>
