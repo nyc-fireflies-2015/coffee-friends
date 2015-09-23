@@ -9,6 +9,22 @@
 }
 
 
+.tag-container, .profile-filter-tag {
+  word-break: keep-all;
+  word-wrap: normal;
+  display: inline;
+  padding: 4px 5px;
+  margin: 5px 5px 5px 0;
+  color: #999;
+  border: #ccc 1px solid;
+  border-radius: 3px;
+}
+
+.tag-container:hover, .profile-filter-tag:hover {
+  background-color: #EEEEEE;
+  color: black;
+}
+
 .coffee-gift {
   padding: 4px 8px;
   border: #ccc 1px solid;
