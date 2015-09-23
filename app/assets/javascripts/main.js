@@ -22,4 +22,10 @@ $(document).ready(function() {
     initPayments();
   }
 
+  if ($('.gift-form').length) {
+    initGiftFormDropdown();
+  }
+
 });
+
+
