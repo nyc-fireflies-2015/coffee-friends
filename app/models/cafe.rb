@@ -42,4 +42,8 @@ class Cafe < ActiveRecord::Base
 		coffee_gifts.where(charitable: true)
 	end
 
+	def unredeemed_charitable_gifts
+		coffee_gifts.where(charitable: true, redeemed: false)
+	end
+
 end
