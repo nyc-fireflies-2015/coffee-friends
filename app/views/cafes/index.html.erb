@@ -12,99 +12,53 @@
   </header>
 </div>
 
-
-
-<link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
-
-<div class="row">
-  <div class="small-9 small-centered columns tags-topbar">
-
-    <ul class="button-group round toggle" data-toggle="buttons-radio">
-      <li>
-        <input type="radio" id="r1" name="r-group" data-toggle="button">
-        <label class="button" for="r1"></label>
-      </li>
-      <li>
-        <input type="radio" id="r2" name="r-group" data-toggle="button">
-        <label class="button" for="r2"></label>
-      </li>
-      <li>
-        <input type="radio" id="r3" name="r-group" data-toggle="button">
-        <label class="button" for="r3"></label>
-      </li>
-      <li>
-        <input type="radio" id="r3" name="r-group" data-toggle="button">
-        <label class="button" for="r3"></label>
-      </li>
-      <li>
-        <input type="radio" id="r3" name="r-group" data-toggle="button">
-        <label class="button" for="r3"></label>
-      </li>
-      <li>
-        <input type="radio" id="r3" name="r-group" data-toggle="button">
-        <label class="button" for="r3"></label>
-      </li>
-    </ul>
-
-  </div>
+<div class='show-for-medium-up'>
+  <nav class="top-bar" data-topbar role="navigation">
+    <section class="top-bar-section">
+      <ul class="center-buttons tags-topbar text-center">
+        <li class="divider"></li>
+        <li><%= link_to "All", root_url%></li>
+        <li class="divider"></li>
+        <li><%= link_to "The Bronx", cafes_borough_path%></li>
+        <li class="divider"></li>
+        <li><%= link_to "Brooklyn", cafes_borough_path%></li>
+        <li class="divider"></li>
+        <li><%= link_to "Manhattan", cafes_borough_path%></li>
+        <li class="divider"></li>
+        <li><%= link_to "Queens", cafes_borough_path%></li>
+        <li class="divider"></li>
+        <li><%= link_to "Staten Island", cafes_borough_path%></li>
+        <li class="divider"></li>
+      </ul>
+    </section>
+  </nav>
 </div>
 
-<nav class="top-bar" data-topbar>
-  <ul class="title-area">
-
-    <li class="toggle-topbar menu-icon"><a href="#"><span>menu</span></a></li>
+<div class='show-for-small'>
+  <ul class="accordion" data-accordion>
+    <li class="accordion-navigation">
+      <a href="#panel1a" class="text-center">tags</a>
+      <div id="panel1a" class="content">
+        <ul>
+        <li><%= link_to "All", root_url%></li>
+        <li><%= link_to "The Bronx", cafes_borough_path%></li>
+        <li><%= link_to "Brooklyn", cafes_borough_path%></li>
+        <li><%= link_to "Manhattan", cafes_borough_path%></li>
+        <li><%= link_to "Queens", cafes_borough_path%></li>
+        <li><%= link_to "Staten Island", cafes_borough_path%></li>
+      </ul>
+      </div>
+    </li>
   </ul>
-
-  <section class="top-bar-section">
-    <ul>
-
-      <li><%= link_to "All", root_url, class: "button-expand"%></li>
-      <li><%= link_to "The Bronx", cafes_borough_path, class: "button-expand"%></li>
-
-      <li><%= link_to "Brooklyn", cafes_borough_path, class: "button-expand"%></li>
-      <li><%= link_to "Manhattan", cafes_borough_path, class: "button-expand"%></li>
-
-      <li><%= link_to "Queens", cafes_borough_path, class: "button-expand"%></li>
-      <li><%= link_to "Staten Island", cafes_borough_path, class: "button-expand"%></li>
-
-    </ul>
-  </section>
-</nav>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</div>
 
 <div class='row'>
   <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-3 cafes-container">
     <%= render @cafes %>
   </ul>
 </div>
+
+
 
 
 
