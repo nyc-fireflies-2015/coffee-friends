@@ -6,13 +6,20 @@ class CoffeeGiftsController < ApplicationController
 
 	def new
 		if request.xhr?
-			@cafe = Cafe.find_by(id: params[:cafe_id])
+			if !current_user
+				flash[:auth_error] = "Please login to send coffee."
+			else
+				@cafe = Cafe.find_by(id: params[:cafe_id])
+				@menu_items = @cafe.menu_items
+				@receivers = User.all
+				@coffee_gift = CoffeeGift.new
+			end
 		else
 			@cafe = Cafe.find_by_slug(params[:cafe_id])
+			@menu_items = @cafe.menu_items
+			@receivers = User.all
+			@coffee_gift = CoffeeGift.new
 		end
-		@menu_items = @cafe.menu_items
-		@receivers = User.all
-		@coffee_gift = CoffeeGift.new
 		render :new, layout: !request.xhr?
 	end
 
@@ -73,7 +80,7 @@ class CoffeeGiftsController < ApplicationController
 	end
 
 	def authenticate_user
-		unless current_user
+		unless current_user || request.xhr?
 			flash[:error] = ["Please login to send coffee."]
 			redirect_to root_path
 		end
