@@ -12,44 +12,15 @@
   </header>
 </div>
 
-<div class='show-for-medium-up'>
-  <nav class="top-bar" data-topbar role="navigation">
-    <section class="top-bar-section">
-      <ul class="center-buttons tags-topbar text-center">
-        <li class="divider"></li>
-        <li><%= link_to "All", root_url%></li>
-        <li class="divider"></li>
-        <li><%= link_to "The Bronx", cafes_borough_path%></li>
-        <li class="divider"></li>
-        <li><%= link_to "Brooklyn", cafes_borough_path%></li>
-        <li class="divider"></li>
-        <li><%= link_to "Manhattan", cafes_borough_path%></li>
-        <li class="divider"></li>
-        <li><%= link_to "Queens", cafes_borough_path%></li>
-        <li class="divider"></li>
-        <li><%= link_to "Staten Island", cafes_borough_path%></li>
-        <li class="divider"></li>
-      </ul>
-    </section>
-  </nav>
-</div>
-
-<div class='show-for-small'>
-  <ul class="accordion" data-accordion>
-    <li class="accordion-navigation">
-      <a href="#panel1a" class="text-center">tags</a>
-      <div id="panel1a" class="content">
-        <ul>
-        <li><%= link_to "All", root_url%></li>
-        <li><%= link_to "The Bronx", cafes_borough_path%></li>
-        <li><%= link_to "Brooklyn", cafes_borough_path%></li>
-        <li><%= link_to "Manhattan", cafes_borough_path%></li>
-        <li><%= link_to "Queens", cafes_borough_path%></li>
-        <li><%= link_to "Staten Island", cafes_borough_path%></li>
-      </ul>
-      </div>
-    </li>
-  </ul>
+<div class="row">
+  <div class='small-12 columns tags-topbar'>
+    <%= link_to "All", root_url, class: "tag-container"%>
+    <%= link_to "The Bronx", cafes_borough_path, class: "tag-container"%>
+    <%= link_to "Brooklyn", cafes_borough_path, class: "tag-container"%>
+    <%= link_to "Manhattan", cafes_borough_path, class: "tag-container"%>
+    <%= link_to "Queens", cafes_borough_path, class: "tag-container"%>
+    <%= link_to "Staten Island", cafes_borough_path, class: "tag-container"%>
+  </div>
 </div>
 
 <div class='row'>
