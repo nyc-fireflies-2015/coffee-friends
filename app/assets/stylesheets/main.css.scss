@@ -26,3 +26,11 @@ body {background-color: $body-color;}
 .add_left_padding {
   padding-left: 2%;
 }
+
+.coffee_padding {
+	padding-left: 4%;
+}
+
+#received, #given, #search-wrapper {
+	background-color: $header-bar-color;
+}

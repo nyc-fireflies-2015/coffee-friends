@@ -1,11 +1,11 @@
 <ul class="no-bullet">
 <% coffee_gifts.each do |gift| %>
   <% if gift.redeemed %>
-    <li>
+    <li class="coffee_padding">
     <%= link_to "#{gift.cafe.name} (#{gift.name})", coffee_gift_path(gift), class: "coffee-gift redeemed" %>
     </li>
   <% else %>
-    <li>
+    <li class="coffee_padding">
     <%= link_to "#{gift.cafe.name} (#{gift.name})", coffee_gift_path(gift), class: "coffee-gift unredeemed" %>
     </li>
   <% end %>
