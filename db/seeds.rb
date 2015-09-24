@@ -1,6 +1,3 @@
-User.create(first_name:"Derpson",last_name:"Appuccino", password: "password",
-email:"derpson@appuccino.com", phone:"2064326179", picture:Cloudinary::Uploader.upload("http://vignette2.wikia.nocookie.net/mrbean/images/4/4b/Mr_beans_holiday_ver2.jpg/revision/latest?cb=20100424114324")["public_id"])
-
 User.create(first_name:"Jerry",last_name:"Chai", password: "password",
 email:"jchai002@gmail.com", phone:"5107317928", picture: Cloudinary::Uploader.upload("https://avatars3.githubusercontent.com/u/11948171?v=3&s=400")["public_id"])
 
@@ -20,12 +17,12 @@ last_name:Faker::Name.last_name,    password: "password",
 email:"#{n}#{rand(1000)}@example.com", phone: Random.new.rand(1_000_000_000..9_999_999_999).to_s, picture: Cloudinary::Uploader.upload(Faker::Avatar.image)["public_id"])
 end
 
-prices = [2.85, 3.45, 3.95, 3.35, 4.45, 1.75, 2.10, 3.65, 4.65, 2.35]
+prices = [2.85, 3.45, 3.95, 3.35, 4.45, 1.75, 2.10, 3.65, 4.65, 2.35, 2.55]
 drinks = ["Americano", "Latte", "Cappuccino", "Macchiato", "Single origin aeropress", "Pour over", "Drip", "Espresso", "Cortado", "Flat white", "Affogato"]
 
 Cafe.create(name: "Bluestone Lane", address: "30 Broad
 St, New York, NY 10004", email: "cafe@example.com", password: 'password', borough:"Manhattan",
-neighborhood: "FiDi", picture: Cloudinary::Uploader.upload("https://www.bluestonelaneny.com/wp-content/uploads/2014/06/postcard_shop_fidi-740x595.jpg")["public_id"])
+neighborhood: "FiDi", picture: Cloudinary::Uploader.upload("http://static1.squarespace.com/static/53212406e4b09d85eb0bcdb9/540298d1e4b0a806a019359e/54029a21e4b0abd245537c76/1409456689175/2014-08-27+16.00.37.jpg?format=1000w")["public_id"])
 
 Cafe.create(name: "Bedford Hill", address: "343 Franklin Ave,
 Brooklyn, NY 11238", email: "cafe25@example.com", password: 'password',
@@ -119,6 +116,7 @@ Cafe.all.each do |c|
     drinks = drinks.dup.shuffle
     c.menu_items.create(name: drinks.pop, price: prices.sample)
   end
+  drinks = ["Americano", "Latte", "Cappuccino", "Macchiato", "Single origin aeropress", "Pour over", "Drip", "Espresso", "Cortado", "Flat white", "Affogato"]
 end
 
 User.all.each do |u|
@@ -131,8 +129,18 @@ User.all.each do |u|
     User.all.sample.redeemed_coffee_gifts.create(giver: u, phone:Random.new.rand(1_000_000_000..9_999_999_999).to_s, menu_item: MenuItem.all.sample, redeemed: true)
     # unredeemed sent
     User.all.sample.redeemed_coffee_gifts.create(giver: u, phone:Random.new.rand(1_000_000_000..9_999_999_999).to_s, menu_item: MenuItem.all.sample, redeemed: false)
+    #charitable sent
+    CoffeeGift.create(giver: u, menu_item: MenuItem.all.sample, redeemed: false, charitable: true)
   end
 end
+
+3.times do
+  CoffeeGift.create(giver: User.all.sample, menu_item: MenuItem.first, redeemed: false, charitable: true)
+end
+
+
+
+
 
 
 
