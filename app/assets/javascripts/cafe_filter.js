@@ -4,13 +4,13 @@ function initCafeFilter() {
     var url = $(this).attr('href');
     var tag = $(this).html();
     $.ajax({url: url, method: "POST", data: {tag: tag}}).done(function(data) {
-      $(".cafes-container").html(data)
+      $(".cafes-container").html(data);
     }).fail(function(){console.log("failure to send data");});
   });
 
   $(".tags-topbar").on('click','.tags-container', function(e) {
     e.preventDefault();
-    url = $(this).attr('href');
+    var url = $(this).attr('href');
     var tag = $(this).html();
     if(tag == "All") {
       $.ajax(url).done(function(data) {
@@ -18,7 +18,7 @@ function initCafeFilter() {
       }).fail(function(){console.log("failure to retrieve data");});
     } else {
       $.ajax({url: url, method: "POST", data: {tag: tag}}).done(function(data) {
-        $(".cafes-container").html(data)
+        $(".cafes-container").html(data);
       }).fail(function(){console.log("failure to send data");});
     };
   });

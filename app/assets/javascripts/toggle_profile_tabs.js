@@ -15,7 +15,6 @@ function initProfileToggle() {
   });
 };
 
-
 function setupProfile() {
   $(".given-coffees-container").hide();
   $(".received-coffees-container").show();
