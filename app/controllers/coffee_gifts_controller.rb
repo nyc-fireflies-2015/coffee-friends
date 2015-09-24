@@ -3,23 +3,18 @@ class CoffeeGiftsController < ApplicationController
 	before_action :authenticate_user, except: [:update, :filter, :confirm_redemption]
 	before_action :find_coffee_gift, except: [:new, :create, :filter]
 	before_action :authorize_user, only: [:show]
+	before_action :find_cafe, only: [:redemption_confirmation, :show, :confirm_redemption]
 
 	def new
 		if request.xhr?
-			if !current_user
-				flash[:auth_error] = "Please login to send coffee."
-			else
-				@cafe = Cafe.find_by(id: params[:cafe_id])
-				@menu_items = @cafe.menu_items
-				@receivers = User.all
-				@coffee_gift = CoffeeGift.new
-			end
+			flash[:auth_error] = "Please login to send coffee." unless current_user
+			@cafe = Cafe.find_by(id: params[:cafe_id])
 		else
 			@cafe = Cafe.find_by_slug(params[:cafe_id])
-			@menu_items = @cafe.menu_items
-			@receivers = User.all
-			@coffee_gift = CoffeeGift.new
 		end
+		@menu_items = @cafe.menu_items
+		@receivers = User.all
+		@coffee_gift = CoffeeGift.new
 		render :new, layout: !request.xhr?
 	end
 
@@ -55,15 +50,12 @@ class CoffeeGiftsController < ApplicationController
 	end
 
 	def show
-		@cafe = @coffee_gift.cafe
 	end
 
 	def confirm_redemption
-		@cafe = @coffee_gift.cafe
 	end
 
-	def confirm
-		@cafe = @coffee_gift.cafe
+	def confirm	
 	end
 
 	private
@@ -72,11 +64,13 @@ class CoffeeGiftsController < ApplicationController
 		@coffee_gift = CoffeeGift.find_by(id: params[:id].split("-").first)
 	end
 
+	def find_cafe
+		@cafe = @coffee_gift.cafe
+	end	
+
 	def authorize_user
 		find_coffee_gift
-		unless current_user.sent_or_received_coffee?(@coffee_gift)
-			redirect_to root_path
-		end
+		redirect_to root_path unless current_user.sent_or_received_coffee?(@coffee_gift)
 	end
 
 	def authenticate_user
