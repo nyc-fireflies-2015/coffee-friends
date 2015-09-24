@@ -41,7 +41,7 @@ RSpec.describe Cafe, type: :model do
 
 
   describe '#redeemed_coffee_gifts' do 
-    it 'should return a list of all redeemed coffee gifts' do 
+    xit 'should return a list of all redeemed coffee gifts' do 
       cafe = FactoryGirl.create(:cafe)
       menu_item = cafe.menu_items.create(FactoryGirl.attributes_for(:menu_item))
       redeemed_gifts = (1..5).to_a.map {menu_item.coffee_gifts.create(menu_item: menu_item, charitable: true, redeemed: true)}
