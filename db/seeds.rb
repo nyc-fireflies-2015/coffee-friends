@@ -1,6 +1,3 @@
-User.create(first_name:"Jerry",last_name:"Chai", password: "password",
-email:"jchai002@gmail.com", phone:"5107317928", picture: Cloudinary::Uploader.upload("https://avatars3.githubusercontent.com/u/11948171?v=3&s=400")["public_id"])
-
 User.create(first_name:"Travis",last_name:"Allen", password: "password",
 email:"travis.william.allen@gmail.com", phone:"3475998150", picture: Cloudinary::Uploader.upload("https://lh4.googleusercontent.com/-ORtfJ8UGvU4/VDRhkx66wgI/AAAAAAAAADE/poe4URxiJvE/s702-no/50402df2-8c88-490d-86ef-b558d035a1ca")["public_id"])
 
@@ -129,8 +126,6 @@ User.all.each do |u|
     User.all.sample.redeemed_coffee_gifts.create(giver: u, phone:Random.new.rand(1_000_000_000..9_999_999_999).to_s, menu_item: MenuItem.all.sample, redeemed: true)
     # unredeemed sent
     User.all.sample.redeemed_coffee_gifts.create(giver: u, phone:Random.new.rand(1_000_000_000..9_999_999_999).to_s, menu_item: MenuItem.all.sample, redeemed: false)
-    #charitable sent
-    CoffeeGift.create(giver: u, menu_item: MenuItem.all.sample, redeemed: false, charitable: true)
   end
 end
 
