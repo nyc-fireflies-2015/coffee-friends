@@ -15,4 +15,8 @@ module FormatHelper
     "#{menu_item.name} ($#{menu_item.price})"
   end
 
+  def user_combined_value(user)
+    "#{user.full_name} (#{user.username})"
+  end
+
 end

@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe MenuItem, type: :model do
+
   context 'contains valid data' do
     it { expect(subject).to validate_presence_of(:name) }
     it { expect(subject).to validate_presence_of(:price) }
@@ -17,5 +18,12 @@ RSpec.describe MenuItem, type: :model do
     it { expect(subject).to belong_to(:cafe) }
   end
 
+  describe "#combined_value" do 
+    it 'should return name and price in a string' do 
+      menu_attrs = FactoryGirl.attributes_for(:menu_item)
+      item = MenuItem.create(menu_attrs)
+      expect(item.combined_value).to eq("#{menu_attrs[:name]} ($#{menu_attrs[:price]})")
+    end  
+  end  
 
 end
