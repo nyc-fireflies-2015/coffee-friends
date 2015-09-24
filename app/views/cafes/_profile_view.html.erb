@@ -6,6 +6,7 @@
     <a href="#charitable">Charitable Gifts (<%=@charitable_gifts.count%>)</a>
       <% unless @charitable_gifts.count == 0 %>
         <div id="charitable" class="content">
+          <div class="add_content_padding">
           <% @charitable_gifts.each do |gift| %>
             <ul class="vcard">
               <li class="fn"><%= gift.name %> </li>
@@ -15,6 +16,7 @@
               <% end%></li>
             </ul>
             <%end%>
+          </div>
         </div>
       <%end%>
     </li>
@@ -22,11 +24,13 @@
     <li class="accordion-navigation">
     <a href="#search-wrapper">Unredeemed Gifts (<%=@unredeemed_coffee_gifts.count%>)</a>
         <div id="search-wrapper" class="content">
+          <div class="add_content_padding">
            <%= form_tag(@cafe, :method => "get", id: "search-form") do %>
             <%= text_field_tag :search, params[:search], placeholder: "Search Redemption Codes" %>
             <% end %>
             <br>
             <div id= "search-results"></div>
+          </div>
         </div>
         </li>
     </ul>
