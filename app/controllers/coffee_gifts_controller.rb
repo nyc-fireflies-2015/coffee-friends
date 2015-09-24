@@ -10,7 +10,7 @@ class CoffeeGiftsController < ApplicationController
 			flash[:auth_error] = "Please login to send coffee." unless current_user
 			@cafe = Cafe.find_by(id: params[:cafe_id])
 		else
-			@cafe = Cafe.find_by_slug(params[:cafe_id])
+			@cafe = Cafe.find_by(slug: params[:cafe_id])
 		end
 		@menu_items = @cafe.menu_items
 		@receivers = User.all
@@ -19,7 +19,7 @@ class CoffeeGiftsController < ApplicationController
 	end
 
 	def create
-		cafe = Cafe.find_by_slug(params[:cafe_id])
+		cafe = Cafe.find_by(slug: params[:cafe_id])
 		coffee_gift = current_user.given_coffees.build(coffee_gift_params)
 		coffee_gift.assign_phone(params[:coffee_gift])
 		if coffee_gift.save
