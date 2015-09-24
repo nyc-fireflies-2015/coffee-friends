@@ -35,9 +35,11 @@ RSpec.describe User, type: :model do
 		end
 
 		it 'should return true for a user who sent coffee' do 
+			expect(user.sent_or_received_coffee?(coffee_gift)).to be_truthy
 		end
 
 		it 'should include a new coffee gift sent to same phone num' do 
+			expect(user.received_coffees).to include(coffee_gift)
 		end
 	end	
 
