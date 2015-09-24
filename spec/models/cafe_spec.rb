@@ -2,6 +2,9 @@ require 'rails_helper'
 
 RSpec.describe Cafe, type: :model do
 
+  let(:cafe) { FactoryGirl.create(:cafe) }
+  let(:menu_item) {FactoryGirl.create(:menu_item)}
+
   context 'validations' do
     it { should validate_presence_of(:name) }
     it { should validate_presence_of(:address) }
@@ -26,6 +29,30 @@ RSpec.describe Cafe, type: :model do
     end
   end
 
+  describe '#owns_item?' do 
+    it 'should return true for a menu belonging to a particular cafe' do 
+      item = cafe.menu_items.create(FactoryGirl.attributes_for(:menu_item))
+      expect(cafe.owns_item?(item)).to be_truthy
+    end 
+  end  
+
+  describe '#owner?' do 
+    it 'should return true if current cafe is logged in' do 
+      expect(cafe.owner?(cafe)).to be_truthy
+    end  
+  end 
+
+  describe '#unredeemed_coffee_gifts' do 
+  end 
+
+  describe '#redeemed_coffee_gifts' do 
+  end 
+
+  describe '#filter_by_borough' do 
+  end 
+
+  describe '#filter_by_neighborhood' do 
+  end 
 end
 
 
