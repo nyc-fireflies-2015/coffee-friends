@@ -6,7 +6,7 @@ Coffee Friends teams up with local coffee shops to easily send gifts of coffee t
 
 ## Team Members
 
-Coffee Friends was created as a Dev Bootcamp final project by Leah Goldberg, Kelly Ripple, Travis Allen, and Jerry Chai. 
+Coffee Friends was created as a [Dev Bootcamp](https://devbootcamp.com) final project by [Leah Goldberg](https://github.com/leahgoldberg), [Kelly Ripple](https://github.com/kripple), [Travis Allen](https://github.com/trallen91), and [Jerry Chai](https://github.com/jchai002). 
 
 ## Upcoming Features
 
