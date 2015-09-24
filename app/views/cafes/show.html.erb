@@ -1,7 +1,7 @@
 <div class="row low_content">
   <div class="small-12 medium-10 medium-offset-1 columns">
 
-    <h1><%=@cafe.name%></h1>
+    <h1 class="vertical_paddings"><%=@cafe.name%></h1>
      <%= cl_image_tag(@cafe.picture, :width => 1600, :height => 700, :crop => :fill) %>
      <hr>
     <% if @cafe.owner?(current_cafe) %>
