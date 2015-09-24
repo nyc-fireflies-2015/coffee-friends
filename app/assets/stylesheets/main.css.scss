@@ -11,3 +11,18 @@ body {background-color: $body-color;}
 .row { background-color: $body-color; }
 
 .cafes-container {background-color: $body-color;}
+
+.add_title_padding {
+  padding-top: 1.5%;
+  padding-bottom: 1.5%;
+}
+
+.add_content_padding {
+  padding-left: 3%;
+  padding-right: 3%;
+  padding-top: 4.5%;
+}
+
+.add_left_padding {
+  padding-left: 2%;
+}
