@@ -33,6 +33,10 @@ $darker-blue: #49A4B3;
 	font-family: "Pacifico", sans-serif;
 }
 
+.title-area #logo-wrapper li {
+	width: 200px;
+}
+
 .top-bar-section li a:not(.button) {
     background:white;
     color: $maroon-text-color;
@@ -68,7 +72,7 @@ $darker-blue: #49A4B3;
 
 	#logo-subtitle {
 		font-family: "Quicksand";
-		font-size: 26pt;
+		font-size: 24pt;
 		padding: 0;
 		margin-top: -30px;
 		font-weight: 700;
@@ -76,6 +80,6 @@ $darker-blue: #49A4B3;
 
 	#logo-title {
 		font-family: "Pacifico";
-		font-size: 100pt;
+		font-size: 80pt;
 	}
 }
