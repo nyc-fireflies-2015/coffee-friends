@@ -24,4 +24,38 @@ RSpec.describe User, type: :model do
 		it { expect(subject).to have_many(:received_coffees) }
 	end
 
+	describe '#received_coffee?, #sent_or_received_coffee?, #find_associated_coffees' do 
+		user = FactoryGirl.create(:user)
+		menu_item = FactoryGirl.create(:menu_item)
+		coffee_gift = user.received_coffees.build(FactoryGirl.attributes_for(:coffee_gift))
+		coffee_gift.update_attributes(menu_item: menu_item)
+		
+		it 'should return true for a user who received coffee' do 
+			expect(user.received_coffee?(coffee_gift)).to be_truthy
+		end
+
+		it 'should return true for a user who sent coffee' do 
+			expect(user.sent_or_received_coffee?(coffee_gift)).to be_truthy
+		end
+
+		it 'should include a new coffee gift sent to same phone num' do 
+			expect(user.received_coffees).to include(coffee_gift)
+		end
+	end	
+
+	describe "#full_name" do 
+    it 'should return first and last name in a string' do 
+      user_attrs = FactoryGirl.attributes_for(:user)
+      user = User.create(user_attrs)
+      expect(user.full_name).to eq("#{user_attrs[:first_name]} #{user_attrs[:last_name]}")
+    end  
+  end  
+
+	describe "#combined_value" do 
+    it 'should return name and username in a string' do 
+      user= FactoryGirl.create(:user)
+      expect(user.combined_value).to eq("#{user.full_name} (#{user.username})")
+    end  
+  end  
+
 end

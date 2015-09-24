@@ -2,12 +2,16 @@
 <nav class="top-bar" data-topbar>
 
   <ul class="title-area">
+    <div id="logo-wrapper">
     <li class="name">
     <div id="logo">
       <%= image_tag("coffee_logo.png") %>
-      <h1><%= link_to "mojoe", root_path %></h1>
+      <h1 class="show-for-medium-up"><%= link_to "coffee friends", root_path %></h1>
+      <h1 class="show-for-small-only"><%= link_to "cf", root_path %></h1>
     </div>
     </li>
+  </div>
+
     <li class="toggle-topbar menu-icon"><a href="#"><span>menu</span></a></li>
   </ul>
 

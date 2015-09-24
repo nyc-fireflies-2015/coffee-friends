@@ -10,22 +10,20 @@
     </div>
   </div>
   <div class="small-12 medium-6 columns">
-    <h2 class="subheader">Menu Items</h2>
+    <h2 class="subheader">Select a Menu Item</h2>
     <br><br><br>
     <ul class="accordion" data-accordion role="tablist">
 
-
-    <% @cafe.menu_items.each_with_index do |item, i| %>
+      <% @cafe.menu_items.each_with_index do |item, i| %>
       <% i += 1 %>
 
       <li class="accordion-navigation">
         <a href="#panel<%=i%>d" role="tab" id="panel<%=i%>d-heading" aria-controls="panel<%=i%>d" class="gift-form-dropdown menu-item-id-<%=item.id%>"><%= render partial: "menu_items/display_item" ,locals: {menu_item: item} %></a>
         <div id="panel<%=i%>d" class="gift-form content with_paddings" role="tabpanel" aria-labelledby="panel<%=i%>d-heading">
-
         </div>
       </li>
 
-    <%end%>
+      <%end%>
 
     </ul>
     <br>

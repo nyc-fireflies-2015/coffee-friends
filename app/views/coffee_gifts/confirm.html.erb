@@ -1,4 +1,4 @@
-<div class="row low_content">
+<div class="row low_content add_content_padding">
   <% if flash[:error] %>
 
     <h1><%=flash[:error]%></h1>
@@ -27,12 +27,12 @@
       </div>
     <% else %>
       <h4 class="text-center">
-      We will send an SMS to <span class="bold"><%=@coffee_gift.receiver.full_name%></span>
+      We'll send an SMS to <span class="bold"><%=@coffee_gift.receiver.full_name%></span>
       <h4>
     <% end %>
 
     <h4 class="text-center">
-    They may pick up their <span class="bold"><%=@coffee_gift.name%></span> at <span class="bold"><%=@cafe.name%></span>.
+    They can pick up their <span class="bold"><%=@coffee_gift.name%></span> at <span class="bold"><%=@cafe.name%></span>.
      <h4>
   <% else %>
       <% if flash[:twilio_error] %>
@@ -41,12 +41,12 @@
         </div>
       <% else %>
         <h4 class="text-center">
-        We will send an SMS to <span class="bold"><%=format_phone(@coffee_gift.phone)%></span>
+        We'll send an SMS to <span class="bold"><%=format_phone(@coffee_gift.phone)%></span>
         <h4>
       <% end %>
 
       <h4 class="text-center">
-      Your friend may pick up their <span class="bold"><%=@coffee_gift.name%></span> at <span class="bold"><%=@cafe.name%></span>.
+      Your friend can pick up their <span class="bold"><%=@coffee_gift.name%></span> at <span class="bold"><%=@cafe.name%></span>.
        <h4>
   <% end %>
 

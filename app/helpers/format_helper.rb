@@ -10,4 +10,5 @@ module FormatHelper
   def format_phone(num)
     "(#{num.slice(0,3)})#{num.slice(3,3)}-#{num.slice(6,4)}"
   end
+
 end

@@ -1,6 +1,6 @@
 class MenuItemsController < ApplicationController
   before_action :find_menu_item, :authenticate_cafe
-  before_action :authorize_cafe, {except: :create}
+  before_action :authorize_cafe, except: [:create]
 
   def create
     cafe = current_cafe

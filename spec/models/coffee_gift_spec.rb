@@ -37,6 +37,22 @@ describe CoffeeGift do
     it 'should delegate cafe to menu items' do 
       should delegate_method(:cafe).to(:menu_item)
     end  
+
+    it 'should delegate price to menu item' do 
+      should delegate_method(:price).to(:menu_item)
+    end  
+  end
+
+  describe '#assign_phone' do 
+    menu_item = FactoryGirl.create(:menu_item)
+    receiver = FactoryGirl.create(:user)
+    coffee_gift = FactoryGirl.build(:coffee_gift)
+    coffee_gift.update_attributes(menu_item: menu_item, receiver: receiver)
+    coffee_gift.assign_phone(menu_item: menu_item.id, receiver: receiver.id)
+    
+    it 'should assign the phone num of the receiver' do 
+      expect(coffee_gift.phone).to eq(receiver.phone.to_s)
+    end
   end
 
 end

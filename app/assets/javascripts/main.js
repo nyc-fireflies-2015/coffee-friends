@@ -6,10 +6,6 @@ $(document).ready(function() {
     initMap()
   }
 
-  if ($('#user_profile').length) {
-    initProfileToggle()
-  }
-
   if ($('.tags-topbar').length) {
     initCafeFilter();
   }

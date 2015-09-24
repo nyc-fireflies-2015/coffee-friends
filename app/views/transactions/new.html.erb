@@ -3,7 +3,7 @@
     <% if flash[:alert] %>
       <p class="alert"><%=flash[:alert]%></p>
     <% end %>
-    <h2 class="mbs">New Transaction</h2>
+    <h1 class="mbs add_title_padding ">New Transaction</h1>
     <%= form_tag transactions_path do%>
       <p>Please enter your payment details:</p>
       <div id="dropin"></div>
