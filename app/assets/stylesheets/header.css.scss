@@ -20,6 +20,11 @@ $darker-blue: #49A4B3;
 		position: absolute;
 		width: 100%;
 		z-index: 1;
+		// font-size: rem-calc(16);
+
+		// @media #{$medium-up} {
+		// 	font-size: rem-calc(22);
+		// }
 	}
 	img {
 		height: 60px;
@@ -31,6 +36,10 @@ $darker-blue: #49A4B3;
 
 .title-area .name h1 a {
 	font-family: "Pacifico", sans-serif;
+}
+
+.title-area #logo-wrapper li {
+	width: 200px;
 }
 
 .top-bar-section li a:not(.button) {
