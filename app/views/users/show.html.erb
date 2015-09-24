@@ -50,7 +50,7 @@
           <li class="accordion-navigation">
             <a href="#given">Coffees Sent (<%=@user.given_coffees.count%>)</a>
             <% unless @user.given_coffees.count == 0%>
-            <div id="given" class="content active">
+            <div id="given" class="content">
               <br>
               <%= render partial: "coffee_gifts/coffee_gift", locals: {coffee_gifts: @given_coffees } %>
             </div>
