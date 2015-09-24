@@ -22,7 +22,7 @@ class CafesController < ApplicationController
       else
         @unredeemed_coffee_gifts = @cafe.search_non_charitable_gifts(params[:search]).order("created_at DESC")
       end
-      render :partial => "unredeemed_coffee_gift", collection: @unredeemed_coffee_gifts
+      render partial: "unredeemed_coffee_gift", collection: @unredeemed_coffee_gifts
     end
   end
 

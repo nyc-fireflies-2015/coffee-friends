@@ -11,12 +11,4 @@ module FormatHelper
     "(#{num.slice(0,3)})#{num.slice(3,3)}-#{num.slice(6,4)}"
   end
 
-  def combined_value(menu_item)
-    "#{menu_item.name} ($#{menu_item.price})"
-  end
-
-  def user_combined_value(user)
-    "#{user.full_name} (#{user.username})"
-  end
-
 end
