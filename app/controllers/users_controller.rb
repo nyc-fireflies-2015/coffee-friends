@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.new(user_params)
+    user = User.new(user_params.merge(picture: Cloudinary::Uploader.upload("http://cdn.patch.com/assets/contrib/images/placeholder-user-photo.png")["public_id"]))
     if user.save
       log_in_user(user)
       user.find_associated_coffees
