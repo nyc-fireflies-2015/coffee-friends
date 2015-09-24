@@ -24,4 +24,19 @@ RSpec.describe User, type: :model do
 		it { expect(subject).to have_many(:received_coffees) }
 	end
 
+	describe "#full_name" do 
+    it 'should return first and last name in a string' do 
+      user_attrs = FactoryGirl.attributes_for(:user)
+      user = User.create(user_attrs)
+      expect(user.full_name).to eq("#{user_attrs[:first_name]} #{user_attrs[:last_name]}")
+    end  
+  end  
+
+	describe "#combined_value" do 
+    it 'should return name and username in a string' do 
+      user= FactoryGirl.create(:user)
+      expect(user.combined_value).to eq("#{user.full_name} (#{user.username})")
+    end  
+  end  
+
 end
