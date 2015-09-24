@@ -26,15 +26,15 @@ neighborhood: "FiDi", picture: Cloudinary::Uploader.upload("http://static1.squar
 
 Cafe.create(name: "Bedford Hill", address: "343 Franklin Ave,
 Brooklyn, NY 11238", email: "cafe25@example.com", password: 'password',
-neighborhood: "Bed Stuy", borough: "Brooklyn", picture: Cloudinary::Uploader.upload("http://www.urban75.org/blog/images/bedford-hill-coffee-bar-new-york-02.jpg")["public_id"])
+neighborhood: "Bed Stuy", borough: "Brooklyn", picture: Cloudinary::Uploader.upload("http://www.bedfordhillbrooklyn.com/images/5147932078_23a5479fac_b.jpg")["public_id"])
 
 Cafe.create(name: "Devocion", address: "69 Grand St,
 Brooklyn, NY 11249", email: "cafe26@example.com", password: 'password',
-neighborhood: "Williamsburg", borough: "Brooklyn", picture: Cloudinary::Uploader.upload("http://blog.hotelied.com/wp-content/uploads/2014/11/Devocion.jpg")["public_id"])
+neighborhood: "Williamsburg", borough: "Brooklyn", picture: Cloudinary::Uploader.upload("http://bedfordandbowery.com/wp-content/uploads/2014/12/IMG_23651.jpg")["public_id"])
 
 Cafe.create(name: "Budin", address: "114 Greenpoint Ave,
 Brooklyn, NY 11222", email: "cafe31@example.com", password: 'password',
-neighborhood: "Greenpoint", borough: "Brooklyn", picture: Cloudinary::Uploader.upload("http://frshgrnd.com/wp-content/uploads/2014/03/greenpoint-9363-610x405.jpg")["public_id"])
+neighborhood: "Greenpoint", borough: "Brooklyn", picture: Cloudinary::Uploader.upload("http://www.shopkeep.com/wp-content/uploads/2014/10/IMG_7523-e1412879270908.jpg")["public_id"])
 
 Cafe.create(name: "Breukelen", address: "764 Franklin Ave,
 Brooklyn, NY 11238", email: "cafe32@example.com", password: 'password',
@@ -49,21 +49,21 @@ New York, NY 10009", email: "cafe23@example.com", password: 'password', borough:
 neighborhood: "East Village", picture: Cloudinary::Uploader.upload("http://manseekingcoffee.com/wp-content/uploads/2010/02/ninthstreetoutside.jpg")["public_id"])
 
 Cafe.create(name: "Kaffe 1668", address: "275 Greenwich
-St, New York, NY 10007", email: "cafe3@example.com", password: 'password', borough:"Manhattan", neighborhood: "Tribeca", picture: Cloudinary::Uploader.upload("http://35drsm2kcjyo1uhpn73720ja.wpengine.netdna-cdn.com/wp-content/uploads/2009/05/kaffe-1668-sign.jpg")["public_id"])
+St, New York, NY 10007", email: "cafe3@example.com", password: 'password', borough:"Manhattan", neighborhood: "Tribeca", picture: Cloudinary::Uploader.upload("http://acdn.architizer.com/mediadata/projects/432009/38d3ff4f.jpg")["public_id"])
 
 Cafe.create(name: "La Colombe Torrefaction", address:
 "319 Church St, New York, NY 10013", email: "cafe9@example.com", borough:"Manhattan",password:
-'password', neighborhood: "Tribeca", picture: Cloudinary::Uploader.upload("http://farm2.static.flickr.com/1197/1357544960_48be4d8af4.jpg")["public_id"])
+'password', neighborhood: "Tribeca", picture: Cloudinary::Uploader.upload("http://www.jinhwafication.com/.a/6a0147e017d0c6970b0147e0d21078970b-pi")["public_id"])
 
 Cafe.create(name: "Abraço Espresso", address: "86 E
 7th St, New York, NY 10003", email: "cafe11@example.com", borough:"Manhattan",password:
 'password', neighborhood: "East Village", picture: Cloudinary::Uploader.upload("http://www.nycvelo.com/wp-content/uploads/2011/03/abraco3.jpg")["public_id"])
 
 Cafe.create(name: "Gimme! Coffee", address: "228 Mott
-St, New York, NY 10012", email: "cafe13@example.com", password: 'password', borough:"Manhattan", neighborhood: "SoHo", picture: Cloudinary::Uploader.upload("http://projectlatte.com/wp-content/uploads/2012/06/Gimme-Coffee-Lorimer-St-East-Williamsburg7.jpg")["public_id"])
+St, New York, NY 10012", email: "cafe13@example.com", password: 'password', borough:"Manhattan", neighborhood: "SoHo", picture: Cloudinary::Uploader.upload("http://www.brian-coffee-spot.com/wp-content/uploads/wow-slider-plugin/90/images/dsc_9183a.jpg")["public_id"])
 
 Cafe.create(name: "Bluestockings", address: "172 Allen
-St, New York, NY 10002", email: "cafe14@example.com", password: 'password', borough:"Manhattan", neighborhood: "Lower East Side", picture: Cloudinary::Uploader.upload("http://2.bp.blogspot.com/_VZaVT03Q2G0/SZX9Ci64R0I/AAAAAAAAGBM/mrBjoGjKtWI/s400/bluestockings.jpg")["public_id"])
+St, New York, NY 10002", email: "cafe14@example.com", password: 'password', borough:"Manhattan", neighborhood: "Lower East Side", picture: Cloudinary::Uploader.upload("http://eng31131.pressbooks.com/files/2013/04/P1050762-2.jpg")["public_id"])
 
 
 Cafe.create(name: "Nectar Coffee Shop", address: "1022
@@ -84,7 +84,7 @@ neighborhood: "Flatiron", picture: Cloudinary::Uploader.upload("http://media.ore
 
 Cafe.create(name: "The Hungry Ghost", address: "183 Sterling Pl,
 Brooklyn, NY 11238", email: "cafe24@example.com", password: 'password',
-neighborhood: "Prospect Heights", borough: "Brooklyn", picture: Cloudinary::Uploader.upload("http://assets.dnainfo.com/generated/photo/2013/08/hungry-ghost-13771166602942.JPG/extralarge.jpg")["public_id"])
+neighborhood: "Prospect Heights", borough: "Brooklyn", picture: Cloudinary::Uploader.upload("https://c1.staticflickr.com/9/8150/7617695438_b6cc62d144_b.jpg")["public_id"])
 
 Cafe.create(name: "Parlour Coffee", address: "84 Havemeyer St,
 Brooklyn, NY 11211", email: "cafe27@example.com", password: 'password',
@@ -105,7 +105,7 @@ neighborhood: "Long Island City", borough: "Queens", picture: Cloudinary::Upload
 
 Cafe.create(name: "Astoria Coffee", address: "30-04 30th St,
 Queens, NY 11102", email: "cafe35@example.com", password: 'password',
-neighborhood: "Astoria", borough: "Queens", picture: Cloudinary::Uploader.upload("http://www.whatsonintown.com/images/restaurants/usa/restUSA_2900.jpg")["public_id"])
+neighborhood: "Astoria", borough: "Queens", picture: Cloudinary::Uploader.upload("http://s3-media3.fl.yelpcdn.com/bphoto/-jdWMRinwS7hCmWlF_XXwg/o.jpg")["public_id"])
 
 Cafe.create(name: "Moss Cafe", address: "3260 Johnson Ave,
 Bronx, NY 10463", email: "cafe36@example.com", password: 'password',
