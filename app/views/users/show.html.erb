@@ -1,7 +1,7 @@
 <div id="user_profile" class="row">
-  <div class="small-12 medium-10 medium-offset-1 columns">
-    <h1><%= @user.first_name %> <%= @user.last_name %></h1>
-    <hr>
+    <div class="small-12 medium-10 medium-offset-1 columns">
+      <h1 class="add_title_padding add_left_padding"><%= @user.first_name %> <%= @user.last_name %></h1>
+    </div>
   </div>
 </div>
 
@@ -28,6 +28,7 @@
     </div>
   </div>
 
+<<<<<<< HEAD
 <div class="row low_content">
   <hr>
   <div class="small-12 medium-10 medium-offset-1 columns">
@@ -59,6 +60,41 @@
         </ul>
       </li>
     </ul>
+=======
+  <div class="row low_content">
+    <hr>
+    <div class="small-12 medium-10 medium-offset-1 columns">
+      <ul class="small-block-grid-1 medium-block-grid-2">
+        <li>
+          <ul class="accordion" data-accordion>
+            <li class="accordion-navigation">
+              <a href="#received">Coffees Received (<%=@user.received_coffees.count%>)</a>
+              <%unless @user.received_coffees.count == 0%>
+              <div id="received" class="content">
+                <br>
+                <%= render partial: "coffee_gifts/coffee_gift", locals: {coffee_gifts: @received_coffees } %>
+              </div>
+              <%end%>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <ul class="accordion" data-accordion>
+            <li class="accordion-navigation">
+              <a href="#given">Coffees Sent (<%=@user.given_coffees.count%>)</a>
+              <% unless @user.given_coffees.count == 0%>
+              <div id="given" class="content">
+                <div class="add_content_padding">
+                <%= render partial: "coffee_gifts/coffee_gift", locals: {coffee_gifts: @given_coffees } %>
+                </div>
+              </div>
+              <%end%>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+>>>>>>> 003c8d15e01aa067b32183c84f2cb995883712a4
   </div>
 </div>
 

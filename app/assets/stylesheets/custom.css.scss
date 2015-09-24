@@ -1,0 +1,61 @@
+$header-bar-color: #f4f4f4;;
+$body-color: #e1e3e4;
+$raspberry-logo-color: #D15271;
+$maroon-text-color: #5e0231;
+$light-blue: #60C2D2;
+$darker-blue: #49A4B3;
+
+
+.banner {
+    height: 35em;
+    width: 100%
+  }
+
+.square {
+  width: 100%;
+  height: 400px;
+}
+
+.coffee-gift {
+  padding: 4px 8px;
+  border: #ccc 1px solid;
+  border-radius: 3px;
+}
+
+.accordion {
+  margin-left: 0;
+}
+
+.bold {
+  font-weight: 500;
+}
+
+.redeemed, .redeemed:hover {
+  border: #EFEFEF 1px solid;
+  color: #DDDDDD;
+}
+
+.tag-container {
+  word-break: keep-all;
+  word-wrap: normal;
+  display: inline;
+  padding: 3px 4px;
+  margin: 4px 4px 4px 0;
+  font-size: 12px;
+  background-color: $light-blue;
+  color: white;
+  border: $darker-blue 1px solid;
+  border-radius: 2px;
+}
+
+.tag-container:hover {
+  background-color: $darker-blue;
+  color:white;
+}
+
+
+
+
+
+
+
