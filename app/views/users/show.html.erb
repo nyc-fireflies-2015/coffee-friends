@@ -1,7 +1,6 @@
   <div id="user_profile" class="row">
     <div class="small-12 medium-10 medium-offset-1 columns">
-      <h1><%= @user.first_name %> <%= @user.last_name %></h1>
-      <hr>
+      <h1 class="add_title_padding add_left_padding"><%= @user.first_name %> <%= @user.last_name %></h1>
     </div>
   </div>
 
@@ -51,8 +50,9 @@
               <a href="#given">Coffees Sent (<%=@user.given_coffees.count%>)</a>
               <% unless @user.given_coffees.count == 0%>
               <div id="given" class="content">
-                <br>
+                <div class="add_content_padding">
                 <%= render partial: "coffee_gifts/coffee_gift", locals: {coffee_gifts: @given_coffees } %>
+                </div>
               </div>
               <%end%>
             </li>
