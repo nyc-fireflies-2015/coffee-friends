@@ -19,7 +19,7 @@
       <% i += 1 %>
 
       <li class="accordion-navigation">
-        <a href="#panel<%=i%>d" role="tab" id="panel<%=i%>d-heading" aria-controls="panel<%=i%>d" class="gift-form-dropdown menu-item-id-<%=item.id%>"><%= render partial: "menu_items/display_item" ,locals: {menu_item: item} %></a>
+        <a href="#panel<%=i%>d" role="tab" id="panel<%=i%>d-heading" aria-controls="panel<%=i%>d" class="gift-form-dropdown menu-item-id-<%=item.id%> cafe-id-<%=@cafe.id%>"><%= render partial: "menu_items/display_item" ,locals: {menu_item: item} %></a>
         <div id="panel<%=i%>d" class="gift-form content" role="tabpanel" aria-labelledby="panel<%=i%>d-heading">
 
         </div>
