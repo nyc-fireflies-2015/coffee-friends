@@ -4,9 +4,6 @@ email:"travis.william.allen@gmail.com", phone:"3475998150", picture: Cloudinary:
 User.create(first_name:"Leah",last_name:"Goldberg", password: "password",
 email:"leahgoldberg31@gmail.com", phone:"2064326178", picture: Cloudinary::Uploader.upload("https://lh4.googleusercontent.com/-7EzpM0oSAYc/AAAAAAAAAAI/AAAAAAAAAdw/4T0tiqCAtcQ/photo.jpg")["public_id"])
 
-User.create(first_name:"Kelly",last_name:"Ripple", password: "password",
-email:"kelly.m.ripple@gmail.com", phone:"4438122021", picture: Cloudinary::Uploader.upload("https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/2/005/079/3bf/091d5ee.jpg")["public_id"])
-
 25.times do
   n = Faker::Name.first_name
   User.create( first_name: n,
@@ -18,7 +15,7 @@ prices = [2.85, 3.45, 3.95, 3.35, 4.45, 1.75, 2.10, 3.65, 4.65, 2.35, 2.55]
 drinks = ["Americano", "Latte", "Cappuccino", "Macchiato", "Single origin aeropress", "Pour over", "Drip", "Espresso", "Cortado", "Flat white", "Affogato"]
 
 Cafe.create(name: "Bluestone Lane", address: "30 Broad
-St, New York, NY 10004", email: "cafe@example.com", password: 'password', borough:"Manhattan",
+St, New York, NY 10004", email: "bluestone@gmail.com", password: 'password', borough:"Manhattan",
 neighborhood: "FiDi", picture: Cloudinary::Uploader.upload("http://static1.squarespace.com/static/53212406e4b09d85eb0bcdb9/540298d1e4b0a806a019359e/54029a21e4b0abd245537c76/1409456689175/2014-08-27+16.00.37.jpg?format=1000w")["public_id"])
 
 Cafe.create(name: "Bedford Hill", address: "343 Franklin Ave,
@@ -129,10 +126,12 @@ User.all.each do |u|
   end
 end
 
-3.times do
+10.times do
   CoffeeGift.create(giver: User.all.sample, menu_item: MenuItem.first, redeemed: false, charitable: true)
 end
 
+User.create(first_name:"Kelly",last_name:"Ripple", password: "password",
+email:"kelly.m.ripple@gmail.com", phone:"4438122021", picture: Cloudinary::Uploader.upload("https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/2/005/079/3bf/091d5ee.jpg")["public_id"])
 
 
 
