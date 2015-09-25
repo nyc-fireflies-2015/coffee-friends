@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
 	validates_presence_of :email, :phone, :first_name, :last_name
 	validates_presence_of :username, :on => :save
-	validates_uniqueness_of :username, :email, :phone, :on => :save
+	validates_uniqueness_of :username, :email, :phone, :on => :create
 	validates_length_of :username, :email, maximum: 50, :on => :save
 	validates_length_of :phone, is: 10
 	validates_length_of :first_name, :last_name, maximum: 25
