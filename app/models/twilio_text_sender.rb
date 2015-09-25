@@ -38,7 +38,11 @@ module TwilioTextSender
 	end
 
 	def receive_message(coffee_gift)
-		"You received a gift of coffee at #{coffee_gift.cafe.name} from #{coffee_gift.giver.first_name}! Visit http://coffeefriends.herokuapp.com to redeem."
+		if coffee_gift.message
+			"You received a gift of coffee at #{coffee_gift.cafe.name} from #{coffee_gift.giver.first_name} with the message: \"#{coffee_gift.message}\" Visit http://coffeefriends.herokuapp.com to redeem."
+		else
+			"You received a gift of coffee at #{coffee_gift.cafe.name} from #{coffee_gift.giver.first_name}! Visit http://coffeefriends.herokuapp.com to redeem."
+		end	
 	end
 
 	def redeem_message

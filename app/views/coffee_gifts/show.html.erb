@@ -32,7 +32,7 @@
       <div class="small-12 columns">
       <ul class="pricing-table add_margin">
         <li class="price"> You sent a <span class="bold"><%=@coffee_gift.name%></span> to <span class="bold">
-          <% if @coffee_gift.receiver.first_name %>
+          <% if @coffee_gift.receiver %>
             <%=@coffee_gift.receiver.first_name%> <%=@coffee_gift.receiver.last_name%>
           <% else %>
             <%=@coffee_gift.phone%>
