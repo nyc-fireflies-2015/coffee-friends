@@ -8,7 +8,7 @@ email:"leahgoldberg31@gmail.com", phone:"2064326178", picture: Cloudinary::Uploa
   n = Faker::Name.first_name
   User.create( first_name: n,
 last_name:Faker::Name.last_name,    password: "password",
-email:"#{n}#{rand(1000)}@example.com", phone: Random.new.rand(1_000_000_000..9_999_999_999).to_s, picture: Cloudinary::Uploader.upload(Faker::Avatar.image)["public_id"])
+email:"#{n}#{rand(1000)}@example.com", phone: Random.new.rand(1_000_000_000..9_999_999_999).to_s)
 end
 
 prices = [2.85, 3.45, 3.95, 3.35, 4.45, 1.75, 2.10, 3.65, 4.65, 2.35, 2.55]
@@ -114,7 +114,7 @@ Cafe.all.each do |c|
 end
 
 User.all.each do |u|
-  (2..7).to_a.sample.times do
+  5.times do
     # redeemed
     u.redeemed_coffee_gifts.create(giver: User.all.sample, phone:Random.new.rand(1_000_000_000..9_999_999_999).to_s, menu_item: MenuItem.all.sample, redeemed: true)
     # unredeemed
@@ -130,8 +130,12 @@ end
   CoffeeGift.create(giver: User.all.sample, menu_item: MenuItem.first, redeemed: false, charitable: true)
 end
 
-User.create(first_name:"Kelly",last_name:"Ripple", password: "password",
+kelly = User.create(first_name:"Kelly",last_name:"Ripple", password: "password",
 email:"kelly.m.ripple@gmail.com", phone:"4438122021", picture: Cloudinary::Uploader.upload("https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/2/005/079/3bf/091d5ee.jpg")["public_id"])
+
+jerry = User.create(first_name:"Jerry", last_name:"Chai", password:"password", email:"jchai@gmail.com", phone:"5104544544")
+
+kelly.given_coffees.create(menu_item: MenuItem.find(1), receiver: jerry)
 
 
 
