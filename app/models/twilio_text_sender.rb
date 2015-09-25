@@ -39,9 +39,9 @@ module TwilioTextSender
 
 	def receive_message(coffee_gift)
 		if coffee_gift.message.length > 1
-			"You received a gift of coffee at #{coffee_gift.cafe.name} from #{coffee_gift.giver.first_name} with the message: \"#{coffee_gift.message}\" Visit http://coffeefriends.herokuapp.com to redeem."
+			"You received a coffee at #{coffee_gift.cafe.name} from #{coffee_gift.giver.first_name} with the message: \"#{coffee_gift.message}\" Visit http://coffeefriends.herokuapp.com to redeem."
 		else
-			"You received a gift of coffee at #{coffee_gift.cafe.name} from #{coffee_gift.giver.first_name}! Visit http://coffeefriends.herokuapp.com to redeem."
+			"You received a coffee at #{coffee_gift.cafe.name} from #{coffee_gift.giver.first_name}! Visit http://coffeefriends.herokuapp.com to redeem."
 		end	
 	end
 
