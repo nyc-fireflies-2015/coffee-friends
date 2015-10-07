@@ -1,4 +1,4 @@
-[![Stories in Ready](https://badge.waffle.io/nyc-fireflies-2015/coffee-friends.png?label=ready&title=Ready)](https://waffle.io/nyc-fireflies-2015/coffee-friends)[![Circle CI](https://circleci.com/gh/nyc-fireflies-2015/coffee-friends.svg?style=svg)](https://circleci.com/gh/nyc-fireflies-2015/coffee-friends)[![Code Climate](https://codeclimate.com/github/nyc-fireflies-2015/mojoe/badges/gpa.svg)](https://codeclimate.com/github/nyc-fireflies-2015/mojoe)
+[![Stories in Ready](https://badge.waffle.io/nyc-fireflies-2015/coffee-friends.png?label=ready&title=Ready)](https://waffle.io/nyc-fireflies-2015/coffee-friends)  [![Circle CI](https://circleci.com/gh/nyc-fireflies-2015/coffee-friends.svg?style=svg)](https://circleci.com/gh/nyc-fireflies-2015/coffee-friends) [![Code Climate](https://codeclimate.com/github/nyc-fireflies-2015/mojoe/badges/gpa.svg)](https://codeclimate.com/github/nyc-fireflies-2015/mojoe)
 
 # coffee friends
 
