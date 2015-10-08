@@ -7,7 +7,7 @@ describe CoffeeGiftsController do
 	let(:cafe) { FactoryGirl.create(:cafe) }
 	let(:coffee_gift) { FactoryGirl.build(:coffee_gift) }
 	let(:menu_item) { FactoryGirl.create(:menu_item) }
-	let(:twilio_receiver) { FactoryGirl.create(:twilio_receiver) }
+	let(:twilio_receiver) { User.find_or_create_by(phone: "2532377845") }
 	let(:cc_info) {{"num" => "5105105105105100", "exp_date" => "05/12"}}
 
 	def prepare_coffee_gift_show
