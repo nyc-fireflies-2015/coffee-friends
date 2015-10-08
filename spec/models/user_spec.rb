@@ -14,8 +14,8 @@ RSpec.describe User, type: :model do
 		it { expect(subject).to allow_value("7667890234").for(:phone) }
 		it { expect(subject).to_not allow_value("87659").for(:phone)  }
 		it { expect(subject).to_not allow_value("kj78djska1").for(:phone)  }
-		it { expect(FactoryGirl.build(:user)).to validate_uniqueness_of(:email).on(:save) }
-		it { expect(FactoryGirl.build(:user)).to validate_uniqueness_of(:phone).on(:save) }
+		it { expect(FactoryGirl.build(:user)).to validate_uniqueness_of(:email).on(:create) }
+		it { expect(FactoryGirl.build(:user)).to validate_uniqueness_of(:phone).on(:create) }
 		it { expect(FactoryGirl.build(:user)).to validate_presence_of(:username).on(:save) }
 	end
 
