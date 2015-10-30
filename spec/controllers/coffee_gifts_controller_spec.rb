@@ -81,9 +81,9 @@ describe CoffeeGiftsController do
 		end
 
 		xit 'renders the show coffee gift view if coffee belongs to current user' do
-			# prepare_coffee_gift_show
-			# get :show, id: @coffee_gift
-			# expect(response).to render_template(:show)
+			prepare_coffee_gift_show
+			get :show, id: @coffee_gift
+			expect(response).to render_template(:show)
 		end
 
 		it 'locates the requested coffee gift' do
