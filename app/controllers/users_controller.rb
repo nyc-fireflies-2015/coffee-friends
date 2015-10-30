@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
 
-  before_action :authorize_user, only: [:show]
-
   def new
     @user = User.new
   end
@@ -19,6 +17,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    authorize_user
     @user = current_user
     @given_coffees = @user.given_coffees
     @received_coffees = @user.received_coffees
@@ -42,7 +41,7 @@ class UsersController < ApplicationController
   private
 
   def authorize_user
-    redirect_to root_url unless current_user
+    redirect_to :root unless current_user
   end
 
   def user_params
