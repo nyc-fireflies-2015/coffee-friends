@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    # authorize_user
+    authorize_user
     @user = current_user
     @given_coffees = @user.given_coffees
     @received_coffees = @user.received_coffees
