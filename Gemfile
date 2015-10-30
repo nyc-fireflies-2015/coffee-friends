@@ -36,8 +36,10 @@ gem 'twilio-ruby', '~> 4.2.1'
 
 # Create simple or advanced search forms
 gem 'ransack'
+
 #payment support
 gem 'braintree'
+
 # styles framework
 gem 'foundation-rails', '~> 5.5.0.0'
 
