@@ -45,12 +45,12 @@ gem 'foundation-rails', '~> 5.5.0.0'
 
 gem 'foundation_rails_helper'
 
-#cloud image upload support
-gem 'cloudinary'
-
 gem 'factory_girl_rails'
 
 gem 'gon'
+
+#cloud image upload support
+gem 'cloudinary'
 
 group :development do
 	# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
