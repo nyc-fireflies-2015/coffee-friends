@@ -1,8 +1,12 @@
-[![Stories in Ready](https://badge.waffle.io/nyc-fireflies-2015/coffee-mates.png?label=ready&title=Ready)](https://waffle.io/nyc-fireflies-2015/coffee-mates) [![Circle CI](https://circleci.com/gh/nyc-fireflies-2015/mojoe.svg?style=svg)](https://circleci.com/gh/nyc-fireflies-2015/mojoe) [![Code Climate](https://codeclimate.com/github/nyc-fireflies-2015/mojoe/badges/gpa.svg)](https://codeclimate.com/github/nyc-fireflies-2015/mojoe)
+[![Stories in Ready](https://badge.waffle.io/nyc-fireflies-2015/coffee-friends.png?label=ready&title=Ready)](https://waffle.io/nyc-fireflies-2015/coffee-friends)  [![Circle CI](https://circleci.com/gh/kripple/coffee-friends.svg?style=svg)](https://circleci.com/gh/kripple/coffee-friends) [![Code Climate](https://codeclimate.com/github/nyc-fireflies-2015/mojoe/badges/gpa.svg)](https://codeclimate.com/github/nyc-fireflies-2015/mojoe)
 
 # coffee friends
 
 Coffee Friends teams up with local coffee shops to easily send gifts of coffee to your friends. You can browse by borough and neighborhood to find the most conveniently located store, receive texts when a friend has sent you a gift, see lists of all given and received gifts, and view your redemption vouchers. Coffee shops can see lists of all the gifts associated with their store, as well as search through redemption codes at the time of sale. Coffee friends also allows you to send an anonymous, charitable gift of coffee to someone who needs it!
+
+## Quick Start
+
+Use email: kelly.m.ripple@gmail.com | password: password to demo all site features with no need to register.
 
 ## Team Members
 
